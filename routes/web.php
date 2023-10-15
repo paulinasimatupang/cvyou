@@ -26,13 +26,13 @@ Route::get('/tambahberkaspendukung', [PenggunaController::class, 'tambahberkaspe
 Route::post('/insertdata', [PenggunaController::class, 'insertdata'])->name('insertdata');
 
 //mutia
-Route::get('/datapekerjaan', [FormControllers::class, 'index'])->name('datapekerjaan');
+Route::get('/tabel1', [FormControllers::class, 'index'])->name('tabel1');
 
-Route::get('/tambahpekerjaan', [FormControllers::class, 'tambahpekerjaan'])->name('tambahpekerjaan');
+Route::get('/tambahdatapekerjaan', [FormControllers::class, 'tambahdatapekerjaan'])->name('tambahdatapekerjaan');
 
 Route::post('/insertpekerjaan', [FormControllers::class, 'insertpekerjaan'])->name('insertpekerjaan');
 
-Route::get('/tampilkanpekerjaan/{id}', [FormControllers::class, 'tampilkanpekerjaan'])->name('tampilkanpekerjaan');
+Route::get('/editdatapekerjaan/{id}', [FormControllers::class, 'editdatapekerjaan'])->name('editdatapekerjaan');
 
 Route::post('/updatepekerjaan/{id}', [FormControllers::class, 'updatepekerjaan'])->name('updatepekerjaan');
 

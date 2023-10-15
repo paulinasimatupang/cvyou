@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengguna;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class PenggunaController extends Controller
 {
@@ -19,7 +21,7 @@ class PenggunaController extends Controller
             $data = Pengguna::paginate(5);
             Session::put('halaman_url', request()->fullUrl());
         }
-        return view('datapekerjaan', compact('data'));
+        return view('tabel1', compact('data'));
     }
 
     public function tambahdatapribadi(){
@@ -37,7 +39,7 @@ class PenggunaController extends Controller
     }
 
     //mutia
-    public function tambahpekerjaan(){
+    public function tambahdatapekerjaan(){
         $data = Pengguna::all();
         return view('tambahdatapekerjaan', compact('data'));
     }
@@ -48,12 +50,12 @@ class PenggunaController extends Controller
         ], ['tanggal_akhir.after_or_equal' => 'Tanggal Berakhir harus setelah atau sama dengan Tanggal Mulai.',
         ]);
         Pengguna::create($request->all());
-        return redirect()->route('datapekerjaan')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('tabel1')->with('success', 'Data berhasil ditambahkan');
     }
 
-    public function tampilkanpekerjaan($id){
+    public function editdatapekerjaan($id){
         $data = Pengguna::find($id);
-        return view('tampildatapekerjaan', compact('data'));
+        return view('editdatapekerjaan', compact('data'));
     }
 
     public function updatepekerjaan(Request $request, $id){
@@ -62,12 +64,12 @@ class PenggunaController extends Controller
         if(session('halaman_url')){
             return Redirect(session('halaman_url'))->with('success', 'Data berhasil diupdate');
         }
-        return redirect()->route('datapekerjaan')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('tabel1')->with('success', 'Data berhasil diupdate');
     }
 
     public function deletepekerjaan($id){
         $data = Pengguna::find($id);
         $data->delete();
-        return redirect()->route('datapekerjaan')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('tabel1')->with('success', 'Data berhasil dihapus');
     }
 }
