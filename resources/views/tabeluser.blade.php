@@ -28,9 +28,13 @@
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Tempat Lahir</th>
+                <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Email</th>
                 <th scope="col">No Telepon</th>
                 <th scope="col">Alamat</th>
+                <th scope="col">Sertifikat</th>
+                <th scope="col">Surat Rekomendasi</th>
+                <th scope="col">portofolio</th>
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
@@ -41,9 +45,13 @@
                 <td>{{ $row->firstnm }}</td>
                 <td>{{ $row->lastnm }}</td>
                 <td>{{ $row->tempatlahir }}</td>
+                <td>{{ $row->tgllahir }}</td>
                 <td>{{ $row->email }}</td>
                 <td>0{{ $row->notelpon }}</td>
                 <td>{{ $row->alamat }}</td>
+                <td>{{ $row->sertifikat }}</td>
+                <td>{{ $row->suratrekomendasi }}</td>
+                <td>{{ $row->portofolio }}</td>
                 <td>
                   <button type="button" class="btn btn-danger">Delete</button>
                   <button type="button" class="btn btn-info">Edit</button>

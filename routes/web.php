@@ -21,5 +21,6 @@ Route::get('/', function () {
 Route::get('/User', [PenggunaController::class, 'index'])->name('User');
 
 Route::get('/tambahdatapribadi', [PenggunaController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');
+Route::get('/tambahberkaspendukung', [PenggunaController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
 
 Route::post('/insertdata', [PenggunaController::class, 'insertdata'])->name('insertdata');

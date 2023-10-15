@@ -16,9 +16,13 @@ return new class extends Migration
             $table->string('firstnm');
             $table->string('lastnm');
             $table->string('tempatlahir');
+            $table->date('tgllahir');
             $table->string('email');
             $table->bigInteger('notelpon');
             $table->string('alamat');
+            $table->string('sertifikat');
+            $table->string('suratrekomendasi');
+            $table->string('portofolio');
             $table->timestamps();
         });
     }

@@ -17,6 +17,10 @@ class PenggunaController extends Controller
         return view('datapribadi');
     }
 
+    public function tambahberkaspendukung(){
+        return view('berkaspendukung');
+    }
+
     // ngejalanin bagaimana memasukan data dalam database
     public function insertdata(Request $request){
         Pengguna::create($request->all());
