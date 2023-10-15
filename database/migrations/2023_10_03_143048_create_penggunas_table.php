@@ -23,6 +23,11 @@ return new class extends Migration
             $table->string('sertifikat');
             $table->string('suratrekomendasi');
             $table->string('portofolio');
+            $table->string('pengalaman');
+            $table->text('deskripsi');
+            $table->string('perusahaan');
+            $table->date('tanggal_awal');
+            $table->date('tanggal_akhir');
             $table->timestamps();
         });
     }
