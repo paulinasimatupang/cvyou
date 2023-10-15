@@ -14,10 +14,10 @@
     <h1 class="text-center mb-4">Riwayat Pekerjaan</h1>
 
         <div class="container">
-            <a href="/tambahdatapekerjaan" class="btn btn-success mb-3">Tambah +</a>
+            <a href="/tambahpekerjaan" class="btn btn-success mb-3">Tambah +</a>
             <div class="row g-3 align-items-center mb-1">
                 <div class="col-auto">
-                    <form action="/tabel1" method="GET">
+                    <form action="/datapekerjaan" method="GET">
                         <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
                     </form>
                 </div>
@@ -55,7 +55,7 @@
                                 <td>{{ \Carbon\Carbon::parse($row->tanggal_akhir)->format('d M Y') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($row->created_at)->format('d M Y') }}</td>
                                 <td>
-                                    <a href="/editdatapekerjaan/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
+                                    <a href="/tampilkanpekerjaan/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
                                     <a href="#" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
                                 </td>
                             </tr>
@@ -64,7 +64,7 @@
                 </table>
                 {{ $data->links() }}
             </div>
-            <a href="/editdatapekerjaan/{{ $row->id }}" type="button" class="btn btn-primary">Submit</a>
+            <a href="/tampilkanpekerjaan/{{ $row->id }}" type="button" class="btn btn-primary">Submit</a>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
