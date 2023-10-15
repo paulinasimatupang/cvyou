@@ -20,6 +20,11 @@ class UserSeeder extends Seeder
             'email' => 'pau@gmail.com',
             'notelpon' => '085959592907',
             'alamat' => 'Bandung',
+            'pengalaman' => 'Konsultan IT',
+            'deskripsi' => 'Konsultan IT' ,
+            'perusahaan' => 'PT Gameloft',
+            'tanggal_awal' => '2003-10-03',
+            'tanggal_akhir' => '2010-10-03'
         ]);
     }
 }
