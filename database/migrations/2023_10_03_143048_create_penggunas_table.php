@@ -15,16 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('firstnm');
             $table->string('lastnm');
-            $table->string('password');
-            $table->string('tempatlahir')->nullable();
+            $table->string('tempatlahir');
             $table->string('email');
-            $table->bigInteger('notelpon')->nullable();
-            $table->string('alamat')->nullable();
-            $table->string('pendidikanformal')->nullable();
-            $table->string('gelar')->nullable();
-            $table->string('institusipendidikan')->nullable();
-            $table->string('prestasiakademik')->nullable();
-            $table->string('keterampilan')->nullable();
+            $table->bigInteger('notelpon');
+            $table->string('alamat');
             $table->timestamps();
         });
     }

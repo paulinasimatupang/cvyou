@@ -17,17 +17,9 @@ class PenggunaController extends Controller
         return view('datapribadi');
     }
 
-    public function tambahdatapendidikan(){
-        return view ('datapendidikan');
-    }
-
-
     // ngejalanin bagaimana memasukan data dalam database
     public function insertdata(Request $request){
         Pengguna::create($request->all());
-        return redirect()->route('tambahdatapribadi')->with('success', 'Data Berhasil di Simpan');
+        return redirect()->route('tambahdatapribadi')->with('succes', 'Data Berhasil di Simpan');
     }
-
-    
-
 }

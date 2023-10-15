@@ -31,12 +31,6 @@
                 <th scope="col">Email</th>
                 <th scope="col">No Telepon</th>
                 <th scope="col">Alamat</th>
-                <th scope="col">Pendidikan Formal</th>
-                <th scope="col">Gelar</th>
-                <th scope="col">Institusi Pendidikan</th>
-                <th scope="col">Prestasi Akademik</th>
-                <th scope="col">Keterampilan</th>
-                <th scope="col">Dibuat</th>
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
@@ -50,12 +44,6 @@
                 <td>{{ $row->email }}</td>
                 <td>0{{ $row->notelpon }}</td>
                 <td>{{ $row->alamat }}</td>
-                <td>{{$row->pendidikanformal}}</td>
-                <td>{{$row->gelar}}</td>
-                <td>{{$row->institusipendidikan}}</td>
-                <td>{{$row->prestasiakademik}}</td>
-                <td>{{$row->keterampilan}}</td>
-                <td>{{$row->created_at}}</td>
                 <td>
                   <button type="button" class="btn btn-danger">Delete</button>
                   <button type="button" class="btn btn-info">Edit</button>
