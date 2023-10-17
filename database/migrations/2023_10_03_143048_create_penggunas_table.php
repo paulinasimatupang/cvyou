@@ -20,14 +20,19 @@ return new class extends Migration
             $table->string('email');
             $table->bigInteger('notelpon');
             $table->string('alamat');
-            $table->string('sertifikat');
-            $table->string('suratrekomendasi');
-            $table->string('portofolio');
-            $table->string('pengalaman');
-            $table->text('deskripsi');
-            $table->string('perusahaan');
-            $table->date('tanggal_awal');
-            $table->date('tanggal_akhir');
+            $table->string('pendidikanformal')->nullable()->default(null);
+            $table->string('gelar')->nullable()->default(null);
+            $table->string('institusipendidikan')->nullable()->default(null);
+            $table->string('prestasiakademik')->nullable()->default(null);
+            $table->string('keterampilan')->nullable()->default(null);
+            $table->string('pengalaman')->nullable()->default(null);
+            $table->text('deskripsi')->nullable()->default(null);
+            $table->string('perusahaan')->nullable()->default(null);
+            $table->date('tanggal_awal')->nullable()->default(null);
+            $table->date('tanggal_akhir')->nullable()->default(null);
+            $table->string('sertifikat')->nullable()->default(null);
+            $table->string('suratrekomendasi')->nullable()->default(null);
+            $table->string('portofolio')->nullable()->default(null);
             $table->timestamps();
         });
     }

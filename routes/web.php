@@ -20,23 +20,27 @@ Route::get('/', function () {
 
 Route::get('/User', [PenggunaController::class, 'index'])->name('User');
 
+Route::get('/button/{id}', [PenggunaController::class, 'button'])->name('button');
 Route::get('/tambahdatapribadi', [PenggunaController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');
-Route::get('/tambahberkaspendukung', [PenggunaController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
-
+Route::get('/editdatapribadi/{id}', [PenggunaController::class, 'editdatapribadi'])->name('editdatapribadi');
+Route::get('/tambahdatapendidikan/{id}', [PenggunaController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
+Route::get('/tambahdatapekerjaan/{id}', [PenggunaController::class, 'tambahdatapekerjaan'])->name('tambahdatapekerjaan');
+Route::get('/tambahberkaspendukung/{id}', [PenggunaController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
 Route::post('/insertdata', [PenggunaController::class, 'insertdata'])->name('insertdata');
+Route::post('/updatedatapribadi/{id}', [PenggunaController::class, 'updatedatapribadi'])->name('updatedatapribadi');
+Route::post('/insertdatapendidikan/{id}', [PenggunaController::class, 'insertdatapendidikan'])->name('insertdatapendidikan');
+Route::post('/insertdatapekerjaan/{id}', [PenggunaController::class, 'insertdatapekerjaan'])->name('insertdatapekerjaan');
+Route::post('/insertberkaspendukung/{id}', [PenggunaController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');
 
-//mutia
-Route::get('/tabel1', [FormControllers::class, 'index'])->name('tabel1');
+Route::get('/index', [PenggunaController::class, 'index'])->name('index');
 
-Route::get('/tambahdatapekerjaan', [FormControllers::class, 'tambahdatapekerjaan'])->name('tambahdatapekerjaan');
+Route::post('/insertpekerjaan', [PenggunaController::class, 'insertpekerjaan'])->name('insertpekerjaan');
 
-Route::post('/insertpekerjaan', [FormControllers::class, 'insertpekerjaan'])->name('insertpekerjaan');
+Route::get('/editdatapekerjaan/{id}', [PenggunaController::class, 'editdatapekerjaan'])->name('editdatapekerjaan');
 
-Route::get('/editdatapekerjaan/{id}', [FormControllers::class, 'editdatapekerjaan'])->name('editdatapekerjaan');
+Route::post('/updatepekerjaan/{id}', [PenggunaController::class, 'updatepekerjaan'])->name('updatepekerjaan');
 
-Route::post('/updatepekerjaan/{id}', [FormControllers::class, 'updatepekerjaan'])->name('updatepekerjaan');
-
-Route::get('/deletepekerjaan/{id}', [FormControllers::class, 'deletepekerjaan'])->name('deletepekerjaan');
+Route::get('/delete/{id}', [PenggunaController::class, 'delete'])->name('delete');
 
 Route::get('/output', function () {
     return view('output');
