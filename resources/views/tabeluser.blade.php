@@ -33,6 +33,7 @@
             <thead>
                 <tr>
                     <th scope="col">No.</th>
+                    <th scope="col">Foto</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Tempat Lahir</th>
@@ -64,6 +65,7 @@
                 @foreach ($data as $index => $row)
                 <tr>
                     <td>{{ $no++ }}</td>
+                    <td>{{ $row->poto }}</td>
                     <td>{{ $row->firstnm }}</td>
                     <td>{{ $row->lastnm }}</td>
                     <td>{{ $row->tempatlahir }}</td>
@@ -79,55 +81,53 @@
                     <td>{{ $row->pengalaman }}</td>
                     <td>{{ $row->deskripsi }}</td>
                     <td>{{ $row->perusahaan }}</td>
+                    <td>{{ \Carbon\Carbon::parse($row->tanggal_awal)->format('d M Y') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($row->tanggal_akhir)->format('d M Y') }}</td>
                     <td>{{ $row->sertifikat }}</td>
                     <td>{{ $row->suratrekomendasi }}</td>
                     <td>{{ $row->portofolio }}</td>
-                    <td>{{ \Carbon\Carbon::parse($row->tanggal_awal)->format('d M Y') }}</td>
-                    <td>{{ \Carbon\Carbon::parse($row->tanggal_akhir)->format('d M Y') }}</td>
                     <td>{{ \Carbon\Carbon::parse($row->created_at)->format('d M Y') }}</td>
                     <td>
-                        <a href="/editdatapekerjaan/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
-                        <!-- <a href="#" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete swal</a> -->
-                        <a href="/delete/{{ $row->id }}" type="button" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-    <a href="/editdatapekerjaan/{{ $row->id }}" type="button" class="btn btn-primary">Submit</a>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
-<!-- <script>
-    $('.delete').click(function() {
+                    <a href="/editdatapribadi/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
+                                    <a href="/delete/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <a href="/output" type="button" class="btn btn-primary">Submit</a>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+  <!-- <script>
+    $('.delete').click( function() {
         var pekerjaanid = $(this).attr('data-id');
         swal({
-                title: "Yakin ?",
-                text: "Kamu akan menghapus data ini!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "/delete/" + id +
-                        swal("Data berhasil dihapus!", {
-                            icon: "success",
-                        });
-                } else {
-                    swal("Data tidak jadi dihapus!");
-                }
-            });
-    });
-</script>
-<script>
-    @if(Session::has('success'))
-    toastr.success("{{ Session::get('success') }}")
-    @endif
+            title: "Yakin ?",
+            text: "Kamu akan menghapus data ini!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/deletepekerjaan/"+pekerjaanid+
+                swal("Data berhasil dihapus!", {
+                icon: "success",
+                });
+            } else {
+                swal("Data tidak jadi dihapus!");
+            }
+        });
+    }); 
+  </script>
+<script> -->
+<!-- // @if (Session::has('success'))
+//     toastr.success("{{ Session::get('success') }}")
+// @endif
 </script> -->
-
 </html>

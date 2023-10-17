@@ -31,6 +31,10 @@
             <form action="{{ route('insertdata') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Foto</label>
+                <input type="file" name="poto" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">First Name</label>
                 <input type="text" name="firstnm" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
