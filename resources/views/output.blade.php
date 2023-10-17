@@ -26,6 +26,8 @@
 </head>
 
 <body>
+  <div class="container">
+  @foreach ($data as $row)
 
   <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
@@ -43,28 +45,29 @@
           <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
           <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
           <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          
         </div>
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About Me</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Pendidikan</span></a></li>
           <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Pekerjaan</span></a></li>
           <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Berkas Pendukung</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
+      <button>
+            <div class="Edit"></div>
+            <a href="/editdatapribadi/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
+          </button>
+          <button>
+            <div class="Delete"></div>
+            <a href="/delete/{{ $row->id }}" type="button" class="btn btn-danger delete">Delete</a>
+          </button>
     </div>
   </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Alex Smith</h1>
-      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
-    </div>
-  </section><!-- End Hero -->
 
   <main id="main">
 
@@ -75,26 +78,13 @@
         <div class="section-title">
           <h2>About Me</h2>
         </div>
-        {{-- @php
-          $no = 1;
-        @endphp
-        @foreach ($data as $index => $row) --}}
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
             <img src="{{ asset('style/assets/img/profile-img.jpg') }}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            {{-- <h3>{{ $row->firstnm }}{{ $row->lastnm }}</h3> --}}
-            <div class="row">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Tempat Lahir :</strong> <span>Bali</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Tanggal Lahir :</strong> <span>17 Agustus 2007</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email :</strong> <span>@polban.ac.id</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>No Telpon :</strong> <span>08123456789</span></li>
-                   <li><i class="bi bi-chevron-right"></i> <strong>Alamat :</strong> <span>New York, USA</span></li>
-                </ul>
-              </div>
-              {{-- <div class="col-lg-6">
+            <h3>{{ $row->firstnm }} {{ $row->lastnm }}</h3>
+              <div class="col-lg-6">
                 <ul scope="row">
                   <li><i class="bi bi-chevron-right"></i> <strong>Tempat Lahir :</strong> <span>{{ $row->tempatlahir }}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Tanggal Lahir :</strong> <span>{{ $row->tgllahir }}</span></li>
@@ -102,7 +92,7 @@
                   <li><i class="bi bi-chevron-right"></i> <strong>No Telepon :</strong> <span>{{ $row->notelpon }}</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Alamat :</strong> <span>{{ $row->alamat }}</span></li>
                 </ul>
-              </div> --}}
+              </div>
               
             </div>
           </div>
@@ -123,16 +113,11 @@
           <div class="col-lg-6" data-aos="fade-up">
             <h3 class="resume-title"></h3>
             <div class="resume-item">
-              <h4>Master of Fine Arts &amp; Graphic Design</h4>
-              <h5>2015 - 2016</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-            </div>
-            <div class="resume-item">
-              <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-              <h5>2010 - 2014</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
+              <h4>{{ $row->pendidikanformal }}</h4>
+              <h5>{{ $row->gelar }}</h5><br>
+              <i class="bi bi-chevron-right"></i> <strong>Institusi Pendidikan :</strong> <span>{{ $row->institusipendidikan }}</span><br>
+              <i class="bi bi-chevron-right"></i> <strong>Prestasi Akademik :</strong> <span>{{ $row->prestasiakademik }}</span><br>
+              <i class="bi bi-chevron-right"></i> <strong>Keterampilan :</strong> <span>{{ $row->keterampilan }}</span><br>
             </div>
           </div>
           </div>
@@ -152,24 +137,14 @@
         <div class="row">
           <div class="col-lg-6" data-aos="fade-up">
             <div class="resume-item pb-0">
-              <h4>Staff IT</h4>
-              <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
+              <h4>{{ $row->pengalaman }}</h4>
+              <p><em>{{ $row->deskripsi }}</em></p>
               <ul>
-                <li>PT Gameloft</li>
-                <li>10 Oktober 2007</li>
-                <li>17 Oktober 2019</li>
+                <li>{{ $row->perusahaan }}</li>
+                <li>{{ \Carbon\Carbon::parse($row->tanggal_awal)->format('d M Y') }}</li>
+                <li>{{ \Carbon\Carbon::parse($row->tanggal_akhir)->format('d M Y') }}</li>
               </ul>
             </div>
-            <div class="resume-item">
-              <h4>Graphic design specialist</h4>
-              <h5>2017 - 2018</h5>
-              <p><em>Stepping Stone Advertising, New York, NY</em></p>
-              <ul>
-                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-              </ul>
             </div><!-- End Skills Section -->
 
     <!-- ======= Services Section ======= -->
@@ -178,9 +153,9 @@
 
         <div class="section-title">
           <h2>Berkas Pendukung</h2>
-          <p><a href="https://bootstrapmade.com/">Sertifikat</a></p>
-          <p><a href="https://bootstrapmade.com/">Surat Rekomendasi</a></p>
-          <p><a href="https://bootstrapmade.com/">Portofolio</a></p>
+          <p><a href="{{ $row->sertifikat }}">Sertifikat</a></p>
+          <p><a href="{{ $row->suratrekomendasi }}">Surat Rekomendasi</a></p>
+          <p><a href="{{ $row->portofolio }}">Portofolio</a></p>
         </div>
 
         
@@ -224,6 +199,8 @@
 
   <script async src='https://www.googletagmanager.com/gtag/js?id=G-P7JSYB1CSP'></script><script>if( window.self == window.top ) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-P7JSYB1CSP'); } </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon='{"rayId":"8163f32b5b435fd9","token":"68c5ca450bae485a842ff76066d69420","version":"2023.8.0","si":100}' crossorigin="anonymous"></script>
+  @endforeach
+  </div>
 </body>
 
 </html>

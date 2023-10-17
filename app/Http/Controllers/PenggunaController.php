@@ -112,4 +112,10 @@ class PenggunaController extends Controller
 
         return redirect('index')->with('success', 'Data Berhasil di Delete');
     }
+
+    public function output() {
+        $data = Pengguna::all();
+
+        return view(('output'), compact('data'));
+    }
 }

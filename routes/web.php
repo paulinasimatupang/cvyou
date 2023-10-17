@@ -42,6 +42,5 @@ Route::post('/updatepekerjaan/{id}', [PenggunaController::class, 'updatepekerjaa
 
 Route::get('/delete/{id}', [PenggunaController::class, 'delete'])->name('delete');
 
-Route::get('/output', function () {
-    return view('output');
-});
+Route::get('/output', [PenggunaController::class, 'output'])->name('output');
+
