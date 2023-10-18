@@ -89,14 +89,14 @@
                     <td>{{ \Carbon\Carbon::parse($row->created_at)->format('d M Y') }}</td>
                     <td>
                     <a href="/editdatapribadi/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
-                                    <a href="/delete/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
+                    <a href="/output" type="button" class="btn btn-primary">Lihat CV</a>
+                    <a href="/delete/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            <a href="/output" type="button" class="btn btn-primary">Submit</a>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

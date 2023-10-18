@@ -26,7 +26,6 @@
 </head>
 
 <body>
-  <div class="container">
   @foreach ($data as $row)
 
   <!-- ======= Mobile nav toggle button ======= -->
@@ -38,7 +37,7 @@
 
       <div class="profile">
         <img src="{{ asset('style/assets/img/profile-img.jpg') }}" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
+        <h1 class="text-light"><a href="index.html">{{ $row->firstnm }} {{ $row->lastnm }}</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -200,7 +199,6 @@
   <script async src='https://www.googletagmanager.com/gtag/js?id=G-P7JSYB1CSP'></script><script>if( window.self == window.top ) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-P7JSYB1CSP'); } </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854" integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg==" data-cf-beacon='{"rayId":"8163f32b5b435fd9","token":"68c5ca450bae485a842ff76066d69420","version":"2023.8.0","si":100}' crossorigin="anonymous"></script>
   @endforeach
-  </div>
 </body>
 
 </html>

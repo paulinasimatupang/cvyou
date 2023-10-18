@@ -42,9 +42,7 @@
                 <label for="exampleInputEmail1" class="form-label">Portofolio</label>
                 <input type="file" name="portofolio" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->portofolio }}">
               </div>
-              <button class="btn btn-info" type="submit">
-                Submit
-              </button>
+              <a href="/output" type="button" class="btn btn-primary">Submit</a>
             </form>
             <div>
               <a href="{{ route('tambahdatapekerjaan', ['id' => $data->id]) }}" class="btn btn-success">Back</a>
