@@ -36,7 +36,7 @@
               </div>
               <div class="mb-3">
                 <label for="exampleInputDeskripsi" class="form-label">Deskripsi Tugas</label>
-                <textarea name="deskripsi" class="form-control" id="exampleInputDeskripsi" aria-describedby="emailHelp" value="{{ $data->deskripsi }}"></textarea>
+                <textarea name="deskripsi" class="form-control" id="exampleInputDeskripsi" aria-describedby="emailHelp">{{ $data->deskripsi }}</textarea>
               </div>
               <div class="mb-3">
                 <label for="exampleInputPerusahaan" class="form-label">Perusahaan</label>
