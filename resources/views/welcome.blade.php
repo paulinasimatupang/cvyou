@@ -22,16 +22,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('style/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('style/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('style/assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('style/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('style/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('style/assets/css/main.css') }}" rel="stylesheet">
@@ -52,7 +47,7 @@
         <header id="header" class="header d-flex align-items-center" style="background-color: #008374;">
             <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
                     <i class="bi bi-list toggle-sidebar-btn"></i>
-                    
+
                 <a href="index.html" class="logo d-flex align-items-center" style="margin-left: auto;">
                     <h1>CVYou</h1>
                     <img src="{{ asset('img/gokils.png') }}" alt="" style="width: 50%; height: 50%;">
@@ -80,19 +75,19 @@
             <span>Make CV</span>
           </a>
         </li><!-- End Blank Page Nav -->
-          
+
 
       </ul>
 
     </aside>
-  
+
     <section id="hero" class="hero " style="padding: 0; margin: 0;">
         <!-- <img src="{{ asset('/img/bg2.png') }}" style="z-index: -1;"> -->
             <img src="{{ asset('/img/awalan1.png') }}" alt="" data-aos="zoom-out" data-aos-delay="100">
             <div class="my-element" data-aos="fade-up">
               <h2>Welcome to CVYOU !</h2>
               <p>Get your CV for your business !</p>
-            </div>            
+            </div>
     </section>
 
 
@@ -127,7 +122,7 @@
           </div>
         </div>
       </section>
-      
+
       <section id="Rules" class="Rules" style="background-color: #f7f7f7; ">
         <div class="teks" style="margin-top: 0%;margin-bottom: 0%;">
           <div class="card" style="background-color: #008374;">
@@ -183,11 +178,9 @@
   </div>
   </section>
 </div>
-  
-<div class="footer"> 
-  <footer id="footer" class="footer" >
 
-    <div class="container">
+<div class="footer">
+  <footer id="footer" class="footer" >
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
@@ -200,7 +193,7 @@
   </div>
   </footer>
   </div>
-  
+
 
   <!-- Vendor JS Files -->
   <link href="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}" rel="stylesheet">
@@ -242,10 +235,10 @@
               document.getElementById('page1-content').style.display = 'none';
               document.getElementById('page2-content').style.display = 'none';
               document.getElementById('page3-content').style.display = 'none';
-      
+
               // Tampilkan konten halaman yang sesuai dengan nomor halaman yang diklik
               document.getElementById('page' + pageNumber + '-content').style.display = 'block';
-      
+
               // Ganti judul kartu jika diperlukan
               var pageTitle = '';
               if (pageNumber === 2) {
