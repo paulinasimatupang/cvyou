@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pengguna1 extends Model
+class Pengguna extends Model
 {
-    protected $table = "pengguna";
-    protected $primaryKey = "id";
-    Protected $fillable = ['id', 'email', 'password'];
+    use HasFactory;
+
+    protected $guarded = [];
+    protected $dates = ['created_at'];
 }
