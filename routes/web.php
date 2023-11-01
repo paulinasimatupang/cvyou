@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\DataPendidikanController;
+use App\Http\Controllers\DataPekerjaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,24 +25,28 @@ Route::get('/User', [PenggunaController::class, 'index'])->name('User');
 Route::get('/button/{id}', [PenggunaController::class, 'button'])->name('button');
 Route::get('/tambahdatapribadi', [PenggunaController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');
 Route::get('/editdatapribadi/{id}', [PenggunaController::class, 'editdatapribadi'])->name('editdatapribadi');
-Route::get('/tambahdatapendidikan/{id}', [PenggunaController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
-Route::get('/tambahdatapekerjaan/{id}', [PenggunaController::class, 'tambahdatapekerjaan'])->name('tambahdatapekerjaan');
 Route::get('/tambahberkaspendukung/{id}', [PenggunaController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
 Route::post('/insertdata', [PenggunaController::class, 'insertdata'])->name('insertdata');
 Route::post('/updatedatapribadi/{id}', [PenggunaController::class, 'updatedatapribadi'])->name('updatedatapribadi');
-Route::post('/insertdatapendidikan/{id}', [PenggunaController::class, 'insertdatapendidikan'])->name('insertdatapendidikan');
-Route::post('/insertdatapekerjaan/{id}', [PenggunaController::class, 'insertdatapekerjaan'])->name('insertdatapekerjaan');
 Route::post('/insertberkaspendukung/{id}', [PenggunaController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');
 
 Route::get('/index', [PenggunaController::class, 'index'])->name('index');
 
-Route::post('/insertpekerjaan', [PenggunaController::class, 'insertpekerjaan'])->name('insertpekerjaan');
+//pendidikan
+Route::get('/tambahdatapendidikan', [DataPendidikanController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
+Route::post('/insertdatapendidikan/{id}', [DataPendidikanController::class, 'insertpendidikan'])->name('insertpendidikan');
 
-Route::get('/editdatapekerjaan/{id}', [PenggunaController::class, 'editdatapekerjaan'])->name('editdatapekerjaan');
+//pekerjaan
+Route::get('/tambahdatapekerjaan', [DataPekerjaanController::class, 'tambahdatapekerjaan'])->name('tambahdatapekerjaan');
+Route::post('/insertdatapekerjaan', [DataPekerjaanController::class, 'insertpekerjaan'])->name('insertpekerjaan');
+Route::get('/editdatapekerjaan/{id}', [DataPekerjaanController::class, 'editdatapekerjaan'])->name('editdatapekerjaan');
+Route::post('/updatepekerjaan/{id}', [DataPekerjaanController::class, 'updatepekerjaan'])->name('updatepekerjaan');
+Route::get('/deletepekerjaan/{id}', [DataPekerjaanController::class, 'deletepekerjaan'])->name('deletepekerjaan');
 
-Route::post('/updatepekerjaan/{id}', [PenggunaController::class, 'updatepekerjaan'])->name('updatepekerjaan');
+Route::get('/output', function () {
+    return view('output');
+});
 
 Route::get('/delete/{id}', [PenggunaController::class, 'delete'])->name('delete');
-
 Route::get('/output', [PenggunaController::class, 'output'])->name('output');
 
