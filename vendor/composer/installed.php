@@ -1,8 +1,13 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
+<<<<<<< HEAD
         'pretty_version' => '1.0.0+no-version-set',
         'version' => '1.0.0.0',
+=======
+        'pretty_version' => 'v10.2.6',
+        'version' => '10.2.6.0',
+>>>>>>> parent of c7a718b (p)
         'reference' => NULL,
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
@@ -160,199 +165,331 @@
         'illuminate/auth' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/broadcasting' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/bus' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/cache' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/collections' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/conditionable' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/config' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/console' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/container' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/contracts' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/cookie' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/database' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/encryption' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/events' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/filesystem' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/hashing' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/http' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/log' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/macroable' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/mail' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/notifications' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/pagination' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/pipeline' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/process' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/queue' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/redis' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/routing' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/session' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/support' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/testing' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/translation' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/validation' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'illuminate/view' => array(
             'dev_requirement' => false,
             'replaced' => array(
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
             ),
         ),
         'kodova/hamcrest-php' => array(
@@ -362,17 +499,28 @@
             ),
         ),
         'laravel/framework' => array(
+<<<<<<< HEAD
             'pretty_version' => 'v10.29.0',
             'version' => '10.29.0.0',
             'reference' => '2d002849a16ad131110a50cbea4d64dbb78515a3',
+=======
+            'pretty_version' => 'v10.25.1',
+            'version' => '10.25.1.0',
+            'reference' => 'cd0a440f43eaaad247d6f6575d3782c156ec913c',
+>>>>>>> parent of c7a718b (p)
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/framework',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
+<<<<<<< HEAD
             'pretty_version' => '1.0.0+no-version-set',
             'version' => '1.0.0.0',
+=======
+            'pretty_version' => 'v10.2.6',
+            'version' => '10.2.6.0',
+>>>>>>> parent of c7a718b (p)
             'reference' => NULL,
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
@@ -389,9 +537,15 @@
             'dev_requirement' => true,
         ),
         'laravel/prompts' => array(
+<<<<<<< HEAD
             'pretty_version' => 'v0.1.12',
             'version' => '0.1.12.0',
             'reference' => 'b35f249028c22016e45e48626e19e5d42fd827ff',
+=======
+            'pretty_version' => 'v0.1.9',
+            'version' => '0.1.9.0',
+            'reference' => 'b603410e7af1040aa2d29e0a2cdca570bb63e827',
+>>>>>>> parent of c7a718b (p)
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/prompts',
             'aliases' => array(),
@@ -846,9 +1000,9 @@
             'dev_requirement' => true,
         ),
         'sebastian/complexity' => array(
-            'pretty_version' => '3.1.0',
-            'version' => '3.1.0.0',
-            'reference' => '68cfb347a44871f01e33ab0ef8215966432f6957',
+            'pretty_version' => '3.0.1',
+            'version' => '3.0.1.0',
+            'reference' => 'c70b73893e10757af9c6a48929fa6a333b56a97a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../sebastian/complexity',
             'aliases' => array(),
@@ -1008,9 +1162,9 @@
             'dev_requirement' => false,
         ),
         'symfony/error-handler' => array(
-            'pretty_version' => 'v6.3.5',
-            'version' => '6.3.5.0',
-            'reference' => '1f69476b64fb47105c06beef757766c376b548c4',
+            'pretty_version' => 'v6.3.2',
+            'version' => '6.3.2.0',
+            'reference' => '85fd65ed295c4078367c784e8a5a6cee30348b7a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/error-handler',
             'aliases' => array(),
@@ -1041,45 +1195,57 @@
             ),
         ),
         'symfony/finder' => array(
-            'pretty_version' => 'v6.3.5',
-            'version' => '6.3.5.0',
-            'reference' => 'a1b31d88c0e998168ca7792f222cbecee47428c4',
+            'pretty_version' => 'v6.3.3',
+            'version' => '6.3.3.0',
+            'reference' => '9915db259f67d21eefee768c1abcf1cc61b1fc9e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/finder',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'symfony/http-foundation' => array(
+<<<<<<< HEAD
             'pretty_version' => 'v6.3.6',
             'version' => '6.3.6.0',
             'reference' => 'c186627f52febe09c6d5270b04f8462687a250a6',
+=======
+            'pretty_version' => 'v6.3.4',
+            'version' => '6.3.4.0',
+            'reference' => 'cac1556fdfdf6719668181974104e6fcfa60e844',
+>>>>>>> parent of c7a718b (p)
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-foundation',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'symfony/http-kernel' => array(
+<<<<<<< HEAD
             'pretty_version' => 'v6.3.6',
             'version' => '6.3.6.0',
             'reference' => '4945f5001b06ff9080cd3d8f1f9f069094c0d156',
+=======
+            'pretty_version' => 'v6.3.4',
+            'version' => '6.3.4.0',
+            'reference' => '36abb425b4af863ae1fe54d8a8b8b4c76a2bccdb',
+>>>>>>> parent of c7a718b (p)
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-kernel',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'symfony/mailer' => array(
-            'pretty_version' => 'v6.3.5',
-            'version' => '6.3.5.0',
-            'reference' => 'd89611a7830d51b5e118bca38e390dea92f9ea06',
+            'pretty_version' => 'v6.3.0',
+            'version' => '6.3.0.0',
+            'reference' => '7b03d9be1dea29bfec0a6c7b603f5072a4c97435',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/mailer',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'symfony/mime' => array(
-            'pretty_version' => 'v6.3.5',
-            'version' => '6.3.5.0',
-            'reference' => 'd5179eedf1cb2946dbd760475ebf05c251ef6a6e',
+            'pretty_version' => 'v6.3.3',
+            'version' => '6.3.3.0',
+            'reference' => '9a0cbd52baa5ba5a5b1f0cacc59466f194730f98',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/mime',
             'aliases' => array(),
@@ -1176,9 +1342,9 @@
             'dev_requirement' => false,
         ),
         'symfony/routing' => array(
-            'pretty_version' => 'v6.3.5',
-            'version' => '6.3.5.0',
-            'reference' => '82616e59acd3e3d9c916bba798326cb7796d7d31',
+            'pretty_version' => 'v6.3.3',
+            'version' => '6.3.3.0',
+            'reference' => 'e7243039ab663822ff134fbc46099b5fdfa16f6a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/routing',
             'aliases' => array(),
@@ -1194,9 +1360,9 @@
             'dev_requirement' => false,
         ),
         'symfony/string' => array(
-            'pretty_version' => 'v6.3.5',
-            'version' => '6.3.5.0',
-            'reference' => '13d76d0fb049051ed12a04bef4f9de8715bea339',
+            'pretty_version' => 'v6.3.2',
+            'version' => '6.3.2.0',
+            'reference' => '53d1a83225002635bca3482fcbf963001313fb68',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/string',
             'aliases' => array(),
@@ -1236,9 +1402,15 @@
             'dev_requirement' => false,
         ),
         'symfony/var-dumper' => array(
+<<<<<<< HEAD
             'pretty_version' => 'v6.3.6',
             'version' => '6.3.6.0',
             'reference' => '999ede244507c32b8e43aebaa10e9fce20de7c97',
+=======
+            'pretty_version' => 'v6.3.4',
+            'version' => '6.3.4.0',
+            'reference' => '2027be14f8ae8eae999ceadebcda5b4909b81d45',
+>>>>>>> parent of c7a718b (p)
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/var-dumper',
             'aliases' => array(),

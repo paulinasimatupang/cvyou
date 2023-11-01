@@ -50,7 +50,11 @@ class SuggestPrompt extends Prompt
             Key::oneOf([Key::HOME, Key::CTRL_A], $key) => $this->highlighted !== null ? $this->highlight(0) : null,
             Key::oneOf([Key::END, Key::CTRL_E], $key) => $this->highlighted !== null ? $this->highlight(count($this->matches()) - 1) : null,
             Key::ENTER => $this->selectHighlighted(),
+<<<<<<< HEAD
             Key::oneOf([Key::LEFT, Key::LEFT_ARROW, Key::RIGHT, Key::RIGHT_ARROW, Key::CTRL_B, Key::CTRL_F], $key) => $this->highlighted = null,
+=======
+            Key::LEFT, Key::LEFT_ARROW, Key::RIGHT, Key::RIGHT_ARROW, Key::CTRL_B, Key::CTRL_F, Key::HOME, Key::END, Key::CTRL_A, Key::CTRL_E => $this->highlighted = null,
+>>>>>>> parent of c7a718b (p)
             default => (function () {
                 $this->highlighted = null;
                 $this->matches = null;
