@@ -537,9 +537,12 @@ class ComposerStaticInit701a65dde683fdd1d9bafd56fb1f0254
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'App\\Models\\DataPendidikan' => __DIR__ . '/../..' . '/app/Models/DataPendidikan.php',
         'App\\Models\\DataPribadi' => __DIR__ . '/../..' . '/app/Models/DataPribadi.php',
         'App\\Models\\UpBerkas' => __DIR__ . '/../..' . '/app/Models/UpBerkas.php',
+=======
+>>>>>>> parent of c7a718b (p)
 =======
 >>>>>>> parent of c7a718b (p)
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

@@ -2,8 +2,13 @@
     'root' => array(
         'name' => 'laravel/laravel',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'pretty_version' => '1.0.0+no-version-set',
         'version' => '1.0.0.0',
+=======
+        'pretty_version' => 'v10.2.6',
+        'version' => '10.2.6.0',
+>>>>>>> parent of c7a718b (p)
 =======
         'pretty_version' => 'v10.2.6',
         'version' => '10.2.6.0',
@@ -166,7 +171,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -176,7 +185,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -186,7 +199,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -196,7 +213,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -206,7 +227,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -216,7 +241,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -226,7 +255,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -236,7 +269,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -246,7 +283,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -256,7 +297,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -266,7 +311,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -276,7 +325,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -286,7 +339,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -296,7 +353,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -306,7 +367,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -316,7 +381,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -326,7 +395,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -336,7 +409,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -346,7 +423,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -356,7 +437,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -366,7 +451,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -376,7 +465,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -386,7 +479,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -396,7 +493,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -406,7 +507,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -416,7 +521,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -426,7 +535,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -436,7 +549,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -446,7 +563,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -456,7 +577,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -466,7 +591,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -476,7 +605,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -486,7 +619,11 @@
             'dev_requirement' => false,
             'replaced' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 0 => 'v10.29.0',
+=======
+                0 => 'v10.25.1',
+>>>>>>> parent of c7a718b (p)
 =======
                 0 => 'v10.25.1',
 >>>>>>> parent of c7a718b (p)
@@ -500,9 +637,15 @@
         ),
         'laravel/framework' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
             'pretty_version' => 'v10.29.0',
             'version' => '10.29.0.0',
             'reference' => '2d002849a16ad131110a50cbea4d64dbb78515a3',
+=======
+            'pretty_version' => 'v10.25.1',
+            'version' => '10.25.1.0',
+            'reference' => 'cd0a440f43eaaad247d6f6575d3782c156ec913c',
+>>>>>>> parent of c7a718b (p)
 =======
             'pretty_version' => 'v10.25.1',
             'version' => '10.25.1.0',
@@ -515,8 +658,13 @@
         ),
         'laravel/laravel' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
             'pretty_version' => '1.0.0+no-version-set',
             'version' => '1.0.0.0',
+=======
+            'pretty_version' => 'v10.2.6',
+            'version' => '10.2.6.0',
+>>>>>>> parent of c7a718b (p)
 =======
             'pretty_version' => 'v10.2.6',
             'version' => '10.2.6.0',
@@ -538,9 +686,15 @@
         ),
         'laravel/prompts' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
             'pretty_version' => 'v0.1.12',
             'version' => '0.1.12.0',
             'reference' => 'b35f249028c22016e45e48626e19e5d42fd827ff',
+=======
+            'pretty_version' => 'v0.1.9',
+            'version' => '0.1.9.0',
+            'reference' => 'b603410e7af1040aa2d29e0a2cdca570bb63e827',
+>>>>>>> parent of c7a718b (p)
 =======
             'pretty_version' => 'v0.1.9',
             'version' => '0.1.9.0',
@@ -1205,9 +1359,15 @@
         ),
         'symfony/http-foundation' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
             'pretty_version' => 'v6.3.6',
             'version' => '6.3.6.0',
             'reference' => 'c186627f52febe09c6d5270b04f8462687a250a6',
+=======
+            'pretty_version' => 'v6.3.4',
+            'version' => '6.3.4.0',
+            'reference' => 'cac1556fdfdf6719668181974104e6fcfa60e844',
+>>>>>>> parent of c7a718b (p)
 =======
             'pretty_version' => 'v6.3.4',
             'version' => '6.3.4.0',
@@ -1220,9 +1380,15 @@
         ),
         'symfony/http-kernel' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
             'pretty_version' => 'v6.3.6',
             'version' => '6.3.6.0',
             'reference' => '4945f5001b06ff9080cd3d8f1f9f069094c0d156',
+=======
+            'pretty_version' => 'v6.3.4',
+            'version' => '6.3.4.0',
+            'reference' => '36abb425b4af863ae1fe54d8a8b8b4c76a2bccdb',
+>>>>>>> parent of c7a718b (p)
 =======
             'pretty_version' => 'v6.3.4',
             'version' => '6.3.4.0',
@@ -1403,9 +1569,15 @@
         ),
         'symfony/var-dumper' => array(
 <<<<<<< HEAD
+<<<<<<< HEAD
             'pretty_version' => 'v6.3.6',
             'version' => '6.3.6.0',
             'reference' => '999ede244507c32b8e43aebaa10e9fce20de7c97',
+=======
+            'pretty_version' => 'v6.3.4',
+            'version' => '6.3.4.0',
+            'reference' => '2027be14f8ae8eae999ceadebcda5b4909b81d45',
+>>>>>>> parent of c7a718b (p)
 =======
             'pretty_version' => 'v6.3.4',
             'version' => '6.3.4.0',

@@ -20,9 +20,12 @@ return array(
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
     'App\\Models\\DataPendidikan' => $baseDir . '/app/Models/DataPendidikan.php',
     'App\\Models\\DataPribadi' => $baseDir . '/app/Models/DataPribadi.php',
     'App\\Models\\UpBerkas' => $baseDir . '/app/Models/UpBerkas.php',
+=======
+>>>>>>> parent of c7a718b (p)
 =======
 >>>>>>> parent of c7a718b (p)
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
