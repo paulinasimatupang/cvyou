@@ -540,7 +540,6 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\DataPekerjaan' => __DIR__ . '/../..' . '/app/Models/DataPekerjaan.php',
-        'App\\Models\\DataPendidikan' => __DIR__ . '/../..' . '/app/Models/DataPendidikan.php',
         'App\\Models\\DataPribadi' => __DIR__ . '/../..' . '/app/Models/DataPribadi.php',
         'App\\Models\\DataSkill' => __DIR__ . '/../..' . '/app/Models/DataSkill.php',
         'App\\Models\\Pengguna' => __DIR__ . '/../..' . '/app/Models/Pengguna.php',

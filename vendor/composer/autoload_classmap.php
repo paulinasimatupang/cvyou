@@ -23,7 +23,6 @@ return array(
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\DataPekerjaan' => $baseDir . '/app/Models/DataPekerjaan.php',
-    'App\\Models\\DataPendidikan' => $baseDir . '/app/Models/DataPendidikan.php',
     'App\\Models\\DataPribadi' => $baseDir . '/app/Models/DataPribadi.php',
     'App\\Models\\DataSkill' => $baseDir . '/app/Models/DataSkill.php',
     'App\\Models\\Pengguna' => $baseDir . '/app/Models/Pengguna.php',
