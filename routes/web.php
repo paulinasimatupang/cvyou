@@ -34,7 +34,7 @@ Route::get('/index', [DataPribadiController::class, 'index'])->name('index');
 
 //pendidikan
 Route::get('/tambahdatapendidikan', [DataPendidikanController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
-Route::post('/insertdatapendidikan/{id}', [DataPendidikanController::class, 'insertpendidikan'])->name('insertpendidikan');
+Route::post('/insertdatapendidikan', [DataPendidikanController::class, 'insertdatapendidikan'])->name('insertdatapendidikan');
 
 //pekerjaan
 Route::get('/tambahdatapekerjaan', [DataPekerjaanController::class, 'tambahdatapekerjaan'])->name('tambahdatapekerjaan');

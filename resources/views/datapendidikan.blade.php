@@ -2,15 +2,27 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Data Pendidikan</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>CVYou | Data Pendidikan </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="{{ asset('path-to-bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
+  @extends('layouts.main')
+  @section('container')
+
+  @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+  @endif
+
     <h1 class="text-center mb-4">Data Pendidikan</h1>
     <div class="container">
       <div class="row justify-content-center">
@@ -20,27 +32,33 @@
               <form action="/insertdatapendidikan" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Pendidikan Formal</label>
-                  <input type="text" name="pendidikanformal" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->pendidikanformal }}">
+                  <label for="examplePengalaman" class="form-label">Pendidikan Formal</label>
+                  <input type="text" name="pendidikanformal" class="form-control" id="exampleInputPengalaman" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Gelar</label>
-                  <input type="text" name="gelar" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->gelar }}">
+                  <label for="exampleInputDeskripsi" class="form-label">gelar</label>
+                  <textarea name="gelar" class="form-control" id="exampleInputDeskripsi" aria-describedby="emailHelp"></textarea>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Institusi Pendidikan</label>
-                  <input type="text" name="institusipendidikan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->institusipendidikan }}">
+                  <label for="exampleInputPerusahaan" class="form-label">Institusi Pendidikan</label>
+                  <input type="text" name="institusipendidikan" class="form-control" id="exampleInputPerusahaan" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Prestasi Akademik</label>
-                  <input type="text" name="prestasiakademik" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->prestasiakademik }}">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Keterampilan</label>
-                  <input type="text" name="keterampilan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->keterampilan }}">
-                </div>
+                    <label for="exampleInputPerusahaan" class="form-label">Prestasi Akademik</label>
+                    <input type="text" name="prestasiakademik" class="form-control" id="exampleInputPerusahaan" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPerusahaan" class="form-label">Keterampilan</label>
+                    <input type="text" name="keterampilan" class="form-control" id="exampleInputPerusahaan" aria-describedby="emailHelp">
+                  </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
+              <div>
+                <a href="/tambahdatapendidikan" class="btn btn-success">Back</a>
+              </div>
+              <div>
+                <a href="/tambahberkaspendukung" class="btn btn-success">Next</a>
+              </div>
             </div>
           </div>
         </div>
@@ -73,7 +91,6 @@
               <th scope="col">Institusi Pendidikan</th>
               <th scope="col">Prestasi Akademik</th>
               <th scope="col">Keterampilan</th>
-              <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -83,13 +100,14 @@
             @foreach ($data as $index => $row)
             <tr>
               <th scope="row">{{ $no++ }}</th>
-              <td>{{ $row->pendidikanformal}}</td>
-                    <td>{{ $row->gelar}}</td>
-                    <td>{{ $row->institusipendidikan}}</td>
-                    <td>{{ $row->prestasiakademik}}</td>
-                    <td>{{ $row->keterampilan}}</td>
+              <td>{{ $row->pendidikanformal }}</td>
+              <td>{{ $row->gelar }}</td>
+              <td>{{ $row->institusipendidikan }}</td>
+              <td>{{ $row->prestasiakademik }}</td>
+              <td>{{ $row->keterampilan }}</td>
+
               <td>
-                <a href="/editdatapekerjaan/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
+                <a href="/editdatapendidikan/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
                 <a href="#" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
               </td>
             </tr>
@@ -98,8 +116,9 @@
         </table>
         <!-- {{-- {{ $data->links() }} --}} -->
       </div>
-      <a href="/output" type="button" class="btn btn-primary">Submit</a>
+      <!-- <a href="/output" type="button" class="btn btn-primary">Submit</a> -->
     </div>
+  @endsection
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -125,7 +144,7 @@
           swal("Data tidak jadi dihapus!");
         }
       });
-    }); 
+    });
   </script>
   <script>
     // @if (Session::has('success'))
