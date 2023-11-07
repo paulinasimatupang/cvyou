@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2
+class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -528,7 +528,7 @@ class ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DataPekerjaanController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataPekerjaanController.php',
         'App\\Http\\Controllers\\DataPendidikanController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataPendidikanController.php',
-        'App\\Http\\Controllers\\PenggunaController' => __DIR__ . '/../..' . '/app/Http/Controllers/PenggunaController.php',
+        'App\\Http\\Controllers\\DataPribadiController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataPribadiController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -543,6 +543,7 @@ class ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2
         'App\\Models\\DataPendidikan' => __DIR__ . '/../..' . '/app/Models/DataPendidikan.php',
         'App\\Models\\DataPribadi' => __DIR__ . '/../..' . '/app/Models/DataPribadi.php',
         'App\\Models\\DataSkill' => __DIR__ . '/../..' . '/app/Models/DataSkill.php',
+        'App\\Models\\Pengguna' => __DIR__ . '/../..' . '/app/Models/Pengguna.php',
         'App\\Models\\UpBerkas' => __DIR__ . '/../..' . '/app/Models/UpBerkas.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -6493,9 +6494,9 @@ class ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitaa322c53454393ed775cfe4807d54a50::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitaa322c53454393ed775cfe4807d54a50::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitaa322c53454393ed775cfe4807d54a50::$classMap;
 
         }, null, ClassLoader::class);
     }

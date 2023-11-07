@@ -1,41 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Models;
 
-use Illuminate\Http\Request;
-use App\Models\DataPendidikan as DataPendidikan;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class DataPendidikanController extends Controller
+class DataPendidikan extends Model
 {
-    public function tambahdatapendidikan() {
-        $data = DataPendidikan::all();
-        return view('datapendidikan', compact('data'));
-    }
+    protected $table = "data_pendidikans";
+    protected $primaryKey = "id";
+    protected $fillable = [
+        'id','pendidikanformal','gelar','institusipendidikan', 'prestasiakademik', 'Keterampilan'];
 
-    public function insertdatapendidikan(Request $request, $id) {
-        $data = DataPendidikan::create($request->all());
-
-        return redirect()->route('tambahdatapendidikan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
-    }
-
-    public function editdatapendidikan($id){
-        $data = DataPendidikan::find($id);
-        return view('editdatapendidikan', compact('data'));
-    }
-
-    public function updatependidikan(Request $request, $id){
-        $data = DataPendidikan::find($id);
-        $data->update($request->all());
-        if(session('halaman_url')){
-            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diupdate');
-        }
-        return redirect()->route('tambahdatapendidikan')->with('success', 'Data berhasil diupdate');
-    }
-    public function deletependidikan($id){
-        $data = DataPendidikan::find($id);
-        $data->delete();
-        return redirect()->route('tambahdatapendidikan')->with('success', 'Data berhasil dihapus');
+    public function data_pribadis()
+    {
+        return $this->belongsTo(DataPribadi::class);
     }
 }

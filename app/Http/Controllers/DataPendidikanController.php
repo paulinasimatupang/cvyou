@@ -15,11 +15,9 @@ class DataPendidikanController extends Controller
     }
 
     public function insertdatapendidikan(Request $request, $id) {
-        $data = DataPendidikan::find($id);
-        
-        $data->update($request->all());
+        $data = DataPendidikan::create($request->all());
 
-        return redirect()->route('tambahdatapekerjaan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
+        return redirect()->route('tambahdatapendidikan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
     }
 
     public function editdatapendidikan($id){
