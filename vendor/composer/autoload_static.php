@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
+class ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -540,6 +540,7 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\DataPekerjaan' => __DIR__ . '/../..' . '/app/Models/DataPekerjaan.php',
+        'App\\Models\\DataPendidikan' => __DIR__ . '/../..' . '/app/Models/DataPendidikan.php',
         'App\\Models\\DataPribadi' => __DIR__ . '/../..' . '/app/Models/DataPribadi.php',
         'App\\Models\\DataSkill' => __DIR__ . '/../..' . '/app/Models/DataSkill.php',
         'App\\Models\\Pengguna' => __DIR__ . '/../..' . '/app/Models/Pengguna.php',
@@ -6493,9 +6494,9 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitaa322c53454393ed775cfe4807d54a50::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitaa322c53454393ed775cfe4807d54a50::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitaa322c53454393ed775cfe4807d54a50::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit918e7e3ce2601bdb47fd067c2ee783a2::$classMap;
 
         }, null, ClassLoader::class);
     }

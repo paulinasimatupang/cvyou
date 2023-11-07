@@ -108,7 +108,7 @@
 
               <td>
                 <a href="/editdatapendidikan/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
-                <a href="#" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
+                <a href="/deletepekerjaan/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
               </td>
             </tr>
             @endforeach

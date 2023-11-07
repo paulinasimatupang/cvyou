@@ -14,10 +14,9 @@ class DataPendidikanController extends Controller
         return view('datapendidikan', compact('data'));
     }
 
-    public function insertdatapendidikan(Request $request, $id) {
-        $data = DataPendidikan::create($request->all());
-
-        return redirect()->route('tambahdatapendidikan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
+    public function insertdatapendidikan(Request $request) {
+        DataPendidikan::create($request->all());
+        return redirect()->route('tambahdatapendidikan')->with('success', 'Data Berhasil di Simpan');
     }
 
     public function editdatapendidikan($id){
