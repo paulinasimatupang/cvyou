@@ -32,25 +32,25 @@
               <form action="/insertdatapendidikan" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                  <label for="examplePengalaman" class="form-label">Pendidikan Formal</label>
-                  <input type="text" name="pendidikanformal" class="form-control" id="exampleInputPengalaman" aria-describedby="emailHelp">
+                  <label for="examplependidikanformal" class="form-label">Pendidikan Formal</label>
+                  <input type="text" name="pendidikanformal" class="form-control" id="exampleInputpendidikanformal" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputDeskripsi" class="form-label">gelar</label>
-                  <textarea name="gelar" class="form-control" id="exampleInputDeskripsi" aria-describedby="emailHelp"></textarea>
+                  <label for="exampleInputgelar" class="form-label">gelar</label>
+                  <input type="text" name="gelar" class="form-control" id="exampleInputgelar" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputPerusahaan" class="form-label">Institusi Pendidikan</label>
-                  <input type="text" name="institusipendidikan" class="form-control" id="exampleInputPerusahaan" aria-describedby="emailHelp">
+                  <label for="exampleInputinstitusipendidikan" class="form-label">Institusi Pendidikan</label>
+                  <input type="text" name="institusipendidikan" class="form-control" id="exampleInputinstitusipendidikan" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPerusahaan" class="form-label">Prestasi Akademik</label>
-                    <input type="text" name="prestasiakademik" class="form-control" id="exampleInputPerusahaan" aria-describedby="emailHelp">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPerusahaan" class="form-label">Keterampilan</label>
-                    <input type="text" name="keterampilan" class="form-control" id="exampleInputPerusahaan" aria-describedby="emailHelp">
-                  </div>
+                    <label for="exampleInputprestasiakademik" class="form-label">Prestasi Akademik</label>
+                    <input type="text" name="prestasiakademik" class="form-control" id="exampleInputprestasiakademik" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputketerampilan" class="form-label">Keterampilan</label>
+                    <input type="text" name="keterampilan" class="form-control" id="exampleInputketerampilan" aria-describedby="emailHelp">
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
               <div>

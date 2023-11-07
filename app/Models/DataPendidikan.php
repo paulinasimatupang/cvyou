@@ -10,10 +10,6 @@ class DataPendidikan extends Model
     protected $table = "data_pendidikans";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id','pendidikanformal','gelar','institusipendidikan', 'prestasiakademik', 'Keterampilan'];
-
-    public function data_pribadis()
-    {
-        return $this->belongsTo(DataPribadi::class);
-    }
+        'id','pendidikanformal','gelar','institusipendidikan','prestasiakademik','keterampilan'];
+    protected $guarded = [];
 }
