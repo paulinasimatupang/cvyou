@@ -113,7 +113,7 @@
               <td>{{ \Carbon\Carbon::parse($row->created_at)->format('d M Y') }}</td>
               <td>
                 <a href="/editdatapekerjaan/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
-                <a href="#" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
+                <a href="/deletepekerjaan/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
               </td>
             </tr>
             @endforeach
@@ -151,9 +151,9 @@
       });
     }); 
   </script>
-  <script>
-    // @if (Session::has('success'))
-    // toastr.success("{{ Session::get('success') }}")
-    // @endif
-  </script>
+  {{-- <script>
+    @if (Session::has('success'))
+    toastr.success("{{ Session::get('success') }}")
+    @endif
+  </script> --}}
 </html>
