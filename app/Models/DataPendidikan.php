@@ -7,10 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataPendidikan extends Model
 {
-<<<<<<< Updated upstream
-    Protected $fillable = ['id', 'pendidikanformal', 'gelar', 'institusipendidikan', 'prestasiakademik', 'keterampilan'];
-}
-=======
     protected $table = "data_pendidikans";
     protected $primaryKey = "id";
     protected $fillable = [
@@ -21,4 +17,3 @@ class DataPendidikan extends Model
         return $this->belongsTo(DataPribadi::class);
     }
 }
->>>>>>> Stashed changes

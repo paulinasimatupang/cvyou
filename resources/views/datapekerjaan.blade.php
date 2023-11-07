@@ -59,14 +59,8 @@
               <div>
                 <a href="/tambahdatapendidikan" class="btn btn-success">Back</a>
               </div>
-<<<<<<< Updated upstream
-              <div class="mb-3">
-                <label for="exampleInputDeskripsi" class="form-label">Deskripsi Tugas</label>
-                <textarea name="deskripsi" class="form-control" id="exampleInputDeskripsi" aria-describedby="emailHelp">{{ $data->deskripsi }}</textarea>
-=======
               <div>
                 <a href="/tambahberkaspendukung" class="btn btn-success">Next</a>
->>>>>>> Stashed changes
               </div>
             </div>
           </div>

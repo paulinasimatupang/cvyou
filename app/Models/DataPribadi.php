@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataPribadi extends Model
 {
-<<<<<<< Updated upstream
-    use HasFactory;
-=======
     protected $table = "data_pribadis";
     protected $primaryKey = "id";
     protected $fillable = [
@@ -19,5 +16,4 @@ class DataPribadi extends Model
     {
         return $this->belongsTo(DataPendidikan::class);
     }
->>>>>>> Stashed changes
 }

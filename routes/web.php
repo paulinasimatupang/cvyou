@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PenggunaController;
-use App\Http\Controllers\DataPendidikanController;
+use App\Http\Controllers\DataPribadiController;
 use App\Http\Controllers\DataPekerjaanController;
+use App\Http\Controllers\DataPendidikanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +20,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/User', [PenggunaController::class, 'index'])->name('User');
+Route::get('/User', [DataPribadiController::class, 'index'])->name('User');
 
-Route::get('/button/{id}', [PenggunaController::class, 'button'])->name('button');
-Route::get('/tambahdatapribadi', [PenggunaController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');
-Route::get('/editdatapribadi/{id}', [PenggunaController::class, 'editdatapribadi'])->name('editdatapribadi');
-Route::get('/tambahberkaspendukung/{id}', [PenggunaController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
-Route::post('/insertdata', [PenggunaController::class, 'insertdata'])->name('insertdata');
-Route::post('/updatedatapribadi/{id}', [PenggunaController::class, 'updatedatapribadi'])->name('updatedatapribadi');
-Route::post('/insertberkaspendukung/{id}', [PenggunaController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');
+Route::get('/button/{id}', [DataPribadiController::class, 'button'])->name('button');
+Route::get('/tambahdatapribadi', [DataPribadiController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');
+Route::get('/editdatapribadi/{id}', [DataPribadiController::class, 'editdatapribadi'])->name('editdatapribadi');
+Route::get('/tambahberkaspendukung/{id}', [DataPribadiController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
+Route::post('/insertdata', [DataPribadiController::class, 'insertdata'])->name('insertdata');
+Route::post('/updatedatapribadi/{id}', [DataPribadiController::class, 'updatedatapribadi'])->name('updatedatapribadi');
+Route::post('/insertberkaspendukung/{id}', [DataPribadiController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');
 
-Route::get('/index', [PenggunaController::class, 'index'])->name('index');
+Route::get('/index', [DataPribadiController::class, 'index'])->name('index');
 
 //pendidikan
 Route::get('/tambahdatapendidikan', [DataPendidikanController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
@@ -47,6 +47,6 @@ Route::get('/output', function () {
     return view('output');
 });
 
-Route::get('/delete/{id}', [PenggunaController::class, 'delete'])->name('delete');
-Route::get('/output', [PenggunaController::class, 'output'])->name('output');
+Route::get('/delete/{id}', [DataPribadiController::class, 'delete'])->name('delete');
+Route::get('/output', [DataPribadiController::class, 'output'])->name('output');
 

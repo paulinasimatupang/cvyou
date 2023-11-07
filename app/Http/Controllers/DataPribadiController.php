@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pengguna;
+use App\Models\DataPribadi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
-class PenggunaController extends Controller
+class DataPribadiController extends Controller
 {
     // public function index(Request $request) {
 
@@ -22,7 +22,7 @@ class PenggunaController extends Controller
     // }
     
     public function index() {
-        $data = Pengguna::all();
+        $data = DataPribadi::all();
 
         return view('tabeluser', compact('data'));
     }
@@ -33,7 +33,7 @@ class PenggunaController extends Controller
 
     // ngejalanin bagaimana memasukan data dalam database
     public function insertdata(Request $request){
-        $data = Pengguna::create($request->all());
+        $data = DataPribadi::create($request->all());
         
         // Mengambil ID pengguna yang baru saja dibuat
         $dataId = $data->id;
@@ -49,12 +49,12 @@ class PenggunaController extends Controller
     }
     
     public function editdatapribadi($id) {
-        $data = Pengguna::find($id);
+        $data = DataPribadi::find($id);
         return view('editdatapribadi', compact('data'));
     }
 
     public function updatedatapribadi(Request $request, $id) {
-        $data = Pengguna::find($id);
+        $data = DataPribadi::find($id);
         
         $data->update($request->all());
 
@@ -62,12 +62,12 @@ class PenggunaController extends Controller
     }
 
     public function tambahdatapendidikan($id) {
-        $data = Pengguna::find($id);
+        $data = DataPribadi::find($id);
         return view('datapendidikan', compact('data'));
     }
 
     public function insertdatapendidikan(Request $request, $id) {
-        $data = Pengguna::find($id);
+        $data = DataPribadi::find($id);
         
         $data->update($request->all());
 
@@ -75,12 +75,12 @@ class PenggunaController extends Controller
     }
     
     public function tambahdatapekerjaan($id) {
-        $data = Pengguna::find($id);
+        $data = DataPribadi::find($id);
         return view('datapekerjaan', compact('data'));
     }
     
     public function insertdatapekerjaan(Request $request, $id) {
-        $data = Pengguna::find($id);
+        $data = DataPribadi::find($id);
         
         $data->update($request->all());
         
@@ -88,12 +88,12 @@ class PenggunaController extends Controller
     }
 
     public function tambahberkaspendukung($id) {
-        $data = Pengguna::find($id);
+        $data = DataPribadi::find($id);
         return view('databerkaspendukung', compact('data'));
     }
 
     public function insertberkaspendukung(Request $request, $id) {
-        $data = Pengguna::find($id);
+        $data = DataPribadi::find($id);
         $data->update($request->all());
 
         if ($request->hasFile('pdf')) {
@@ -107,15 +107,15 @@ class PenggunaController extends Controller
     }
 
     public function delete($id) {
-        $data = Pengguna::find($id);
+        $data = DataPribadi::find($id);
         $data->delete();
 
         return redirect('index')->with('success', 'Data Berhasil di Delete');
     }
 
-    public function output() {
-        $data = Pengguna::all();
+    // public function output() {
+    //     $data = ::all();
 
-        return view(('output'), compact('data'));
-    }
+    //     return view(('output'), compact('data'));
+    // }
 }
