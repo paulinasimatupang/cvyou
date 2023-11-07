@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataPendidikan extends Model
 {
+    use HasFactory;
+
     protected $table = "data_pendidikans";
-    protected $primaryKey = "id";
     protected $fillable = [
-        'id','pendidikanformal','gelar','institusipendidikan','prestasiakademik','keterampilan'];
-    protected $guarded = [];
+        'pengguna_id', 'pendidikanformal', 'gelar', 'institusipendidikan', 'prestasiakademik', 'Keterampilan'];
+
+    public function pengguna()
+    {
+        $this->hasMany(Pengguna::class, 'pengguna_id', 'id');
+    }
 }

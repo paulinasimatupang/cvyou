@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('data_skills', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('pengguna_id')->default(0);
+            $table->foreign('pengguna_id')->references('id')->on('penggunas')->onDelete('cascade');
             $table->string('skill')->nullable()->default(null);
             $table->string('rating')->nullable()->default(null);
             $table->timestamps();

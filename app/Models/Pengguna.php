@@ -7,7 +7,33 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pengguna extends Model
 {
-    protected $table = "penggunas";
-    protected $primaryKey = "id";
-    protected $fillable = ['id', 'email', 'password'];
+    use HasFactory;
+
+    protected $table = 'penggunas';
+    protected $fillable = ['email', 'password'];
+
+    public function dataPribadi()
+    {
+        return $this->hasOne(DataPribadi::class, 'pengguna_id', 'id');
+    }
+
+    public function dataSkill()
+    {
+        return $this->hasOne(DataSkill::class, 'pengguna_id', 'id');
+    }
+
+    public function dataPendidikan()
+    {
+        return $this->hasMany(DataPendidikan::class, 'pengguna_id', 'id');
+    }
+
+    public function dataPekerjaan()
+    {
+        return $this->hasMany(DataPekerjaan::class, 'pengguna_id', 'id');
+    }
+
+    public function upBerkas()
+    {
+        return $this->hasOne(UpBerkas::class, 'pengguna_id', 'id');
+    }
 }

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('data_pribadis', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('pengguna_id')->default(0);
+            $table->foreign('pengguna_id')->references('id')->on('penggunas')->onDelete('cascade');
             $table->string('poto');
             $table->string('firstnm');
             $table->string('lastnm');

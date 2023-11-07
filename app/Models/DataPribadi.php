@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataPribadi extends Model
 {
-    protected $table = "data_pribadis";
-    protected $primaryKey = "id";
-    protected $fillable = [
-        'id','datapendidikan_id', 'poto','firstnm','lastnm', 'tempatlahir', 'tgllahir', 'email', 'notelpon', 'alamat'];
+    use HasFactory;
 
-    public function data_pendidikans()
+    protected $table = 'data_pribadis';
+    protected $fillable = [
+        'pengguna_id', 'poto', 'firstnm', 'lastnm', 'tempatlahir', 'tgllahir', 'email', 'notelpon', 'alamat'];
+
+    public function pengguna()
     {
-        return $this->belongsTo(DataPendidikan::class);
+        $this->belongsTo(Pengguna::class, 'pengguna_id', 'id');
     }
 }

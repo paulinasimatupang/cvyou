@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataPekerjaan extends Model
 {
+    use HasFactory;
+
     protected $table = "data_pekerjaans";
-    protected $primaryKey = "id";
     protected $fillable = [
-        'id','pengalaman','deskripsi','perusahaan','tanggal_awal', 'tanggal_akhir'];
-    protected $guarded = [];
+        'pengguna_id', 'pengalaman', 'deskripsi', 'perusahaan', 'tanggal_awal', 'tanggal_akhir'];
+
+    public function pengguna()
+    {
+        return $this->belongsTo(Pengguna::class);
+    }
 }

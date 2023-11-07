@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class DataSkill extends Model
 {
     protected $table = "data_skills";
-    protected $primaryKey = "id";
-    protected $fillable = ['id','skills','rating'];
+    protected $fillable = [
+        'pengguna_id','skills','rating'];
+
+    public function pengguna()
+    {
+        $this->belongsTo(Pengguna::class, 'pengguna_id', 'id');
+    }
 }

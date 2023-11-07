@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('data_pendidikans', function (Blueprint $table) {
             $table->id();
-            $table->string('pendidikanformal')->nullable()->default(null);
-            $table->string('gelar')->nullable()->default(null);
-            $table->string('institusipendidikan')->nullable()->default(null);
-            $table->string('prestasiakademik')->nullable()->default(null);
-            $table->string('keterampilan')->nullable()->default(null);
+            $table->unsignedBigInteger('pengguna_id');
+            $table->foreign('pengguna_id')->references('id')->on('penggunas')->onDelete('cascade');
+            $table->string('pendidikanformal')->nullable();
+            $table->string('gelar')->nullable();
+            $table->string('institusipendidikan')->nullable();
+            $table->string('prestasiakademik')->nullable();
+            $table->string('keterampilan')->nullable();
             $table->timestamps();
         });
     }

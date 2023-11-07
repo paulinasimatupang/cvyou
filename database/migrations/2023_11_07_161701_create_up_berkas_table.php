@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('up_berkas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('pengguna_id')->default(0);
+            $table->foreign('pengguna_id')->references('id')->on('penggunas')->onDelete('cascade');
             $table->string('sertifikat')->nullable()->default(null);
             $table->string('suratrekomendasi')->nullable()->default(null);
             $table->string('portofolio')->nullable()->default(null);
