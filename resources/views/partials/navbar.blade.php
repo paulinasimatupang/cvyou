@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], 'editdatapribadi') !== false) ? 'active' : ''; ?>" href="/editdatapribadi/{id}">Data Pribadi</a>
+        <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], 'editdatapribadi') !== false) ? 'active' : ''; ?>" href="/editdatapribadi/{pengguna_id}">Data Pribadi</a>
     </li>
     <li class="nav-item">
         <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], 'tambahdatapendidikan') !== false) ? 'active' : ''; ?>" href="/tambahdatapendidikan">Data Pendidikan</a>
