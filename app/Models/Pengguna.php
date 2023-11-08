@@ -14,7 +14,7 @@ class Pengguna extends Model
 
     public function dataPribadi()
     {
-        return $this->hasOne(DataPribadi::class, 'pengguna_id', 'id');
+        $this->hasOne(DataPribadi::class, 'pengguna_id', 'id');
     }
 
     public function dataSkill()
@@ -29,7 +29,7 @@ class Pengguna extends Model
 
     public function dataPekerjaan()
     {
-        return $this->hasMany(DataPekerjaan::class, 'pengguna_id', 'id');
+        return $this->hasMany(DataPekerjaan::class, 'penggunas_id', 'id');
     }
 
     public function upBerkas()

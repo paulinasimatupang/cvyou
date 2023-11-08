@@ -15,6 +15,6 @@ class DataPekerjaan extends Model
 
     public function pengguna()
     {
-        return $this->belongsTo(Pengguna::class);
+        $this->belongsTo(Pengguna::class, 'pengguna_id', 'id');
     }
 }

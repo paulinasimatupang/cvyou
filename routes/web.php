@@ -35,6 +35,9 @@ Route::get('/index', [DataPribadiController::class, 'index'])->name('index');
 //pendidikan
 Route::get('/tambahdatapendidikan', [DataPendidikanController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
 Route::post('/insertdatapendidikan', [DataPendidikanController::class, 'insertdatapendidikan'])->name('insertdatapendidikan');
+Route::get('/editdatapendidikan/{id}', [DataPendidikanController::class, 'editdatapendidikan'])->name('editdatapendidikan');
+Route::post('/updatependidikan/{id}', [DataPendidikanController::class, 'updatependidikan'])->name('updatependidikan');
+Route::get('/deletependidikan/{id}', [DataPendidikanController::class, 'deletependidikan'])->name('deletependidikan');
 
 //pekerjaan
 Route::get('/tambahdatapekerjaan', [DataPekerjaanController::class, 'tambahdatapekerjaan'])->name('tambahdatapekerjaan');

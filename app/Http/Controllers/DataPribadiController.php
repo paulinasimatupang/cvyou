@@ -33,7 +33,17 @@ class DataPribadiController extends Controller
 
     // ngejalanin bagaimana memasukan data dalam database
     public function insertdata(Request $request){
-        $data = DataPribadi::create($request->all());
+        $data = DataPribadi::create([
+            'pengguna_id' => 1,
+            'poto' => $request->poto,
+            'firstnm' => $request->firstnm,
+            'lastnm' => $request->lastnm,
+            'tempatlahir' => $request->tempatlahir,
+            'tgllahir' => $request->tgllahir,
+            'email' => $request->email,
+            'notelpon' => $request->notelpon,
+            'alamat' => $request->alamat,
+        ]);;
         
         // Mengambil ID pengguna yang baru saja dibuat
         $dataId = $data->id;
@@ -45,7 +55,8 @@ class DataPribadiController extends Controller
             $data->save();
         }
         
-        return redirect()->route('tambahdatapendidikan', ['id' => $dataId])->with('success', 'Data Berhasil di Simpan');
+        // return redirect($data)->route('tambahdatapendidikan', ['id' => $dataId])->with('success', 'Data Berhasil di Simpan');
+        return redirect()->route('tambahdatapribadi', ['id' => $dataId])->with('success', 'Data Berhasil di Simpan');
     }
     
     public function editdatapribadi($id) {
@@ -74,18 +85,18 @@ class DataPribadiController extends Controller
         return redirect()->route('tambahdatapekerjaan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
     }
     
-    public function tambahdatapekerjaan($id) {
-        $data = DataPribadi::find($id);
-        return view('datapekerjaan', compact('data'));
-    }
+    // public function tambahdatapekerjaan($id) {
+    //     $data = DataPribadi::find($id);
+    //     return view('datapekerjaan', compact('data'));
+    // }
     
-    public function insertdatapekerjaan(Request $request, $id) {
-        $data = DataPribadi::find($id);
+    // public function insertdatapekerjaan(Request $request, $id) {
+    //     $data = DataPribadi::find($id);
         
-        $data->update($request->all());
+    //     $data->update($request->all());
         
-        return redirect()->route('tambahberkaspendukung', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
-    }
+    //     return redirect()->route('tambahberkaspendukung', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
+    // }
 
     public function tambahberkaspendukung($id) {
         $data = DataPribadi::find($id);

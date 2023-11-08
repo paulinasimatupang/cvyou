@@ -11,7 +11,7 @@ class DataPendidikan extends Model
 
     protected $table = "data_pendidikans";
     protected $fillable = [
-        'pengguna_id', 'pendidikanformal', 'gelar', 'institusipendidikan', 'prestasiakademik', 'Keterampilan'];
+        'pengguna_id', 'pendidikanformal', 'gelar', 'institusipendidikan', 'prestasiakademik', 'keterampilan'];
 
     public function pengguna()
     {

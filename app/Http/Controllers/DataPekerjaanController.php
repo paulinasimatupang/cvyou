@@ -26,20 +26,21 @@ class DataPekerjaanController extends Controller
     }
 
     public function insertpekerjaan(Request $request){
-        $this->validate($request,[
-            'tanggal_akhir' => 'after_or_equal:tanggal_awal'
-        ], ['tanggal_akhir.after_or_equal' => 'Tanggal Berakhir harus setelah atau sama dengan Tanggal Mulai.',
+        // $this->validate($request,[
+        //     'tanggal_akhir' => 'after_or_equal:tanggal_awal'
+        // ], ['tanggal_akhir.after_or_equal' => 'Tanggal Berakhir harus setelah atau sama dengan Tanggal Mulai.',
+        // ]);
+        
+        $data = DataPekerjaan::create([
+            'pengguna_id' => 1,
+            'pengalaman' => $request->pengalaman,
+            'deskripsi' => $request->deskripsi,
+            'perusahaan' => $request->perusahaan,
+            'tanggal_awal' => $request->tanggal_awal,
+            'tanggal_akhir' => $request->tanggal_akhir,
         ]);
         
-        // Pastikan 'tanggal_akhir' ada sebelum menyimpannya
-        if ($request->has('tanggal_akhir')) {
-            DataPekerjaan::create($request->all());
-            return redirect()->route('tambahdatapekerjaan')->with('success', 'Data berhasil ditambahkan');
-        }
-        else {
-            // Handle jika 'tanggal_akhir' tidak ada
-            return redirect()->back()->with('error', 'Kolom Tanggal Berakhir harus diisi.');
-        }
+        return redirect()->route('tambahdatapekerjaan')->with('success', 'Data berhasil ditambahkan');
     }
 
 
