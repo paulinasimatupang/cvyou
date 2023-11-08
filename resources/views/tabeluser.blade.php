@@ -103,7 +103,7 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
-  <!-- <script>
+  <script>
     $('.delete').click( function() {
         var pekerjaanid = $(this).attr('data-id');
         swal({
@@ -123,11 +123,11 @@
                 swal("Data tidak jadi dihapus!");
             }
         });
-    }); 
+    });
   </script>
-<script> -->
-<!-- // @if (Session::has('success'))
-//     toastr.success("{{ Session::get('success') }}")
-// @endif
-</script> -->
+{{-- <script>
+@if (Session::has('success'))
+     toastr.success("{{ Session::get('success') }}")
+ @endif
+</script> --}}
 </html>
