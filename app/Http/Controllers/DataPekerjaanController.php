@@ -26,10 +26,10 @@ class DataPekerjaanController extends Controller
     }
 
     public function insertpekerjaan(Request $request){
-        // $this->validate($request,[
-        //     'tanggal_akhir' => 'after_or_equal:tanggal_awal'
-        // ], ['tanggal_akhir.after_or_equal' => 'Tanggal Berakhir harus setelah atau sama dengan Tanggal Mulai.',
-        // ]);
+        $this->validate($request,[
+            'tanggal_akhir' => 'after_or_equal:tanggal_awal'
+        ], ['tanggal_akhir.after_or_equal' => 'Tanggal Berakhir harus setelah atau sama dengan Tanggal Mulai.',
+        ]);
         
         $data = DataPekerjaan::create([
             'pengguna_id' => 1,

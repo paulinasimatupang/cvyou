@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataPribadiController;
 use App\Http\Controllers\DataPekerjaanController;
 use App\Http\Controllers\DataPendidikanController;
+use App\Http\Controllers\DataSkillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,13 @@ Route::post('/insertdatapekerjaan', [DataPekerjaanController::class, 'insertpeke
 Route::get('/editdatapekerjaan/{id}', [DataPekerjaanController::class, 'editdatapekerjaan'])->name('editdatapekerjaan');
 Route::post('/updatepekerjaan/{id}', [DataPekerjaanController::class, 'updatepekerjaan'])->name('updatepekerjaan');
 Route::get('/deletepekerjaan/{id}', [DataPekerjaanController::class, 'deletepekerjaan'])->name('deletepekerjaan');
+
+//Skill
+Route::get('/tambahdataskill', [DataSkillController::class, 'tambahdataskill'])->name('tambahdataskill');
+Route::post('/insertdataskill', [DataSkillController::class, 'insertskill'])->name('insertskill');
+Route::get('/editdataskill/{id}', [DataSkillController::class, 'editdataskill'])->name('editdataskill');
+Route::post('/updateskill/{id}', [DataSkillController::class, 'updateskill'])->name('updateskill');
+Route::get('/deleteskill/{id}', [DataSkillController::class, 'deleteskill'])->name('deleteskill');
 
 Route::get('/output', function () {
     return view('output');

@@ -9,7 +9,7 @@ class DataSkill extends Model
 {
     protected $table = "data_skills";
     protected $fillable = [
-        'pengguna_id','skills','rating'];
+        'pengguna_id','skill','rating'];
 
     public function pengguna()
     {
