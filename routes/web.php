@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DataSkillController;
 use App\Http\Controllers\DataPribadiController;
 use App\Http\Controllers\DataPekerjaanController;
 use App\Http\Controllers\DataPendidikanController;
-use App\Http\Controllers\DataSkillController;
+use App\Http\Controllers\BerkasPendukungController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +28,8 @@ Route::get('/User', [DataPribadiController::class, 'index'])->name('User');
 Route::get('/button/{id}', [DataPribadiController::class, 'button'])->name('button');
 Route::get('/tambahdatapribadi', [DataPribadiController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');
 Route::get('/editdatapribadi/{id}', [DataPribadiController::class, 'editdatapribadi'])->name('editdatapribadi');
-Route::get('/tambahberkaspendukung/{id}', [DataPribadiController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
 Route::post('/insertdata', [DataPribadiController::class, 'insertdata'])->name('insertdata');
 Route::post('/updatedatapribadi/{id}', [DataPribadiController::class, 'updatedatapribadi'])->name('updatedatapribadi');
-Route::post('/insertberkaspendukung/{id}', [DataPribadiController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');
-
 Route::get('/index', [DataPribadiController::class, 'index'])->name('index');
 
 //pendidikan
@@ -61,3 +60,5 @@ Route::get('/output', function () {
 Route::get('/delete/{id}', [DataPribadiController::class, 'delete'])->name('delete');
 Route::get('/output', [DataPribadiController::class, 'output'])->name('output');
 
+Route::get('/tambahberkaspendukung/{id}', [BerkasPendukungController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
+Route::post('/insertberkaspendukung/{id}', [BerkasPendukungController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');

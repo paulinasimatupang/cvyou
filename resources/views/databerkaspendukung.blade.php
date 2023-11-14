@@ -30,7 +30,7 @@
             <div class="col-8">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('insertberkaspendukung', ['id' => $data->id]) }}" method="POST"
+                        <form action="{{ route('insertberkaspendukung', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
                             enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
