@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\UpBerkas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class BerkasPendukungController extends Controller
 {
-    public function tambahberkaspendukung($id)
+    public function tambahberkaspendukung()
     {
         // Logika untuk menampilkan formulir tambah berkas pendukung
-        $data = UpBerkas::find($id);
-        return view('databerkaspendukung', ['data' => $data]);
+        $data = UpBerkas::all();
+        return view('databerkaspendukung', compact('data'));
     }
 
     public function insertberkaspendukung(Request $request, $id)
@@ -36,5 +38,22 @@ class BerkasPendukungController extends Controller
 
         return redirect()->back()->with('success', 'Berkas berhasil diunggah: ' . $fileName);
     }
-    
+
+    public function deleteberkaspendukung($berkasId)
+    {
+    // Temukan berkas berdasarkan ID
+    $berkas = UpBerkas::find($berkasId);
+    // Hapus berkas dari penyimpanan
+    if ($berkas) {
+        $filePath = public_path('uploads') . '/' . $berkas->file_path;
+        if (file_exists($filePath)) {
+            unlink($filePath); // Hapus berkas dari direktori penyimpanan
+        }
+
+        // Hapus berkas dari database
+        $berkas->delete();
+        return redirect()->back()->with('success', 'Berkas berhasil dihapus');
+    }
+    return redirect()->back()->with('error', 'Berkas tidak ditemukan');
+    }
 }
