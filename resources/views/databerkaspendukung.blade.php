@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-        <h1 class="text-center mb-4">Data Pengguna</h1>
+        <h1 class="text-center mb-4">Berkas Pendukung</h1>
 
         <div class="container">
             <div class="row g-3 align-items-center mb-1">
