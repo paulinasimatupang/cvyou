@@ -56,12 +56,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
-              <div>
-                <a href="/tambahdatapendidikan" class="btn btn-success">Back</a>
-              </div>
-              <div>
-                <a href="/tambahberkaspendukung" class="btn btn-success">Next</a>
-              </div>
             </div>
           </div>
         </div>
@@ -94,7 +88,6 @@
               <th scope="col">Perusahaan</th>
               <th scope="col">Tanggal Mulai</th>
               <th scope="col">Tanggal Berakhir</th>
-              <th scope="col">Dibuat</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
@@ -110,7 +103,6 @@
               <td>{{ $row->perusahaan }}</td>
               <td>{{ \Carbon\Carbon::parse($row->tanggal_awal)->format('d M Y') }}</td>
               <td>{{ \Carbon\Carbon::parse($row->tanggal_akhir)->format('d M Y') }}</td>
-              <td>{{ \Carbon\Carbon::parse($row->created_at)->format('d M Y') }}</td>
               <td>
                 <a href="/editdatapekerjaan/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
                 <a href="/deletepekerjaan/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>

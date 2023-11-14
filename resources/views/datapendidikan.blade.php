@@ -53,12 +53,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
-              <div>
-                <a href="/tambahdatapendidikan" class="btn btn-success">Back</a>
-              </div>
-              <div>
-                <a href="/tambahberkaspendukung" class="btn btn-success">Next</a>
-              </div>
             </div>
           </div>
         </div>
@@ -91,6 +85,7 @@
               <th scope="col">Institusi Pendidikan</th>
               <th scope="col">Prestasi Akademik</th>
               <th scope="col">Keterampilan</th>
+              <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -105,7 +100,6 @@
               <td>{{ $row->institusipendidikan }}</td>
               <td>{{ $row->prestasiakademik }}</td>
               <td>{{ $row->keterampilan }}</td>
-
               <td>
                 <a href="/editdatapendidikan/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
                 <a href="/deletependidikan/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>

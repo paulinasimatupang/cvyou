@@ -58,7 +58,7 @@
         <div class="col-8">
           <div class="card">
             <div class="card-body">
-              <form action="/insertdatapekerjaan" method="POST" enctype="multipart/form-data">
+              <form action="/insertdataskill" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                   <label for="examplePengalaman" class="form-label">Skill</label>
@@ -82,12 +82,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
-              <div>
-                <a href="/tambahdataskill" class="btn btn-success">Back</a>
-              </div>
-              <div>
-                <a href="/tambahberkaspendukung" class="btn btn-success">Next</a>
-              </div>
             </div>
           </div>
         </div>
@@ -96,42 +90,48 @@
 
     <h1 class="text-center mb-4">Riwayat Skill</h1>
 
-    <div class="container">
-      {{-- <a href="/tambahdatapekerjaan" class="btn btn-success mb-3">Tambah +</a> --}}
+    <div class="container text-center">
       <div class="row g-3 align-items-center mb-1">
-        <div class="col-auto">
-          <form action="/tabel1" method="GET">
-            <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
-          </form>
-        </div>
+          <div class="col-auto">
+              <form action="/tabel1" method="GET">
+                  <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
+              </form>
+          </div>
       </div>
       <div class="row">
-        {{-- @if ($message = Session::get('success'))
-        <div class="alert alert-success" role="alert">
-          {{ $message }}
-        </div>
-        @endif --}}
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">No.</th>
-              <th scope="col">Skill</th>
-              <th scope="col">Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-            @php
-            $no = 1;
-            @endphp
-            @foreach ($data as $index => $row)
-            <tr>
-              <th scope="row">{{ $no++ }}</th>
-              <td>{{ $row->skill }}</td>
-              <td>{{ $row->rating }}</td>
-              <td>
-                <a href="/editdataskill/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
-                <a href="#" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
-              </td>
+          {{-- @if ($message = Session::get('success'))
+          <div class="alert alert-success" role="alert">
+              {{ $message }}
+          </div>
+          @endif --}}
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th scope="col">No.</th>
+                      <th scope="col">Skill</th>
+                      <th scope="col">Rating</th>
+                      <th scope="col">Aksi</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @php
+                  $no = 1;
+                  @endphp
+                  @foreach ($data as $index => $row)
+                  <tr>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th scope="row">{{ $no++ }}</th>
+                      <td>{{ $row->skill }}</td>
+                      <td>{{ $row->rating }}</td>
+                      <td>
+                          <a href="/editdataskill/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
+                          <a href="#" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
+                      </td>
             </tr>
             @endforeach
           </tbody>
