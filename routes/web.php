@@ -32,6 +32,7 @@ Route::post('/logout', [PenggunaController::class, 'logout'])->name('logout');
 Route::get('/tambahdatapribadi', [PenggunaController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');
 Route::get('/editdatapribadi/{id}', [PenggunaController::class, 'editdatapribadi'])->name('editdatapribadi');
 Route::post('/insertdata', [PenggunaController::class, 'insertdata'])->name('insertdata');
+Route::post('/updatedatapribadi', [DataPribadiController::class, 'updatedatapribadi'])->name('updatedatapribadi');
 
 //pendidikan
 Route::get('/tambahdatapendidikan', [PenggunaController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');

@@ -66,12 +66,7 @@ class PenggunaController extends Controller
         $penggunaId = Auth::id();
     
         // Memeriksa apakah data pribadi sudah ada untuk pengguna yang saat ini login
-        $data = DataPribadi::where('pengguna_id', $penggunaId)->first();
-    
-        // Jika data pribadi sudah ada, Anda dapat melakukan penanganan sesuai kebutuhan, misalnya redirect ke halaman lain
-        if ($data) {
-            return redirect()->route('tambahdatapribadi')->with('warning', 'Data pribadi sudah ada, Anda tidak dapat menambahkannya lagi.');
-        }
+        DataPribadi::where('pengguna_id', $penggunaId)->first();
     
         // Jika data pribadi belum ada, izinkan pengguna untuk menambahkannya
         return view('datapribadi');

@@ -7,19 +7,27 @@
     <title>Register</title>
 </head>
 <body>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+    <div class="container">
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-        <label for="name">Nama Lengkap:</label>
-        <input type="name" name="name " required>
+            <div class="form-group">
+                <label for="name">Nama Lengkap:</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
 
-        <button type="submit">Registrasi</button>
-    </form>
+            <button type="submit" class="btn btn-primary">Registrasi</button>
+        </form>
+    </div>
 </body>
 </html>
