@@ -2,11 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PenggunaController;
-use App\Http\Controllers\DataSkillController;
-use App\Http\Controllers\DataPribadiController;
-use App\Http\Controllers\DataPekerjaanController;
-use App\Http\Controllers\DataPendidikanController;
-use App\Http\Controllers\BerkasPendukungController;
 
 
 /*
@@ -24,51 +19,42 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//register
+Route::get('/register', [PenggunaController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [PenggunaController::class, 'register']);
+
 //Login
 Route::get('/login', [PenggunaController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [PenggunaController::class, 'login']);
 Route::post('/logout', [PenggunaController::class, 'logout'])->name('logout');
 
-//register
-Route::get('/register', [PenggunaController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [PenggunaController::class, 'register']);
-
 //Data Pribadi
-Route::get('/User', [DataPribadiController::class, 'index'])->name('User');
-Route::get('/button/{id}', [DataPribadiController::class, 'button'])->name('button');
-Route::get('/tambahdatapribadi', [DataPribadiController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');
-Route::get('/editdatapribadi/{id}', [DataPribadiController::class, 'editdatapribadi'])->name('editdatapribadi');
-Route::post('/insertdata', [DataPribadiController::class, 'insertdata'])->name('insertdata');
-Route::post('/updatedatapribadi/{id}', [DataPribadiController::class, 'updatedatapribadi'])->name('updatedatapribadi');
-Route::get('/index', [DataPribadiController::class, 'index'])->name('index');
-Route::get('/delete/{id}', [DataPribadiController::class, 'delete'])->name('delete');
-Route::get('/output', [DataPribadiController::class, 'output'])->name('output');
+Route::get('/tambahdatapribadi', [PenggunaController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');
+Route::get('/editdatapribadi/{id}', [PenggunaController::class, 'editdatapribadi'])->name('editdatapribadi');
+Route::post('/insertdata', [PenggunaController::class, 'insertdata'])->name('insertdata');
 
 //pendidikan
-Route::get('/tambahdatapendidikan', [DataPendidikanController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
-Route::post('/insertdatapendidikan', [DataPendidikanController::class, 'insertdatapendidikan'])->name('insertdatapendidikan');
-Route::get('/editdatapendidikan/{id}', [DataPendidikanController::class, 'editdatapendidikan'])->name('editdatapendidikan');
-Route::post('/updatependidikan/{id}', [DataPendidikanController::class, 'updatependidikan'])->name('updatependidikan');
-Route::get('/deletependidikan/{id}', [DataPendidikanController::class, 'deletependidikan'])->name('deletependidikan');
+Route::get('/tambahdatapendidikan', [PenggunaController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
+Route::post('/insertdatapendidikan', [PenggunaController::class, 'insertdatapendidikan'])->name('insertdatapendidikan');
+Route::get('/editdatapendidikan/{id}', [PenggunaController::class, 'editdatapendidikan'])->name('editdatapendidikan');
+Route::get('/deletependidikan/{id}', [PenggunaController::class, 'deletependidikan'])->name('deletependidikan');
 
 //pekerjaan
-Route::get('/tambahdatapekerjaan', [DataPekerjaanController::class, 'tambahdatapekerjaan'])->name('tambahdatapekerjaan');
-Route::post('/insertdatapekerjaan', [DataPekerjaanController::class, 'insertpekerjaan'])->name('insertpekerjaan');
-Route::get('/editdatapekerjaan/{id}', [DataPekerjaanController::class, 'editdatapekerjaan'])->name('editdatapekerjaan');
-Route::post('/updatepekerjaan/{id}', [DataPekerjaanController::class, 'updatepekerjaan'])->name('updatepekerjaan');
-Route::get('/deletepekerjaan/{id}', [DataPekerjaanController::class, 'deletepekerjaan'])->name('deletepekerjaan');
+Route::get('/tambahdatapekerjaan', [PenggunaController::class, 'tambahdatapekerjaan'])->name('tambahdatapekerjaan');
+Route::post('/insertdatapekerjaan', [PenggunaController::class, 'insertpekerjaan'])->name('insertpekerjaan');
+Route::get('/editdatapekerjaan/{id}', [PenggunaController::class, 'editdatapekerjaan'])->name('editdatapekerjaan');
+Route::get('/deletepekerjaan/{id}', [PenggunaController::class, 'deletepekerjaan'])->name('deletepekerjaan');
 
 //Skill
-Route::get('/tambahdataskill', [DataSkillController::class, 'tambahdataskill'])->name('tambahdataskill');
-Route::post('/insertdataskill', [DataSkillController::class, 'insertskill'])->name('insertskill');
-Route::get('/editdataskill/{id}', [DataSkillController::class, 'editdataskill'])->name('editdataskill');
-Route::post('/updateskill/{id}', [DataSkillController::class, 'updateskill'])->name('updateskill');
-Route::get('/deleteskill/{id}', [DataSkillController::class, 'deleteskill'])->name('deleteskill');
+Route::get('/tambahdataskill', [PenggunaController::class, 'tambahdataskill'])->name('tambahdataskill');
+Route::post('/insertdataskill', [PenggunaController::class, 'insertskill'])->name('insertskill');
+Route::get('/editdataskill/{id}', [PenggunaController::class, 'editdataskill'])->name('editdataskill');
+Route::get('/deleteskill/{id}', [PenggunaController::class, 'deleteskill'])->name('deleteskill');
 
 //Berkas Pendukung
-Route::get('/tambahberkaspendukung', [BerkasPendukungController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
-Route::post('/insertberkaspendukung', [BerkasPendukungController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');
-Route::get('/deleteberkaspendukung/{berkasId}', [BerkasPendukungController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
+Route::get('/tambahberkaspendukung', [PenggunaController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
+Route::post('/insertberkaspendukung', [PenggunaController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');
+Route::get('/deleteberkaspendukung/{berkasId}', [PenggunaController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
 
 Route::get('/output', function () {
     return view('output');
