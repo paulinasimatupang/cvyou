@@ -11,7 +11,7 @@ class UpBerkas extends Model
 
     protected $table = "up_berkas";
     protected $fillable = [
-        'pengguna_id', 'sertifikat', 'suratrekomendasi', 'portofolio', 'file_path'];
+        'pengguna_id', 'sertifikat', 'suratrekomendasi', 'portofolio'];
 
     public function pengguna()
     {

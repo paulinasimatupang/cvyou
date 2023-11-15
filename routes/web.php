@@ -58,9 +58,7 @@ Route::get('/output', function () {
 });
 
 Route::get('/delete/{id}', [DataPribadiController::class, 'delete'])->name('delete');
-Route::get('/output', [DataPribadiController::class, 'output'])->name('output');
-
-//berkas
+Route::get('/output', [DataPribadiController::class, 'output'])->name('output')
 Route::get('/tambahberkaspendukung', [BerkasPendukungController::class, 'tambahberkaspendukung'])->name('tambahberkaspendukung');
 Route::post('/insertberkaspendukung', [BerkasPendukungController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');
 Route::get('/deleteberkaspendukung/{berkasId}', [BerkasPendukungController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
