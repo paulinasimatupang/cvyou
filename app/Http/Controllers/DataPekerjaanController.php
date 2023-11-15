@@ -9,19 +9,13 @@ use Illuminate\Support\Facades\Session;
 
 class DataPekerjaanController extends Controller
 {
-    public function index(Request $request){
-        if($request->has('search')){
-            $data = DataPekerjaan::where('pengalaman','LIKE','%' .$request->search.'%')->paginate(5);
-            Session::put('halaman_url', request()->fullUrl());
-        } else{
-            $data = DataPekerjaan::paginate(5);
-            Session::put('halaman_url', request()->fullUrl());
-        }
-        return view('datapekerjaan', compact('data'));
-    }
-
     public function tambahdatapekerjaan(){
-        $data = DataPekerjaan::all();
+        // Mendapatkan pengguna_id dari pengguna yang saat ini login
+        $penggunaId = Auth::id();
+    
+        // Mengambil data pekerjaan hanya untuk pengguna yang saat ini login
+        $data = DataPekerjaan::where('pengguna_id', $penggunaId)->get();
+    
         return view('datapekerjaan', compact('data'));
     }
 
@@ -47,15 +41,6 @@ class DataPekerjaanController extends Controller
     public function editdatapekerjaan($id){
         $data = DataPekerjaan::find($id);
         return view('editdatapekerjaan', compact('data'));
-    }
-
-    public function updatepekerjaan(Request $request, $id){
-        $data = DataPekerjaan::find($id);
-        $data->update($request->all());
-        if(session('halaman_url')){
-            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diupdate');
-        }
-        return redirect()->route('tambahdatapekerjaan')->with('success', 'Data berhasil diupdate');
     }
 
     public function deletepekerjaan($id){

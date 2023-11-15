@@ -9,7 +9,12 @@ use App\Models\DataPendidikan as DataPendidikan;
 class DataPendidikanController extends Controller
 {
     public function tambahdatapendidikan() {
-        $data = DataPendidikan::all();
+        // Mendapatkan pengguna_id dari pengguna yang saat ini login
+        $penggunaId = Auth::id();
+
+        // Mengambil data pendidikan hanya untuk pengguna yang saat ini login
+        $data = DataPendidikan::where('pengguna_id', $penggunaId)->get();
+
         return view('datapendidikan', compact('data'));
     }
 

@@ -9,19 +9,13 @@ use Illuminate\Support\Facades\Session;
 
 class DataSkillController extends Controller
 {
-    public function index(Request $request){
-        if($request->has('search')){
-            $data = DataSkill::where('skill','LIKE','%' .$request->search.'%')->paginate(5);
-            Session::put('halaman_url', request()->fullUrl());
-        } else{
-            $data = DataSkill::paginate(5);
-            Session::put('halaman_url', request()->fullUrl());
-        }
-        return view('dataskill', compact('data'));
-    }
-
     public function tambahdataskill(){
-        $data = DataSkill::all();
+        // Mendapatkan pengguna_id dari pengguna yang saat ini login
+        $penggunaId = Auth::id();
+    
+        // Mengambil data skill hanya untuk pengguna yang saat ini login
+        $data = DataSkill::where('pengguna_id', $penggunaId)->get();
+    
         return view('dataskill', compact('data'));
     }
 
@@ -39,15 +33,6 @@ class DataSkillController extends Controller
     public function editdataskill($id){
         $data = DataSkill::find($id);
         return view('editdataskill', compact('data'));
-    }
-
-    public function updateskill(Request $request, $id){
-        $data = DataSkill::find($id);
-        $data->update($request->all());
-        if(session('halaman_url')){
-            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diupdate');
-        }
-        return redirect()->route('tambahdataskill')->with('success', 'Data berhasil diupdate');
     }
 
     public function deleteskill($id){

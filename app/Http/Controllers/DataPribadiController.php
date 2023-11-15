@@ -8,13 +8,19 @@ use Illuminate\Http\Request;
 
 class DataPribadiController extends Controller
 {   
-    public function index() {
-        $data = DataPribadi::all();
-
-        return view('tabeluser', compact('data'));
-    }
-
     public function tambahdatapribadi(){
+        // Mendapatkan pengguna_id dari pengguna yang saat ini login
+        $penggunaId = Auth::id();
+    
+        // Memeriksa apakah data pribadi sudah ada untuk pengguna yang saat ini login
+        $data = DataPribadi::where('pengguna_id', $penggunaId)->first();
+    
+        // Jika data pribadi sudah ada, Anda dapat melakukan penanganan sesuai kebutuhan, misalnya redirect ke halaman lain
+        if ($data) {
+            return redirect()->route('editdatapribadi')->with('warning', 'Data pribadi sudah ada, Anda tidak dapat menambahkannya lagi.');
+        }
+    
+        // Jika data pribadi belum ada, izinkan pengguna untuk menambahkannya
         return view('datapribadi');
     }
 

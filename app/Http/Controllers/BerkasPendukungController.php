@@ -10,8 +10,12 @@ class BerkasPendukungController extends Controller
 {
     public function tambahberkaspendukung()
     {
-        // Logika untuk menampilkan formulir tambah berkas pendukung
-        $data = UpBerkas::all();
+        // Mendapatkan pengguna_id dari pengguna yang saat ini login
+        $penggunaId = Auth::id();
+
+        // Mengambil data berkas pendukung hanya untuk pengguna yang saat ini login
+        $data = UpBerkas::where('pengguna_id', $penggunaId)->get();
+
         return view('databerkaspendukung', compact('data'));
     }
 
