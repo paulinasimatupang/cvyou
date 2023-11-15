@@ -20,8 +20,8 @@
   @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
-    </div>
-  @endif
+    </div>
+    @endif
 
     <h1 class="text-center mb-4">Berkas Pendukung</h1>
     <div class="container">
@@ -29,18 +29,18 @@
         <div class="col-8">
           <div class="card">
             <div class="card-body">
-              <form action="/insertberkaspendukung" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('insertberkaspendukung') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                  <label for="examplependidikanformal" class="form-label">Sertifikat</label>
+                  <label for="exampleInputsertifikat" class="form-label">Sertifikat</label>
                   <input type="file" name="sertifikat" class="form-control" id="exampleInputsertifikat" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputgelar" class="form-label">Surat Rekomendasi</label>
+                  <label for="exampleInputsuratrekomendasi" class="form-label">Surat Rekomendasi</label>
                   <input type="file" name="suratrekomendasi" class="form-control" id="exampleInputsuratrekomendasi" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputinstitusipendidikan" class="form-label">Portofolio</label>
+                  <label for="exampleInputportofolio" class="form-label">Portofolio</label>
                   <input type="file" name="portofolio" class="form-control" id="exampleInputportofolio" aria-describedby="emailHelp">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -54,7 +54,6 @@
     <h1 class="text-center mb-4">Berkas Pendukung</h1>
 
     <div class="container">
-      {{-- <a href="/tambahberkaspendukung" class="btn btn-success mb-3">Tambah +</a> --}}
       <div class="row g-3 align-items-center mb-1">
         <div class="col-auto">
           <form action="/tabel1" method="GET">
@@ -63,11 +62,11 @@
         </div>
       </div>
       <div class="row">
-        {{-- @if ($message = Session::get('success'))
+        @if ($message = Session::get('success'))
         <div class="alert alert-success" role="alert">
           {{ $message }}
         </div>
-        @endif --}}
+        @endif
         <table class="table table-striped">
           <thead>
             <tr>
@@ -84,9 +83,9 @@
             @foreach ($data as $index => $row)
             <tr>
               <th scope="row">{{ $no++ }}</th>
-              <td>{{ $row->sertifikat }}</td>
-              <td>{{ $row->suratrekomendasi }}</td>
-              <td>{{ $row->portofolio }}</td>
+              <td>{{ $row->sertifikatFileName }}</td>
+              <td>{{ $row->suratrekomendasiFileName }}</td>
+              <td>{{ $row->portofolioFileName }}</td>
               <td>
                 <a href="/deleteberkaspendukung/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
               </td>
@@ -116,7 +115,7 @@
       })
       .then((willDelete) => {
         if (willDelete) {
-          window.location = "/deleteberkaspendukung/"+berkasId+
+          window.location = "/deleteberkaspendukung/"+pekerjaanid+
           swal("Data berhasil dihapus!", {
             icon: "success",
           });

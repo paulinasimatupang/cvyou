@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\UpBerkas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -16,27 +17,38 @@ class BerkasPendukungController extends Controller
         return view('databerkaspendukung', compact('data'));
     }
 
-    public function insertberkaspendukung(Request $request, $id)
+    public function insertberkaspendukung(Request $request)
     {
         $request->validate([
-            'nama_berkas' => 'required',
-            'file_berkas' => 'required|mimes:pdf,doc,docx|max:2048',
+            'sertifikat' => 'required|mimes:pdf,doc,docx|max:2048',
+            'suratrekomendasi' => 'required|mimes:pdf,doc,docx|max:2048',
+            'portofolio' => 'required|mimes:pdf,doc,docx|max:2048',
         ]);
-
-        $file = $request->file('file_berkas');
-        $fileName = time() . '_' . $file->getClientOriginalName();
-
+    
+        $sertifikatFile = $request->file('sertifikat');
+        $suratrekomendasiFile = $request->file('suratrekomendasi');
+        $portofolioFile = $request->file('portofolio');
+        $userId = Auth::id();
+    
+        $sertifikatFileName = time() . '_' . $sertifikatFile->getClientOriginalName();
+        $suratrekomendasiFileName = time() . '_' . $suratrekomendasiFile->getClientOriginalName();
+        $portofolioFileName = time() . '_' . $portofolioFile->getClientOriginalName();
+    
         // Menyimpan berkas ke dalam direktori penyimpanan
-        $file->move(public_path('uploads'), $fileName);
-
+        $sertifikatFile->move(public_path('uploads'), $sertifikatFileName);
+        $suratrekomendasiFile->move(public_path('uploads'), $suratrekomendasiFileName);
+        $portofolioFile->move(public_path('uploads'), $portofolioFileName);
+    
         // Menyimpan informasi berkas ke dalam database
         UpBerkas::create([
-            'nama_berkas' => $request->input('nama_berkas'),
-            'file_path' => $fileName,
-            'pendaftaran_id' => $id,
+            'pengguna_id' => $userId, // Sesuaikan dengan pengguna yang sedang login
+            'sertifikat' => $request->sertifikatFileName,
+            'suratrekomendasi' => $request->suratrekomendasiFileName,
+            'portofolio' => $request->portofolioFileName,
+            'file_path' => $request->sertifikatFileName, // Simpan nama salah satu berkas, atau sesuaikan dengan kebutuhan
         ]);
-
-        return redirect()->back()->with('success', 'Berkas berhasil diunggah: ' . $fileName);
+    
+        return redirect()->route('tambahberkaspendukung')->with('success', 'Berkas berhasil diunggah');
     }
 
     public function deleteberkaspendukung($berkasId)

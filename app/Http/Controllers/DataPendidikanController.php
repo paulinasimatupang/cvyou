@@ -15,7 +15,7 @@ class DataPendidikanController extends Controller
     }
 
     public function insertdatapendidikan(Request $request) {
-        $data = DataPendidikan::create([
+        DataPendidikan::create([
             'pengguna_id' => 1,
             'pendidikanformal' => $request->pendidikanformal,
             'gelar' => $request->gelar,
