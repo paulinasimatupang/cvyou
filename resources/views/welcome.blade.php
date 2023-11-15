@@ -177,7 +177,7 @@
     <br>
     <br>
         <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10%;gap:15px;">
-          <a href="/tambahdatapribadi" type="button" class="btn btn-primary btn-lg" style="background-color: #008374; color: #ffffff;"       onclick="redirectToOtherPage()">Make Your CV</a><br>
+          <a href="/register" type="button" class="btn btn-primary btn-lg" style="background-color: #008374; color: #ffffff;"       onclick="redirectToOtherPage()">Registrasi</a><br>
           <a href="/login" type="button" class="btn btn-primary btn-lg" style="background-color: #008374; color: #ffffff;"       onclick="redirectToOtherPage()">Login</a>
         </div>
   </div>

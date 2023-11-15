@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
-    'App\\Http\\Controllers\\AkunController' => $baseDir . '/app/Http/Controllers/AkunController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -21,6 +20,7 @@ return array(
     'App\\Http\\Controllers\\DataPendidikanController' => $baseDir . '/app/Http/Controllers/DataPendidikanController.php',
     'App\\Http\\Controllers\\DataPribadiController' => $baseDir . '/app/Http/Controllers/DataPribadiController.php',
     'App\\Http\\Controllers\\DataSkillController' => $baseDir . '/app/Http/Controllers/DataSkillController.php',
+    'App\\Http\\Controllers\\PenggunaController' => $baseDir . '/app/Http/Controllers/PenggunaController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',

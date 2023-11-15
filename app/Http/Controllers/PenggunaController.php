@@ -10,20 +10,21 @@ class PenggunaController extends Controller
 {
     public function showLoginForm()
     {
-        return view('Pengguna');
+        return view('login');
     }
 
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-
+    
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended('/dashboard');
+            return redirect()->route('tambahdatapribadi');
         }
-
+    
         return redirect()->route('login')->with('error', 'Invalid credentials');
     }
+    
 
     public function logout()
     {
@@ -31,10 +32,6 @@ class PenggunaController extends Controller
 
         return redirect()->route('login');
     }
-<<<<<<< Updated upstream
-}
-=======
-<<<<<<< HEAD
 
     public function showRegistrationForm()
     {
@@ -55,12 +52,8 @@ class PenggunaController extends Controller
         // Login pengguna setelah pendaftaran
         Auth::login($user);
 
-        return redirect('/dashboard');
+        return redirect('/login');
     }
 
 
 }
-=======
-}
->>>>>>> d5ca2ecd7db21f7d9c279f95582400c48e5e7275
->>>>>>> Stashed changes
