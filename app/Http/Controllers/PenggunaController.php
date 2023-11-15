@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Pengguna;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,7 @@ class PenggunaController extends Controller
 
         // Simpan pengguna baru ke database
         $user = Pengguna::create([
+            'pengguna_id' => Str::uuid(),
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\DataSkill as DataSkill;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class DataSkillController extends Controller
@@ -26,12 +26,12 @@ class DataSkillController extends Controller
     }
 
     public function insertskill(Request $request){
-        DataSkill::create([
-            'pengguna_id' => 1,
-            'skill' => $request->skill,
-            'rating' => $request->rating,
-        ]);
-        
+    DataSkill::create([
+        'pengguna_id' => Auth::id(),
+        'skill' => $request->skill,
+        'rating' => $request->rating,
+    ]);
+
         return redirect()->route('tambahdataskill')->with('success', 'Data berhasil ditambahkan');
     }
 

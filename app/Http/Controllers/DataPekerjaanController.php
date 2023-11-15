@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\DataPekerjaan as DataPekerjaan;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class DataPekerjaanController extends Controller
@@ -31,8 +31,8 @@ class DataPekerjaanController extends Controller
         ], ['tanggal_akhir.after_or_equal' => 'Tanggal Berakhir harus setelah atau sama dengan Tanggal Mulai.',
         ]);
         
-        $data = DataPekerjaan::create([
-            'pengguna_id' => 1,
+        DataPekerjaan::create([
+            'pengguna_id' => Auth::id(),
             'pengalaman' => $request->pengalaman,
             'deskripsi' => $request->deskripsi,
             'perusahaan' => $request->perusahaan,

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\DataPendidikan as DataPendidikan;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 
 class DataPendidikanController extends Controller
 {
@@ -15,8 +14,8 @@ class DataPendidikanController extends Controller
     }
 
     public function insertdatapendidikan(Request $request) {
-        $data = DataPendidikan::create([
-            'pengguna_id' => 1,
+        DataPendidikan::create([
+            'pengguna_id' => Auth::id(),
             'pendidikanformal' => $request->pendidikanformal,
             'gelar' => $request->gelar,
             'institusipendidikan' => $request->institusipendidikan,

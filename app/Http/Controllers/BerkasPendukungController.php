@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\UpBerkas;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 
 class BerkasPendukungController extends Controller
 {
@@ -31,9 +30,9 @@ class BerkasPendukungController extends Controller
 
         // Menyimpan informasi berkas ke dalam database
         UpBerkas::create([
+            'pengguna_id' => Auth::id(),
             'nama_berkas' => $request->input('nama_berkas'),
             'file_path' => $fileName,
-            'pendaftaran_id' => $id,
         ]);
 
         return redirect()->back()->with('success', 'Berkas berhasil diunggah: ' . $fileName);

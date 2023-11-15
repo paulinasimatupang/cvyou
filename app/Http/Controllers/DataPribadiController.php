@@ -2,25 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\DataPribadi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 
 class DataPribadiController extends Controller
-{
-    // public function index(Request $request) {
-
-    //     $data = Pengguna::all();
-
-    //     if($request->has('search')) {
-    //         $data = Pengguna::where('pengalaman','LIKE','%' .$request->search.'%')->paginate(5);
-    //     } else{
-    //         $data = Pengguna::paginate(5);
-    //     }
-    //     return view('tabeluser',compact('data'));
-    // }
-    
+{   
     public function index() {
         $data = DataPribadi::all();
 
@@ -34,7 +21,7 @@ class DataPribadiController extends Controller
     // ngejalanin bagaimana memasukan data dalam database
     public function insertdata(Request $request){
         $data = DataPribadi::create([
-            'pengguna_id' => 1,
+            'pengguna_id' => Auth::id(),
             'poto' => $request->poto,
             'firstnm' => $request->firstnm,
             'lastnm' => $request->lastnm,
