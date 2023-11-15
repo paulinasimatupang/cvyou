@@ -81,6 +81,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="/output" type="button" class="btn btn-success">Lihat CV</a>
               </form>
             </div>
           </div>

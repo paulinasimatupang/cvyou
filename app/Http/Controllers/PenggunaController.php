@@ -71,7 +71,7 @@ class PenggunaController extends Controller
     
         // Jika data pribadi sudah ada, Anda dapat melakukan penanganan sesuai kebutuhan, misalnya redirect ke halaman lain
         if ($data) {
-            return redirect()->route('editdatapribadi')->with('warning', 'Data pribadi sudah ada, Anda tidak dapat menambahkannya lagi.');
+            return redirect()->route('tambahdatapribadi')->with('warning', 'Data pribadi sudah ada, Anda tidak dapat menambahkannya lagi.');
         }
     
         // Jika data pribadi belum ada, izinkan pengguna untuk menambahkannya
@@ -267,7 +267,11 @@ class PenggunaController extends Controller
     }
 
     public function output() {
-        $data = Pengguna::all();
+        // Mendapatkan pengguna_id dari pengguna yang saat ini login
+        $penggunaId = Auth::id();
+
+        // Mengambil data berdasarkan pengguna_id yang sesuai
+        $data = Pengguna::where('pengguna_id', $penggunaId)->get();
 
         return view(('output'), compact('data'));
     }
