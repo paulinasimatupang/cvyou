@@ -57,4 +57,6 @@ Route::post('/insertberkaspendukung', [PenggunaController::class, 'insertberkasp
 Route::get('/deleteberkaspendukung/{berkasId}', [PenggunaController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
 
 
-Route::get('/output', [PenggunaController::class, 'output'])->name('output');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/output', [YourController::class, 'output'])->name('output');
+});
