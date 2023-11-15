@@ -14,31 +14,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PenggunaController extends Controller
 {
-    public function showLoginForm()
-    {
-        return view('login');
-    }
-
-    public function login(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
-    
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return redirect()->route('tambahdatapribadi');
-        }
-    
-        return redirect()->route('login')->with('error', 'Invalid credentials');
-    }
-    
-
-    public function logout()
-    {
-        Auth::logout();
-
-        return redirect()->route('login');
-    }
-
     public function showRegistrationForm()
     {
         return view('Register');
@@ -59,7 +34,31 @@ class PenggunaController extends Controller
         // Login pengguna setelah pendaftaran
         Auth::login($user);
 
-        return redirect('/login');
+        return redirect()->route('login');
+    }
+
+    public function showLoginForm()
+    {
+        return view('login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+    
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->route('tambahdatapribadi');
+        }
+    
+        return redirect()->route('login')->with('error', 'Invalid credentials');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('login');
     }
 
     public function tambahdatapribadi(){
