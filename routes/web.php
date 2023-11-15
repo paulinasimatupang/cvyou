@@ -27,7 +27,18 @@ Route::get('/login', [PenggunaController::class, 'showLoginForm'])->name('login'
 Route::post('/login', [PenggunaController::class, 'login']);
 Route::post('/logout', [PenggunaController::class, 'logout'])->name('logout');
 
+<<<<<<< Updated upstream
 //Data Pribadi
+=======
+<<<<<<< HEAD
+//register
+Route::get('/register', [PenggunaController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [PenggunaController::class, 'register']);
+
+=======
+//Data Pribadi
+>>>>>>> d5ca2ecd7db21f7d9c279f95582400c48e5e7275
+>>>>>>> Stashed changes
 Route::get('/User', [DataPribadiController::class, 'index'])->name('User');
 Route::get('/button/{id}', [DataPribadiController::class, 'button'])->name('button');
 Route::get('/tambahdatapribadi', [DataPribadiController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');

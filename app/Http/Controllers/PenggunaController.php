@@ -31,4 +31,36 @@ class PenggunaController extends Controller
 
         return redirect()->route('login');
     }
+<<<<<<< Updated upstream
 }
+=======
+<<<<<<< HEAD
+
+    public function showRegistrationForm()
+    {
+        return view('Register');
+    }
+
+    public function register(Request $request)
+    {
+        // Validasi data pendaftaran di sini jika diperlukan
+
+        // Simpan pengguna baru ke database
+        $user = Pengguna::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+        ]);
+
+        // Login pengguna setelah pendaftaran
+        Auth::login($user);
+
+        return redirect('/dashboard');
+    }
+
+
+}
+=======
+}
+>>>>>>> d5ca2ecd7db21f7d9c279f95582400c48e5e7275
+>>>>>>> Stashed changes
