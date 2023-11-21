@@ -22,22 +22,25 @@
                                 <div class="mb-3">
                                     <label for="examplejenisberkas" class="form-label">Jenis Berkas</label>
                                     <select name="jenis_berkas" class="form-select" id="examplejenisberkas">
-                                        <option value="sertifikat">Sertifikat</option>
-                                        <option value="suratrekomendasi">Surat Rekomendasi</option>
-                                        <option value="portofolio">Portofolio</option>
+                                        <option value="sertifikat" {{ $data->jenisberkas === 'sertifikat' ? 'selected' : '' }}>Sertifikat</option>
+                                        <option value="suratrekomendasi" {{ $data->jenisberkas === 'suratrekomendasi' ? 'selected' : '' }}>Surat Rekomendasi</option>
+                                        <option value="portofolio" {{ $data->jenisberkas === 'portofolio' ? 'selected' : '' }}>Portofolio</option>
                                     </select>
+
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputgelar" class="form-label">Judul</label>
-                                    <input type="text" name="judul" class="form-control" id="exampleInputsuratrekomendasi" aria-describedby="emailHelp">
+                                    <input type="text" name="judul" class="form-control" id="exampleInputsuratrekomendasi" aria-describedby="emailHelp" value="{{ $data->judul }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputDeskripsi" class="form-label">Keterangan</label>
-                                    <textarea name="keterangan" class="form-control" id="exampleInputDeskripsi" aria-describedby="emailHelp"></textarea>
+                                    <textarea name="keterangan" class="form-control" id="exampleInputDeskripsi" aria-describedby="emailHelp">{{ $data->keterangan }}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputgelar" class="form-label">Upload Berkas</label>
-                                    <input type="file" name="uploadberkas" class="form-control" id="exampleInputsuratrekomendasi" aria-describedby="emailHelp">
+                                    @if($data->berkas)
+                                        <p>File yang sudah diunggah: {{ $data->berkas }}</p>
+                                    @endif
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>

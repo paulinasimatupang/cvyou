@@ -21,18 +21,22 @@
 </head> 
 
 <body>
+    @foreach ($data as $item)
     <div class="wrapper mt-lg-5">
         <div class="sidebar-wrapper">
             <div class="profile-container">
                 <img class="profile" src="{{ asset('output/assets/images/profile.png') }}" alt="" />
-                <h1 class="name">Alan Doe</h1>
+                <h1 class="name">{{ $item->firstnm }} {{ $item->lastnm }}</h1>
                 <h3 class="tagline">Full Stack Developer</h3>
             </div><!--//profile-container-->
             
             <div class="contact-container container-block">
                 <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fa-solid fa-envelope"></i><a href="mailto: yourname@email.com">alan.doe@website.com</a></li>
-                    <li class="phone"><i class="fa-solid fa-phone"></i><a href="tel:0123 456 789">0123 456 789</a></li>
+                    <li class="email"><i class="fa-solid fa-envelope"></i><a href="{{ $data->email }}">{{ $item->email }}</a></li>
+                    <li class="phone"><i class="fa-solid fa-phone"></i><a href="{{ $data->notelpon }}">{{ $item->notelpon }}</a></li>
+
+                    <li><i class="fa-solid fa-home"></i> <strong>Tempat Lahir :</strong> <span>{{ $item->tempatlahir }}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Tanggal Lahir :</strong> <span>{{ $item->tgllahir }}</span></li>
                     <li class="website"><i class="fa-solid fa-globe"></i><a href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/orbit-free-resume-cv-bootstrap-theme-for-developers/" target="_blank">portfoliosite.com</a></li>
                     <li class="linkedin"><i class="fa-brands fa-linkedin-in"></i><a href="#" target="_blank">linkedin.com/in/alandoe</a></li>
                     <li class="github"><i class="fa-brands fa-github"></i><a href="#" target="_blank">github.com/username</a></li>
@@ -40,7 +44,7 @@
                 </ul>
             </div><!--//contact-container-->
             <div class="education-container container-block">
-                <h2 class="container-block-title">Education</h2>
+                <h2 class="container-block-title">Data Pendidikan</h2>
                 <div class="item">
                     <h4 class="degree">MSc in Computer Science</h4>
                     <h5 class="meta">University of London</h5>
@@ -83,7 +87,7 @@
             </section><!--//section-->
             
             <section class="section experiences-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-briefcase"></i></span>Experiences</h2>
+                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-briefcase"></i></span>Data Pekerjaan</h2>
                 
                 <div class="item">
                     <div class="meta">
@@ -128,32 +132,8 @@
                 
             </section><!--//section-->
             
-            <section class="section projects-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-archive"></i></span>Projects</h2>
-                <div class="intro">
-                    <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
-                </div><!--//intro-->
-                <div class="item">
-                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderpro-bootstrap-5-startup-template-for-software-projects/" target="_blank">CoderPro</a></span> - <span class="project-tagline">A responsive website template designed to help developers launch their software projects. </span>
-                    
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/launch-bootstrap-5-template-for-saas-businesses/" target="_blank">Launch</a></span> - <span class="project-tagline">A responsive website template designed to help startups promote their products or services.</span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/devcard-bootstrap-5-vcard-portfolio-template-for-software-developers/" target="_blank">DevCard</a></span> - <span class="project-tagline">A portfolio website template designed for software developers.</span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/bootstrap-template-for-mobile-apps-nova-pro/" target="_blank">Nova Pro</a></span> - <span class="project-tagline">A responsive Bootstrap theme designed to help app developers promote their mobile apps</span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-web-development-agencies-devstudio/" target="_blank">DevStudio</a></span> - 
-                    <span class="project-tagline">A responsive website template designed to help web developers/designers market their services. </span>
-                </div><!--//item-->
-            </section><!--//section-->
-            
             <section class="skills-section section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-rocket"></i></span>Skills &amp; Proficiency</h2>
+                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-rocket"></i></span>Data Skill</h2>
                 <div class="skillset">        
                     <div class="item">
                         <h3 class="level-title">Python &amp; Django</h3>
@@ -199,16 +179,40 @@
                     
                 </div>  
             </section><!--//skills-section-->
+
+            <section class="section projects-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-archive"></i></span>Berkas Pendukung</h2>
+                <div class="intro">
+                    <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
+                </div><!--//intro-->
+                <div class="item">
+                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderpro-bootstrap-5-startup-template-for-software-projects/" target="_blank">CoderPro</a></span> - <span class="project-tagline">A responsive website template designed to help developers launch their software projects. </span>
+                    
+                </div><!--//item-->
+                <div class="item">
+                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/launch-bootstrap-5-template-for-saas-businesses/" target="_blank">Launch</a></span> - <span class="project-tagline">A responsive website template designed to help startups promote their products or services.</span>
+                </div><!--//item-->
+                <div class="item">
+                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/devcard-bootstrap-5-vcard-portfolio-template-for-software-developers/" target="_blank">DevCard</a></span> - <span class="project-tagline">A portfolio website template designed for software developers.</span>
+                </div><!--//item-->
+                <div class="item">
+                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/bootstrap-template-for-mobile-apps-nova-pro/" target="_blank">Nova Pro</a></span> - <span class="project-tagline">A responsive Bootstrap theme designed to help app developers promote their mobile apps</span>
+                </div><!--//item-->
+                <div class="item">
+                    <span class="project-title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-web-development-agencies-devstudio/" target="_blank">DevStudio</a></span> - 
+                    <span class="project-tagline">A responsive website template designed to help web developers/designers market their services. </span>
+                </div><!--//item-->
+            </section><!--//section-->
             
         </div><!--//main-body-->
     </div>
+    {{-- @endforeach    --}}
  
     <footer class="footer">
         <div class="text-center">
             <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
             <small class="copyright">Designed with <i class="fa-solid fa-heart"></i> by <a target="_blank">CVYou</a> for developers</small>
         </div><!--//container-->
-    </footer><!--//footer-->
-        
+    </footer><!--//footer--> 
 </body>
 </html>

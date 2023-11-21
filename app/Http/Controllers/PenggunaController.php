@@ -173,21 +173,29 @@ class PenggunaController extends Controller
         return view('editdatapribadi', compact('data'));
     }
 
-    public function updateDataPribadi(Request $request, $pengguna_id) {
-        // Validate the form data
-        $validatedData = $request->validate([
-            // Add validation rules for each field you want to validate
-            'field1' => 'required',
-            'field2' => 'required',
-            // Add more fields as needed
-        ]);
+    public function updatedatapribadi(Request $request, $id) {
+        $data = Pengguna::find($id);
+        
+        $data->update($request->all());
 
-        // Update the data in the database
-        DataPribadi::where('pengguna_id', $pengguna_id)->update($validatedData);
-
-        // Redirect back to the edit page with a success message
-        return redirect()->route('editdatapribadi', $pengguna_id)->with('success', 'Data updated successfully');
+        return redirect()->route('tambahdatapribadi', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
     }
+
+    // public function updateDataPribadi(Request $request, $pengguna_id) {
+    //     // Validate the form data
+    //     $validatedData = $request->validate([
+    //         // Add validation rules for each field you want to validate
+    //         'field1' => 'required',
+    //         'field2' => 'required',
+    //         // Add more fields as needed
+    //     ]);
+
+    //     // Update the data in the database
+    //     DataPribadi::where('pengguna_id', $pengguna_id)->update($validatedData);
+
+    //     // Redirect back to the edit page with a success message
+    //     return redirect()->route('editdatapribadi', $pengguna_id)->with('success', 'Data updated successfully');
+    // }
 
     public function tambahdatapendidikan() {
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
@@ -214,6 +222,14 @@ class PenggunaController extends Controller
     public function editdatapendidikan($id){
         $data = DataPendidikan::find($id);
         return view('editdatapendidikan', compact('data'));
+    }
+
+    public function updatedatapendidikan(Request $request, $id) {
+        $data = DataPendidikan::find($id);
+        
+        $data->update($request->all());
+
+        return redirect()->route('tambahdatapendidikan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
     }
 
     public function deletependidikan($id){
@@ -256,6 +272,14 @@ class PenggunaController extends Controller
         return view('editdatapekerjaan', compact('data'));
     }
 
+    public function updatedatapekerjaan(Request $request, $id) {
+        $data = DataPekerjaan::find($id);
+        
+        $data->update($request->all());
+
+        return redirect()->route('tambahdatapekerjaan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
+    }
+
     public function deletepekerjaan($id){
         $data = DataPekerjaan::find($id);
         $data->delete();
@@ -280,6 +304,14 @@ class PenggunaController extends Controller
     ]);
 
         return redirect()->route('tambahdataskill')->with('success', 'Data berhasil ditambahkan');
+    }
+
+    public function updatedataskill(Request $request, $id) {
+        $data = DataSkill::find($id);
+        
+        $data->update($request->all());
+
+        return redirect()->route('tambahdataskill', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
     }
 
 
@@ -331,6 +363,19 @@ class PenggunaController extends Controller
 
 
         return redirect()->back()->with('success', 'Berkas berhasil diunggah: ' . $fileName);
+    }
+
+    public function updateberkaspendukung(Request $request, $id) {
+        $data = UpBerkas::find($id);
+        
+        $data->update($request->all());
+
+        return redirect()->route('tambahberkaspendukung', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
+    }
+
+    public function editberkaspendukung($id){
+        $data = UpBerkas::find($id);
+        return view('editberkaspendukung', compact('data'));
     }
 
     public function deleteberkaspendukung($berkasId)
