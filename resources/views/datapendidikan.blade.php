@@ -32,8 +32,8 @@
               <form action="/insertdatapendidikan" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                  <label for="examplependidikanformal" class="form-label">Pendidikan Formal</label>
-                  <input type="text" name="pendidikanformal" class="form-control" id="exampleInputpendidikanformal" aria-describedby="emailHelp">
+                  <label for="examplejenjang" class="form-label">Jenjang</label>
+                  <input type="text" name="jenjang" class="form-control" id="exampleInputjenjang" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputgelar" class="form-label">gelar</label>
@@ -80,7 +80,7 @@
           <thead>
             <tr>
               <th scope="col">No.</th>
-              <th scope="col">Pendidikan Formal</th>
+              <th scope="col">Jenjang</th>
               <th scope="col">Gelar</th>
               <th scope="col">Institusi Pendidikan</th>
               <th scope="col">Prestasi Akademik</th>
@@ -95,7 +95,7 @@
             @foreach ($data as $index => $row)
             <tr>
               <th scope="row">{{ $no++ }}</th>
-              <td>{{ $row->pendidikanformal }}</td>
+              <td>{{ $row->jenjang }}</td>
               <td>{{ $row->gelar }}</td>
               <td>{{ $row->institusipendidikan }}</td>
               <td>{{ $row->prestasiakademik }}</td>

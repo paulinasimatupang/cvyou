@@ -131,11 +131,11 @@ class PenggunaController extends Controller
             'poto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Menambahkan validasi untuk file gambar
             // Tambahkan aturan validasi lainnya jika diperlukan
         ]);
-    
+
         // Simpan foto ke direktori penyimpanan
         $fileName = $request->file('poto')->getClientOriginalName();
         $request->file('poto')->move(public_path('berkastambahan'), $fileName);
-    
+
         // Menyimpan informasi data pribadi ke dalam database
         $data = DataPribadi::create([
             'pengguna_id' => Auth::id(),
@@ -148,10 +148,10 @@ class PenggunaController extends Controller
             'notelpon' => $request->notelpon,
             'alamat' => $request->alamat,
         ]);
-    
+
         // Mengambil ID pengguna yang baru saja dibuat
         $dataId = $data->id;
-    
+
         return redirect()->route('tambahdatapribadi', ['id' => $dataId])->with('success', 'Data Berhasil di Simpan');
     }
     // public function editDataPribadi($pengguna_id) {
@@ -175,7 +175,7 @@ class PenggunaController extends Controller
 
     public function updatedatapribadi(Request $request, $id) {
         $data = Pengguna::find($id);
-        
+
         $data->update($request->all());
 
         return redirect()->route('tambahdatapribadi', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
@@ -210,7 +210,7 @@ class PenggunaController extends Controller
     public function insertdatapendidikan(Request $request) {
         DataPendidikan::create([
             'pengguna_id' => Auth::id(),
-            'pendidikanformal' => $request->pendidikanformal,
+            'jenjang' => $request->jenjang,
             'gelar' => $request->gelar,
             'institusipendidikan' => $request->institusipendidikan,
             'prestasiakademik' => $request->prestasiakademik,
@@ -226,7 +226,7 @@ class PenggunaController extends Controller
 
     public function updatedatapendidikan(Request $request, $id) {
         $data = DataPendidikan::find($id);
-        
+
         $data->update($request->all());
 
         return redirect()->route('tambahdatapendidikan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
@@ -274,7 +274,7 @@ class PenggunaController extends Controller
 
     public function updatedatapekerjaan(Request $request, $id) {
         $data = DataPekerjaan::find($id);
-        
+
         $data->update($request->all());
 
         return redirect()->route('tambahdatapekerjaan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
@@ -308,7 +308,7 @@ class PenggunaController extends Controller
 
     public function updatedataskill(Request $request, $id) {
         $data = DataSkill::find($id);
-        
+
         $data->update($request->all());
 
         return redirect()->route('tambahdataskill', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
@@ -367,7 +367,7 @@ class PenggunaController extends Controller
 
     public function updateberkaspendukung(Request $request, $id) {
         $data = UpBerkas::find($id);
-        
+
         $data->update($request->all());
 
         return redirect()->route('tambahberkaspendukung', ['id' => $id])->with('success', 'Data Berhasil di Simpan');

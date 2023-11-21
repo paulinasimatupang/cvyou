@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('pengguna_id')->index()->nullable();
             $table->foreign('pengguna_id')->references('id')->on('penggunas')->onDelete('cascade');
-            $table->string('pendidikanformal')->nullable();
+            $table->string('jenjang')->nullable();
             $table->string('gelar')->nullable();
             $table->string('institusipendidikan')->nullable();
             $table->string('prestasiakademik')->nullable();
