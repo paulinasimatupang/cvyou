@@ -358,7 +358,7 @@ class PenggunaController extends Controller
         // Mengambil data berdasarkan pengguna_id yang sesuai
         $data = Pengguna::where('pengguna_id', $penggunaId)->get();
 
-        return view(('output'), compact('data'));
+        return view(('lihatcv'), compact('data'));
     }
 
 }
