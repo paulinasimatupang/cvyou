@@ -32,7 +32,7 @@ class PenggunaController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         // Proses pembaruan profil di sini
-        $user = User::find($id);
+        $user = Pengguna::find($id);
         // Memeriksa apakah password baru disetel
         if ($request->filled('password')) {
             $user->password = bcrypt($request->password);
