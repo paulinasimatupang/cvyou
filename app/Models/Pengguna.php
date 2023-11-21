@@ -13,7 +13,7 @@ class Pengguna extends Model implements Authenticatable
     use HasFactory;
 
     protected $table = 'penggunas';
-    protected $fillable = ['email', 'password'];
+    protected $fillable = ['pengguna_id','name','email', 'password',];
 
     public function dataPribadi()
     {
