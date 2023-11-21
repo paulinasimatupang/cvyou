@@ -20,6 +20,6 @@
         <a class="nav-link {{ Request::is('tambahberkaspendukung*') ? 'active' : '' }}" href="tambahberkaspendukung">Upload File</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link {{ Request::is('output*') ? 'active' : '' }}" href="output">Lihat CV</a>
+        <a class="nav-link {{ Request::is('lihatcv*') ? 'active' : '' }}" href="lihatcv">Lihat CV</a>
     </li>
 </ul>
