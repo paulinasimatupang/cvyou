@@ -33,7 +33,7 @@
                 @csrf
                 <div class="mb-3">
                   <label for="examplejenisberkas" class="form-label">Jenis Berkas</label>
-                  <select name="jenis_berkas" class="form-select" id="examplejenisberkas">
+                  <select name="jenisberkas" class="form-select" id="examplejenisberkas">
                       <option value="sertifikat">Sertifikat</option>
                       <option value="suratrekomendasi">Surat Rekomendasi</option>
                       <option value="portofolio">Portofolio</option>
@@ -44,8 +44,8 @@
                   <input type="text" name="judul" class="form-control" id="exampleInputsuratrekomendasi" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputinstitusipendidikan" class="form-label">Keterangan</label>
-                  <input type="text" name="keterangan" class="form-control" id="exampleInputportofolio" aria-describedby="emailHelp">
+                  <label for="exampleInputDeskripsi" class="form-label">Keterangan</label>
+                  <textarea name="keterangan" class="form-control" id="exampleInputDeskripsi" aria-describedby="emailHelp"></textarea>
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputgelar" class="form-label">Upload Berkas</label>

@@ -125,10 +125,21 @@ class PenggunaController extends Controller
     }
 
     // ngejalanin bagaimana memasukan data dalam database
-    public function insertdata(Request $request){
+    public function insertdata(Request $request)
+    {
+        $request->validate([
+            'poto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Menambahkan validasi untuk file gambar
+            // Tambahkan aturan validasi lainnya jika diperlukan
+        ]);
+    
+        // Simpan foto ke direktori penyimpanan
+        $fileName = $request->file('poto')->getClientOriginalName();
+        $request->file('poto')->move(public_path('berkastambahan'), $fileName);
+    
+        // Menyimpan informasi data pribadi ke dalam database
         $data = DataPribadi::create([
             'pengguna_id' => Auth::id(),
-            'poto' => $request->poto,
+            'poto' => $fileName,
             'firstnm' => $request->firstnm,
             'lastnm' => $request->lastnm,
             'tempatlahir' => $request->tempatlahir,
@@ -137,19 +148,12 @@ class PenggunaController extends Controller
             'notelpon' => $request->notelpon,
             'alamat' => $request->alamat,
         ]);
-
+    
         // Mengambil ID pengguna yang baru saja dibuat
         $dataId = $data->id;
-
-        if ($request->hasFile('gambar')) {
-            $fileName = time().'.'.$request->file('gambar')->extension();
-            $request->file('gambar')->move(public_path('berkastambahan'), $fileName);
-            $data->gambar = $fileName; // Pastikan Anda mengatur atribut gambar pada model
-            $data->save();
-        }
+    
         return redirect()->route('tambahdatapribadi', ['id' => $dataId])->with('success', 'Data Berhasil di Simpan');
     }
-
     // public function editDataPribadi($pengguna_id) {
     //     // Retrieve the data for the specified user
     //     $data = DataPribadi::where('pengguna_id', $pengguna_id)->first();
@@ -313,7 +317,7 @@ class PenggunaController extends Controller
         $penggunaId = auth()->id();
 
         // Simpan file ke direktori penyimpanan
-        $fileName = time() . '_' . $request->file('uploadberkas')->getClientOriginalName();
+        $fileName = $request->file('uploadberkas')->getClientOriginalName();
         $request->file('uploadberkas')->move('berkastambahan', $fileName);
 
         // Menyimpan informasi berkas ke dalam database
