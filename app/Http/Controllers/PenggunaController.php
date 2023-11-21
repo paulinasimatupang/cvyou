@@ -400,10 +400,13 @@ class PenggunaController extends Controller
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
         $penggunaId = Auth::id();
 
-        // Mengambil data berdasarkan pengguna_id yang sesuai
-        $data = Pengguna::where('pengguna_id', $penggunaId)->get();
+        // Mengambil data Pengguna dan semua relasinya
+        $data = Pengguna::with(['dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas'])
+                 ->where('pengguna_id', $penggunaId)
+                 ->get(); // Add get() to execute the query
 
-        return view(('lihatcv'), compact('data'));
+        return view('lihatcv', compact('data'));
     }
+
 
 }
