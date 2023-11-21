@@ -17,7 +17,7 @@
     <!-- Global CSS -->
     <link rel="stylesheet" href="{{ asset('output/assets/plugins/bootstrap/css/bootstrap.min.css') }}">   
     <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="{{ asset('output/assets/css/orbit-1.css') }}">
+    <link id="theme-style" rel="stylesheet" href="{{ asset('output/assets/css/orbit-2.css') }}">
 </head> 
 
 <body>
