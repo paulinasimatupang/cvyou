@@ -30,7 +30,7 @@
           <div class="card">
             <div class="card-body">
               <form action="{{ route('insertberkaspendukung') }}" method="POST" enctype="multipart/form-data">
-                @csrf
+              @csrf
                 <div class="mb-3">
                   <label for="examplejenisberkas" class="form-label">Jenis Berkas</label>
                   <select name="jenis_berkas" class="form-select" id="examplejenisberkas">
@@ -100,7 +100,7 @@
               <td>{{ $row->berkas }}</td>
               <td>
                 <a href="/editberkaspendukung/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
-                <a href="/deleteberkaspendukung/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
+                <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
               </td>
             </tr>
             @endforeach
@@ -118,7 +118,7 @@
   </body>
   <script>
     $('.delete').click( function() {
-      var pekerjaanid = $(this).attr('data-id');
+      var berkasId = $(this).data('id');
       swal({
         title: "Yakin ?",
         text: "Kamu akan menghapus data ini!",
@@ -128,7 +128,7 @@
       })
       .then((willDelete) => {
         if (willDelete) {
-          window.location = "/deleteberkaspendukung/"+berkasId+
+          window.location = "/deleteberkaspendukung/"+berkasId;
           swal("Data berhasil dihapus!", {
             icon: "success",
           });
@@ -138,9 +138,9 @@
       });
     });
   </script>
-  <script>
-    // @if (Session::has('success'))
-    // toastr.success("{{ Session::get('success') }}")
-    // @endif
-  </script>
+  {{-- <script>
+    @if (Session::has('success'))
+    toastr.success("{{ Session::get('success') }}")
+    @endif
+  </script> --}}
 </html>

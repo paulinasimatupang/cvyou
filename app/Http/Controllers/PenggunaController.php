@@ -13,41 +13,40 @@ use App\Models\UpBerkas;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
 
 class PenggunaController extends Controller
 {
 
     public function update(Request $request, $id)
-{
-    $validator = Validator::make($request->all(), [
-        'password' => [
-            'nullable',
-            'string',
-            'min:8',
-            'regex:/^(?=.*[A-Z])(?=.*\d).+$/',
-        ],
-        // tambahkan aturan lainnya jika diperlukan
-    ]);
+    {
+        $validator = Validator::make($request->all(), [
+            'password' => [
+                'nullable',
+                'string',
+                'min:8',
+                'regex:/^(?=.*[A-Z])(?=.*\d).+$/',
+            ],
+            // tambahkan aturan lainnya jika diperlukan
+        ]);
 
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Proses pembaruan profil di sini
+        $user = Pengguna::find($id);
+
+        // Memeriksa apakah password baru disetel
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->password);
+        }
+
+        // Tambahkan proses pembaruan atribut lainnya sesuai kebutuhan
+
+        $user->save();
+
+        return redirect('profile')->with('success', 'Profil berhasil diperbarui');
     }
-
-    // Proses pembaruan profil di sini
-    $user = User::find($id);
-
-    // Memeriksa apakah password baru disetel
-    if ($request->filled('password')) {
-        $user->password = bcrypt($request->password);
-    }
-
-    // Tambahkan proses pembaruan atribut lainnya sesuai kebutuhan
-
-    $user->save();
-
-    return redirect('profile')->with('success', 'Profil berhasil diperbarui');
-}
 
 
     public function showRegistrationForm()
@@ -56,76 +55,80 @@ class PenggunaController extends Controller
     }
 
     public function register(Request $request)
-{
-    // Validasi data pendaftaran di sini jika diperlukan
-    $validator = Validator::make($request->all(), [
-        'password' => [
-            'required',
-            'string',
-            'min:8',
-            'regex:/^(?=.*[A-Z])(?=.*\d).+$/',
-        ],
-        // tambahkan aturan lainnya jika diperlukan
-    ]);
+    {
+        // Validasi data pendaftaran di sini jika diperlukan
+        $validator = Validator::make($request->all(), [
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'regex:/^(?=.*[A-Z])(?=.*\d).+$/',
+            ],
+            // tambahkan aturan lainnya jika diperlukan
+        ]);
 
-    if ($validator->fails()) {
-        return redirect()
-            ->back()
-            ->withErrors($validator)
-            ->withInput()
-            ->with('error', 'Password harus terdiri dari minimal 8 karakter, 1 huruf besar, dan 1 angka.');
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('error', 'Password harus terdiri dari minimal 8 karakter, 1 huruf besar, dan 1 angka.');
+        }
+
+        // Simpan pengguna baru ke database
+        $user = Pengguna::create([
+            'pengguna_id' => Str::uuid(),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+        ]);
+
+        // Login pengguna setelah pendaftaran
+        Auth::login($user);
+
+        return redirect()->route('login');
     }
 
-    // Simpan pengguna baru ke database
-    $user = Pengguna::create([
-        'pengguna_id' => Str::uuid(),
-        'name' => $request->input('name'),
-        'email' => $request->input('email'),
-        'password' => Hash::make($request->input('password')),
-    ]);
-
-    // Login pengguna setelah pendaftaran
-    Auth::login($user);
-
-    return redirect()->route('login');
-}
-
-public function showLoginForm()
-{
-    return view('login');
-}
-
-public function login(Request $request)
-{
-    $credentials = $request->only('email', 'password');
-
-    if (Auth::attempt($credentials)) {
-        // Authentication passed...
-        return redirect()->route('your_desired_route'); // Change 'your_desired_route' to the desired route name
+    public function showLoginForm()
+    {
+        return view('login');
     }
 
-    return redirect()->route('login')->with('error', 'Invalid credentials');
-}
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+    
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->route('tambahdatapribadi');
+        }
+    
+        return redirect()->route('login')->with('error', 'Invalid credentials');
+    }
 
+    public function logout()
+    {
+        Auth::logout();
 
-public function logout()
-{
-    Auth::logout();
-
-    return redirect()->route('login');
-}
-
+        return redirect()->route('login');
+    }
 
     public function tambahdatapribadi(){
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
         $penggunaId = Auth::id();
-
+    
         // Memeriksa apakah data pribadi sudah ada untuk pengguna yang saat ini login
-        DataPribadi::where('pengguna_id', $penggunaId)->first();
-
+        $dataPribadi = DataPribadi::where('pengguna_id', $penggunaId)->first();
+    
         // Jika data pribadi belum ada, izinkan pengguna untuk menambahkannya
-        return view('datapribadi');
-    }
+        if (!$dataPribadi) {
+            return view('datapribadi');
+        } else {
+            // Jika data pribadi sudah ada, mungkin arahkan pengguna ke halaman lain
+            // atau berikan pesan bahwa data pribadi sudah ada.
+            return redirect()->route('tambahdatapendidikan')->with('message', 'Data pribadi sudah ada.');
+        }
+    }    
 
     // ngejalanin bagaimana memasukan data dalam database
     public function insertdata(Request $request){
@@ -140,7 +143,7 @@ public function logout()
             'notelpon' => $request->notelpon,
             'alamat' => $request->alamat,
         ]);
-
+        
         // Mengambil ID pengguna yang baru saja dibuat
         $dataId = $data->id;
 
@@ -152,10 +155,40 @@ public function logout()
         }
         return redirect()->route('tambahdatapribadi', ['id' => $dataId])->with('success', 'Data Berhasil di Simpan');
     }
+    
+    // public function editDataPribadi($pengguna_id) {
+    //     // Retrieve the data for the specified user
+    //     $data = DataPribadi::where('pengguna_id', $pengguna_id)->first();
 
-    public function editdatapribadi($id) {
-        $data = DataPribadi::find($id);
+    //     // Check if the data exists
+    //     if (!$data) {
+    //         // You can handle the case where data doesn't exist, for example, redirect to an error page.
+    //         return redirect()->route('error')->with('error', 'Data not found');
+    //     }
+
+    //     // Pass the data to the view along with the pengguna_id
+    //     return view('editdatapribadi', compact('data', 'pengguna_id'));
+    // }
+
+    public function editDataPribadi($pengguna_id){
+        $data = DataPribadi::find($pengguna_id);
         return view('editdatapribadi', compact('data'));
+    }
+
+    public function updateDataPribadi(Request $request, $pengguna_id) {
+        // Validate the form data
+        $validatedData = $request->validate([
+            // Add validation rules for each field you want to validate
+            'field1' => 'required',
+            'field2' => 'required',
+            // Add more fields as needed
+        ]);
+
+        // Update the data in the database
+        DataPribadi::where('pengguna_id', $pengguna_id)->update($validatedData);
+
+        // Redirect back to the edit page with a success message
+        return redirect()->route('editdatapribadi', $pengguna_id)->with('success', 'Data updated successfully');
     }
 
     public function tambahdatapendidikan() {
@@ -194,10 +227,10 @@ public function logout()
     public function tambahdatapekerjaan(){
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
         $penggunaId = Auth::id();
-
+    
         // Mengambil data pekerjaan hanya untuk pengguna yang saat ini login
         $data = DataPekerjaan::where('pengguna_id', $penggunaId)->get();
-
+    
         return view('datapekerjaan', compact('data'));
     }
 
@@ -206,7 +239,7 @@ public function logout()
             'tanggal_akhir' => 'after_or_equal:tanggal_awal'
         ], ['tanggal_akhir.after_or_equal' => 'Tanggal Berakhir harus setelah atau sama dengan Tanggal Mulai.',
         ]);
-
+        
         DataPekerjaan::create([
             'pengguna_id' => Auth::id(),
             'pengalaman' => $request->pengalaman,
@@ -215,7 +248,7 @@ public function logout()
             'tanggal_awal' => $request->tanggal_awal,
             'tanggal_akhir' => $request->tanggal_akhir,
         ]);
-
+        
         return redirect()->route('tambahdatapekerjaan')->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -234,10 +267,10 @@ public function logout()
     public function tambahdataskill(){
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
         $penggunaId = Auth::id();
-
+    
         // Mengambil data skill hanya untuk pengguna yang saat ini login
         $data = DataSkill::where('pengguna_id', $penggunaId)->get();
-
+    
         return view('dataskill', compact('data'));
     }
 
@@ -277,7 +310,7 @@ public function logout()
     public function insertberkaspendukung(Request $request)
     {
         $request->validate([
-            'jenis_berkas' => 'required',
+            'jenisberkas' => 'required',
             'judul' => 'required',
             'keterangan' => 'required',
             'uploadberkas' => 'required|mimes:pdf,doc,docx|max:2048',

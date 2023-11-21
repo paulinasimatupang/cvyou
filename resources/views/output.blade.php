@@ -36,17 +36,20 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="{{ asset('style/assets/img/profile-img.jpg') }}" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">{{ $row->firstnm }} {{ $row->lastnm }}</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          
-        </div>
-      </div>
+        @if($data)
+            <img src="{{ asset('style/assets/img/profile-img.jpg') }}" alt="" class="img-fluid rounded-circle">
+            <h1 class="text-light"><a href="index.html">{{ $data->firstnm }} {{ $data->lastnm }}</a></h1>
+            <div class="social-links mt-3 text-center">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        @else
+            <p>No data found for the user.</p>
+        @endif
+    </div>
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
@@ -59,110 +62,128 @@
       </nav><!-- .nav-menu -->
       <button>
             <div class="Edit"></div>
-            <a href="/editdatapribadi/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
+            <a href="/editdatapribadi" type="button" class="btn btn-warning">Edit</a>
           </button>
           <button>
             <div class="Delete"></div>
-            <a href="/delete/{{ $row->id }}" type="button" class="btn btn-danger delete">Delete</a>
+            <a href="/delete" type="button" class="btn btn-danger delete">Delete</a>
           </button>
     </div>
   </header><!-- End Header -->
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container">
 
-        <div class="section-title">
-          <h2>About Me</h2>
-        </div>
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="{{ asset('style/assets/img/profile-img.jpg') }}" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>{{ $row->firstnm }} {{ $row->lastnm }}</h3>
-              <div class="col-lg-6">
-                <ul scope="row">
-                  <li><i class="bi bi-chevron-right"></i> <strong>Tempat Lahir :</strong> <span>{{ $row->tempatlahir }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Tanggal Lahir :</strong> <span>{{ $row->tgllahir }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email :</strong> <span>{{ $row->email }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>No Telepon :</strong> <span>{{ $row->notelpon }}</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Alamat :</strong> <span>{{ $row->alamat }}</span></li>
-                </ul>
-              </div>
-              
-            </div>
-          </div>
-        </div>
+    <div class="section-title">
+      <h2>About Me</h2>
+    </div>
 
+    @if($data)
+    <div class="row">
+      <div class="col-lg-4" data-aos="fade-right">
+        <img src="{{ asset('style/assets/img/profile-img.jpg') }}" class="img-fluid" alt="">
       </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Pendidikan</h2>
+      <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+        <h3>{{ $data->firstnm }} {{ $data->lastnm }}</h3>
+        <div class="col-lg-6">
+          <ul scope="row">
+            <li><i class="bi bi-chevron-right"></i> <strong>Tempat Lahir :</strong> <span>{{ $data->tempatlahir }}</span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Tanggal Lahir :</strong> <span>{{ $data->tgllahir }}</span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Email :</strong> <span>{{ $data->email }}</span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>No Telepon :</strong> <span>{{ $data->notelpon }}</span></li>
+            <li><i class="bi bi-chevron-right"></i> <strong>Alamat :</strong> <span>{{ $data->alamat }}</span></li>
+          </ul>
         </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title"></h3>
-            <div class="resume-item">
-              <h4>{{ $row->pendidikanformal }}</h4>
-              <h5>{{ $row->gelar }}</h5><br>
-              <i class="bi bi-chevron-right"></i> <strong>Institusi Pendidikan :</strong> <span>{{ $row->institusipendidikan }}</span><br>
-              <i class="bi bi-chevron-right"></i> <strong>Prestasi Akademik :</strong> <span>{{ $row->prestasiakademik }}</span><br>
-              <i class="bi bi-chevron-right"></i> <strong>Keterampilan :</strong> <span>{{ $row->keterampilan }}</span><br>
-            </div>
-          </div>
-          </div>
-        </div>
-
       </div>
-    </section><!-- End Resume Section -->
+    </div>
+    @else
+    <p>No data found for the user.</p>
+    @endif
 
-    <!-- ======= Skills Section ======= -->
-    <section id="portfolio" class="resume">
-      <div class="container">
+  </div>
+</section><!-- End About Section -->
 
-        <div class="section-title">
-          <h2>Pengalaman kerja</h2>
+<!-- ======= Resume Section ======= -->
+<section id="resume" class="resume">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Pendidikan</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6" data-aos="fade-up">
+        <h3 class="resume-title"></h3>
+        @if($data)
+        <div class="resume-item">
+          <h4>{{ $data->pendidikanformal }}</h4>
+          <h5>{{ $data->gelar }}</h5><br>
+          <i class="bi bi-chevron-right"></i> <strong>Institusi Pendidikan :</strong> <span>{{ $data->institusipendidikan }}</span><br>
+          <i class="bi bi-chevron-right"></i> <strong>Prestasi Akademik :</strong> <span>{{ $data->prestasiakademik }}</span><br>
+          <i class="bi bi-chevron-right"></i> <strong>Keterampilan :</strong> <span>{{ $data->keterampilan }}</span><br>
         </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <div class="resume-item pb-0">
-              <h4>{{ $row->pengalaman }}</h4>
-              <p><em>{{ $row->deskripsi }}</em></p>
-              <ul>
-                <li>{{ $row->perusahaan }}</li>
-                <li>{{ \Carbon\Carbon::parse($row->tanggal_awal)->format('d M Y') }}</li>
-                <li>{{ \Carbon\Carbon::parse($row->tanggal_akhir)->format('d M Y') }}</li>
-              </ul>
-            </div>
-            </div><!-- End Skills Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Berkas Pendukung</h2>
-          <p><a href="{{ $row->sertifikat }}">Sertifikat</a></p>
-          <p><a href="{{ $row->suratrekomendasi }}">Surat Rekomendasi</a></p>
-          <p><a href="{{ $row->portofolio }}">Portofolio</a></p>
-        </div>
-
-        
-
+        @else
+        <p>No data found for the user.</p>
+        @endif
       </div>
-    </section><!-- End Services Section -->
+    </div>
 
-  </main><!-- End #main -->
+  </div>
+</section><!-- End Resume Section -->
+
+<!-- ======= Skills Section ======= -->
+<section id="portfolio" class="resume">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Pengalaman kerja</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6" data-aos="fade-up">
+        @if($data)
+        <div class="resume-item pb-0">
+          <h4>{{ $data->pengalaman }}</h4>
+          <p><em>{{ $data->deskripsi }}</em></p>
+          <ul>
+            <li>{{ $data->perusahaan }}</li>
+            <li>{{ \Carbon\Carbon::parse($data->tanggal_awal)->format('d M Y') }}</li>
+            <li>{{ \Carbon\Carbon::parse($data->tanggal_akhir)->format('d M Y') }}</li>
+          </ul>
+        </div>
+        @else
+        <p>No data found for the user.</p>
+        @endif
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Services Section -->
+
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Berkas Pendukung</h2>
+
+      @if($data)
+        <p><a href="{{ $data->sertifikat }}">Sertifikat</a></p>
+        <p><a href="{{ $data->suratrekomendasi }}">Surat Rekomendasi</a></p>
+        <p><a href="{{ $data->portofolio }}">Portofolio</a></p>
+      @else
+        <p>No data found for the user.</p>
+      @endif
+
+    </div>
+
+  </div>
+</section><!-- End Services Section -->
+</main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

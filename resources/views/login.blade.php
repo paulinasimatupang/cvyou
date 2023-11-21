@@ -27,7 +27,7 @@
                     <label for="password">Password:</label>
                     <input type="password" name="password" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-success">Login</button>
+                <a href="/tambahdatapribadi" type="button" class="btn btn-success">Login</a>
             </form>
         </div>
     </div>

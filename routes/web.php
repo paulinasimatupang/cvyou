@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PenggunaController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,9 +29,9 @@ Route::post('/logout', [PenggunaController::class, 'logout'])->name('logout');
 
 //Data Pribadi
 Route::get('/tambahdatapribadi', [PenggunaController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');
-Route::get('/editdatapribadi/{id}', [PenggunaController::class, 'editdatapribadi'])->name('editdatapribadi');
+Route::get('/editdatapribadi/{pengguna_id}', [PenggunaController::class, 'editdatapribadi'])->name('editdatapribadi');
 Route::post('/insertdata', [PenggunaController::class, 'insertdata'])->name('insertdata');
-Route::post('/updatedatapribadi', [DataPribadiController::class, 'updatedatapribadi'])->name('updatedatapribadi');
+Route::post('/editdatapribadi/{pengguna_id}', [PenggunaController::class, 'updatedatapribadi'])->name('updatedatapribadi');
 
 //pendidikan
 Route::get('/tambahdatapendidikan', [PenggunaController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
@@ -57,7 +56,7 @@ Route::get('/tambahberkaspendukung', [PenggunaController::class, 'tambahberkaspe
 Route::post('/insertberkaspendukung', [PenggunaController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');
 Route::get('/deleteberkaspendukung/{berkasId}', [PenggunaController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
 
-
-Route::middleware(['guest'])->group(function () {
-    Route::get('/output', [YourController::class, 'output'])->name('output');
-});
+Route::get('/output', [PenggunaController::class, 'output'])->name('output');
+// Route::middleware(['guest'])->group(function () {
+//     Route::get('/output', [PenggunaController::class, 'output'])->name('output');
+// });
