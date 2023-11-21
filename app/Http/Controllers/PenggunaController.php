@@ -11,63 +11,118 @@ use App\Models\DataPendidikan;
 use App\Models\DataPekerjaan;
 use App\Models\UpBerkas;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class PenggunaController extends Controller
 {
+
+    public function update(Request $request, $id)
+{
+    $validator = Validator::make($request->all(), [
+        'password' => [
+            'nullable',
+            'string',
+            'min:8',
+            'regex:/^(?=.*[A-Z])(?=.*\d).+$/',
+        ],
+        // tambahkan aturan lainnya jika diperlukan
+    ]);
+
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
+    }
+
+    // Proses pembaruan profil di sini
+    $user = User::find($id);
+
+    // Memeriksa apakah password baru disetel
+    if ($request->filled('password')) {
+        $user->password = bcrypt($request->password);
+    }
+
+    // Tambahkan proses pembaruan atribut lainnya sesuai kebutuhan
+
+    $user->save();
+
+    return redirect('profile')->with('success', 'Profil berhasil diperbarui');
+}
+
+
     public function showRegistrationForm()
     {
         return view('Register');
     }
 
     public function register(Request $request)
-    {
-        // Validasi data pendaftaran di sini jika diperlukan
+{
+    // Validasi data pendaftaran di sini jika diperlukan
+    $validator = Validator::make($request->all(), [
+        'password' => [
+            'required',
+            'string',
+            'min:8',
+            'regex:/^(?=.*[A-Z])(?=.*\d).+$/',
+        ],
+        // tambahkan aturan lainnya jika diperlukan
+    ]);
 
-        // Simpan pengguna baru ke database
-        $user = Pengguna::create([
-            'pengguna_id' => Str::uuid(),
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
-        ]);
-
-        // Login pengguna setelah pendaftaran
-        Auth::login($user);
-
-        return redirect()->route('login');
+    if ($validator->fails()) {
+        return redirect()
+            ->back()
+            ->withErrors($validator)
+            ->withInput()
+            ->with('error', 'Password harus terdiri dari minimal 8 karakter, 1 huruf besar, dan 1 angka.');
     }
 
-    public function showLoginForm()
-    {
-        return view('login');
+    // Simpan pengguna baru ke database
+    $user = Pengguna::create([
+        'pengguna_id' => Str::uuid(),
+        'name' => $request->input('name'),
+        'email' => $request->input('email'),
+        'password' => Hash::make($request->input('password')),
+    ]);
+
+    // Login pengguna setelah pendaftaran
+    Auth::login($user);
+
+    return redirect()->route('login');
+}
+
+public function showLoginForm()
+{
+    return view('login');
+}
+
+public function login(Request $request)
+{
+    $credentials = $request->only('email', 'password');
+
+    if (Auth::attempt($credentials)) {
+        // Authentication passed...
+        return redirect()->route('your_desired_route'); // Change 'your_desired_route' to the desired route name
     }
 
-    public function login(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
-    
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return redirect()->route('tambahdatapribadi');
-        }
-    
-        return redirect()->route('login')->with('error', 'Invalid credentials');
-    }
+    return redirect()->route('login')->with('error', 'Invalid credentials');
+}
 
-    public function logout()
-    {
-        Auth::logout();
 
-        return redirect()->route('login');
-    }
+public function logout()
+{
+    Auth::logout();
+
+    return redirect()->route('login');
+}
+
 
     public function tambahdatapribadi(){
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
         $penggunaId = Auth::id();
-    
+
         // Memeriksa apakah data pribadi sudah ada untuk pengguna yang saat ini login
         DataPribadi::where('pengguna_id', $penggunaId)->first();
-    
+
         // Jika data pribadi belum ada, izinkan pengguna untuk menambahkannya
         return view('datapribadi');
     }
@@ -85,7 +140,7 @@ class PenggunaController extends Controller
             'notelpon' => $request->notelpon,
             'alamat' => $request->alamat,
         ]);
-        
+
         // Mengambil ID pengguna yang baru saja dibuat
         $dataId = $data->id;
 
@@ -97,7 +152,7 @@ class PenggunaController extends Controller
         }
         return redirect()->route('tambahdatapribadi', ['id' => $dataId])->with('success', 'Data Berhasil di Simpan');
     }
-    
+
     public function editdatapribadi($id) {
         $data = DataPribadi::find($id);
         return view('editdatapribadi', compact('data'));
@@ -139,10 +194,10 @@ class PenggunaController extends Controller
     public function tambahdatapekerjaan(){
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
         $penggunaId = Auth::id();
-    
+
         // Mengambil data pekerjaan hanya untuk pengguna yang saat ini login
         $data = DataPekerjaan::where('pengguna_id', $penggunaId)->get();
-    
+
         return view('datapekerjaan', compact('data'));
     }
 
@@ -151,7 +206,7 @@ class PenggunaController extends Controller
             'tanggal_akhir' => 'after_or_equal:tanggal_awal'
         ], ['tanggal_akhir.after_or_equal' => 'Tanggal Berakhir harus setelah atau sama dengan Tanggal Mulai.',
         ]);
-        
+
         DataPekerjaan::create([
             'pengguna_id' => Auth::id(),
             'pengalaman' => $request->pengalaman,
@@ -160,7 +215,7 @@ class PenggunaController extends Controller
             'tanggal_awal' => $request->tanggal_awal,
             'tanggal_akhir' => $request->tanggal_akhir,
         ]);
-        
+
         return redirect()->route('tambahdatapekerjaan')->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -179,10 +234,10 @@ class PenggunaController extends Controller
     public function tambahdataskill(){
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
         $penggunaId = Auth::id();
-    
+
         // Mengambil data skill hanya untuk pengguna yang saat ini login
         $data = DataSkill::where('pengguna_id', $penggunaId)->get();
-    
+
         return view('dataskill', compact('data'));
     }
 

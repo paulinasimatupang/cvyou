@@ -3,7 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .alert {
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f44336;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
     <title>Register</title>
 </head>
 <body>
@@ -11,23 +73,23 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div class="form-group">
-                <label for="name">Nama Lengkap:</label>
-                <input type="text" name="name" class="form-control" required>
-            </div>
+            <label for="name">Nama Lengkap:</label>
+            <input type="text" name="name" required>
 
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" name="email" class="form-control" required>
-            </div>
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
 
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" name="password" class="form-control" required>
-            </div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
 
-            <button type="submit" class="btn btn-primary">Registrasi</button>
+            <button type="submit">Registrasi</button>
         </form>
+
+        @if(session('error'))
+            <div class="alert">
+                {{ session('error') }}
+            </div>
+        @endif
     </div>
 </body>
 </html>

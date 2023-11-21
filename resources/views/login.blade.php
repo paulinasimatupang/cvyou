@@ -11,21 +11,25 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="container">
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <form method="POST" action="{{ route('login') }}" class="col-md-6 p-4 bg-light border rounded">
+                @csrf
 
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" name="email" class="form-control" required>
-            </div>
+                <h2 class="text-center mb-4">Login</h2>
 
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" name="password" class="form-control" required>
-            </div>
-            <a href="/tambahdatapribadi" type="button" class="btn btn-success">Login</a>
-        </form>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success">Login</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
