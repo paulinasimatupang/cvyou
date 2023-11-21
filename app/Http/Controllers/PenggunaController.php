@@ -351,7 +351,7 @@ class PenggunaController extends Controller
     return redirect()->back()->with('error', 'Berkas tidak ditemukan');
     }
 
-    public function output() {
+    public function lihatcv() {
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
         $penggunaId = Auth::id();
 

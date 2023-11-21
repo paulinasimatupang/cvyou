@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,22 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="favicon.ico">  
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">  
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <!-- FontAwesome JS-->
-	<script defer src="assets/fontawesome/js/all.min.js"></script>
+	<script defer src="{{ asset('output/assets/fontawesome/js/all.min.js') }}"></script>
     <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="{{ asset('output/assets/plugins/bootstrap/css/bootstrap.min.css') }}">   
     <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/orbit-1.css">
+    <link id="theme-style" rel="stylesheet" href="{{ asset('output/assets/css/orbit-1.css') }}">
 </head> 
 
 <body>
     <div class="wrapper mt-lg-5">
         <div class="sidebar-wrapper">
             <div class="profile-container">
-                <img class="profile" src="assets/images/profile.png" alt="" />
+                <img class="profile" src="{{ asset('output/assets/images/profile.png') }}" alt="" />
                 <h1 class="name">Alan Doe</h1>
                 <h3 class="tagline">Full Stack Developer</h3>
             </div><!--//profile-container-->

@@ -56,7 +56,7 @@ Route::get('/tambahberkaspendukung', [PenggunaController::class, 'tambahberkaspe
 Route::post('/insertberkaspendukung', [PenggunaController::class, 'insertberkaspendukung'])->name('insertberkaspendukung');
 Route::get('/deleteberkaspendukung/{berkasId}', [PenggunaController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
 
-Route::get('/output', [PenggunaController::class, 'output'])->name('output');
+Route::get('/output', [PenggunaController::class, 'lihatcv'])->name('lihatcv');
 // Route::middleware(['guest'])->group(function () {
 //     Route::get('/output', [PenggunaController::class, 'output'])->name('output');
 // });
