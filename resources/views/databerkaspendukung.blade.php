@@ -29,15 +29,16 @@
         <div class="col-8">
           <div class="card">
             <div class="card-body">
-              <form action="{{ route('insertberkaspendukung') }}" method="POST" enctype="multipart/form-data">
+              <form action="/insertberkaspendukung" method="POST" enctype="multipart/form-data">
               @csrf
                 <div class="mb-3">
                   <label for="examplejenisberkas" class="form-label">Jenis Berkas</label>
-                  <select name="jenis_berkas" class="form-select" id="examplejenisberkas">
+                  <select name="jenisberkas" class="form-select" id="examplejenisberkas">
                       <option value="sertifikat">Sertifikat</option>
                       <option value="suratrekomendasi">Surat Rekomendasi</option>
                       <option value="portofolio">Portofolio</option>
                   </select>
+
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputgelar" class="form-label">Judul</label>
