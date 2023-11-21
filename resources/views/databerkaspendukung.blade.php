@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap CSS -->  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
   <title>CVYou | Berkas Pendukung </title>
@@ -29,19 +29,27 @@
         <div class="col-8">
           <div class="card">
             <div class="card-body">
-              <form action="/insertberkaspendukung" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('insertberkaspendukung') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                  <label for="examplependidikanformal" class="form-label">Sertifikat</label>
-                  <input type="file" name="sertifikat" class="form-control" id="exampleInputsertifikat" aria-describedby="emailHelp">
+                  <label for="examplejenisberkas" class="form-label">Jenis Berkas</label>
+                  <select name="jenis_berkas" class="form-select" id="examplejenisberkas">
+                      <option value="sertifikat">Sertifikat</option>
+                      <option value="suratrekomendasi">Surat Rekomendasi</option>
+                      <option value="portofolio">Portofolio</option>
+                  </select>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputgelar" class="form-label">Surat Rekomendasi</label>
-                  <input type="file" name="suratrekomendasi" class="form-control" id="exampleInputsuratrekomendasi" aria-describedby="emailHelp">
+                  <label for="exampleInputgelar" class="form-label">Judul</label>
+                  <input type="text" name="judul" class="form-control" id="exampleInputsuratrekomendasi" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputinstitusipendidikan" class="form-label">Portofolio</label>
-                  <input type="file" name="portofolio" class="form-control" id="exampleInputportofolio" aria-describedby="emailHelp">
+                  <label for="exampleInputinstitusipendidikan" class="form-label">Keterangan</label>
+                  <input type="text" name="keterangan" class="form-control" id="exampleInputportofolio" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputgelar" class="form-label">Upload Berkas</label>
+                  <input type="file" name="uploadberkas" class="form-control" id="exampleInputsuratrekomendasi" aria-describedby="emailHelp">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
@@ -72,9 +80,11 @@
           <thead>
             <tr>
               <th scope="col">No.</th>
-              <th scope="col">Sertifikat</th>
-              <th scope="col">Surat Rekomendasi</th>
-              <th scope="col">Portofolio</th>
+              <th scope="col">Jenis Berkas</th>
+              <th scope="col">Judul</th>
+              <th scope="col">Keterangan</th>
+              <th scope="col">Berkas</th>
+              <th scope="col">AKsi</th>
             </tr>
           </thead>
           <tbody>
@@ -84,10 +94,12 @@
             @foreach ($data as $index => $row)
             <tr>
               <th scope="row">{{ $no++ }}</th>
-              <td>{{ $row->sertifikat }}</td>
-              <td>{{ $row->suratrekomendasi }}</td>
-              <td>{{ $row->portofolio }}</td>
+              <td>{{ $row->jenisberkas }}</td>
+              <td>{{ $row->judul }}</td>
+              <td>{{ $row->keterangan }}</td>
+              <td>{{ $row->berkas }}</td>
               <td>
+                <a href="/editberkaspendukung/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
                 <a href="/deleteberkaspendukung/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
               </td>
             </tr>

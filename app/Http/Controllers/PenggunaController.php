@@ -274,24 +274,28 @@ public function logout()
         return view('databerkaspendukung', compact('data'));
     }
 
-    public function insertberkaspendukung(Request $request, $id)
+    public function insertberkaspendukung(Request $request)
     {
         $request->validate([
-            'nama_berkas' => 'required',
-            'file_berkas' => 'required|mimes:pdf,doc,docx|max:2048',
+            'jenis_berkas' => 'required',
+            'judul' => 'required',
+            'keterangan' => 'required',
+            'uploadberkas' => 'required|mimes:pdf,doc,docx|max:2048',
         ]);
 
-        $file = $request->file('file_berkas');
-        $fileName = time() . '_' . $file->getClientOriginalName();
+        $penggunaId = auth()->id();
 
-        // Menyimpan berkas ke dalam direktori penyimpanan
-        $file->move(public_path('uploads'), $fileName);
+        // Simpan file ke direktori penyimpanan
+        $fileName = time() . '_' . $request->file('uploadberkas')->getClientOriginalName();
+        $request->file('uploadberkas')->move('berkastambahan', $fileName);
 
         // Menyimpan informasi berkas ke dalam database
         UpBerkas::create([
-            'pengguna_id' => Auth::id(),
-            'nama_berkas' => $request->input('nama_berkas'),
-            'file_path' => $fileName,
+            'pengguna_id' => $penggunaId,
+            'jenisberkas' => $request->jenisberkas,
+            'judul' => $request->judul,
+            'keterangan' => $request->keterangan,
+            'berkas' => $fileName,
         ]);
 
         return redirect()->back()->with('success', 'Berkas berhasil diunggah: ' . $fileName);

@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('pengguna_id')->index()->nullable();
             $table->foreign('pengguna_id')->references('id')->on('penggunas')->onDelete('cascade');
-            $table->string('sertifikat')->nullable()->default(null);
-            $table->string('suratrekomendasi')->nullable()->default(null);
-            $table->string('portofolio')->nullable()->default(null);
+            $table->string('jenisberkas')->nullable()->default(null);
+            $table->string('judul')->nullable()->default(null);
+            $table->string('keterangan')->nullable()->default(null);
+            $table->string('berkas')->nullable()->default(null);
             $table->timestamps();
         });
     }
