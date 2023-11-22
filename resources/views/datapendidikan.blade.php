@@ -44,12 +44,8 @@
                   <input type="text" name="institusipendidikan" class="form-control" id="exampleInputinstitusipendidikan" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputprestasiakademik" class="form-label">Prestasi Akademik</label>
-                    <input type="text" name="prestasiakademik" class="form-control" id="exampleInputprestasiakademik" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputketerampilan" class="form-label">Keterampilan</label>
-                    <input type="text" name="keterampilan" class="form-control" id="exampleInputketerampilan" aria-describedby="emailHelp">
+                    <label for="exampleInputtahunakademik" class="form-label">Tahun Akademik</label>
+                    <input type="text" name="tahunakademik" class="form-control" id="exampleInputtahunakademik" aria-describedby="emailHelp">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
@@ -83,8 +79,7 @@
               <th scope="col">Jenjang</th>
               <th scope="col">Gelar</th>
               <th scope="col">Institusi Pendidikan</th>
-              <th scope="col">Prestasi Akademik</th>
-              <th scope="col">Keterampilan</th>
+              <th scope="col">Tahun Akademik</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
@@ -98,8 +93,7 @@
               <td>{{ $row->jenjang }}</td>
               <td>{{ $row->gelar }}</td>
               <td>{{ $row->institusipendidikan }}</td>
-              <td>{{ $row->prestasiakademik }}</td>
-              <td>{{ $row->keterampilan }}</td>
+              <td>{{ $row->tahunakademik }}</td>
               <td>
                 <a href="/editdatapendidikan/{{ $row->id }}" type="button" class="btn btn-warning">Edit</a>
                 <a href="/deletependidikan/{{ $row->id }}" type="button" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>

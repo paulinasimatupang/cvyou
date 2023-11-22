@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('jenjang')->nullable();
             $table->string('gelar')->nullable();
             $table->string('institusipendidikan')->nullable();
-            $table->string('prestasiakademik')->nullable();
-            $table->string('keterampilan')->nullable();
+            $table->string('tahunakademik')->nullable();
             $table->timestamps();
         });
     }
