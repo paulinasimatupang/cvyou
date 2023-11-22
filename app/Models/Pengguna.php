@@ -12,9 +12,6 @@ class Pengguna extends Model implements Authenticatable
     use AuthenticableTrait;
     use HasFactory;
 
-    protected $primaryKey = 'id';
-    public $incrementing = true;
-    protected $keyType = 'uuid';
     protected $table = 'penggunas';
     protected $fillable = ['pengguna_id','name','email', 'password',];
 

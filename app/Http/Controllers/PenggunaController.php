@@ -71,6 +71,7 @@ class PenggunaController extends Controller
 
         // Simpan pengguna baru ke database
         $user = Pengguna::create([
+            'pengguna_id' => Str::uuid(),
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
