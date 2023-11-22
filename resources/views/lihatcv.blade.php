@@ -1,100 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Lihat CV</title>
-    
+
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Responsive HTML5 Resume/CV Template for Developers">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">  
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <!-- FontAwesome JS-->
-	<script defer src="{{ asset('output/assets/fontawesome/js/all.min.js') }}"></script>
+    <script defer src="{{ asset('output/assets/fontawesome/js/all.min.js') }}"></script>
     <!-- Global CSS -->
-    <link rel="stylesheet" href="{{ asset('output/assets/plugins/bootstrap/css/bootstrap.min.css') }}">   
-    <!-- Theme CSS -->  
+    <link rel="stylesheet" href="{{ asset('output/assets/plugins/bootstrap/css/bootstrap.min.css') }}">
+    <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="{{ asset('output/assets/css/orbit-2.css') }}">
-</head> 
+</head>
 
 <body>
-    @foreach ($data as $item)
+    @foreach ($data as $personalData)
+        @if($personalData->pengguna_id == Auth::user()->id) <!-- Pengecekan pengguna_id -->
     <div class="wrapper mt-lg-5">
         <div class="sidebar-wrapper">
             <div class="profile-container">
                 <img class="profile" src="{{ asset('output/assets/images/profile.png') }}" alt="" />
-                <h1 class="name">{{ $item->firstnm }} {{ $item->lastnm }}</h1>
-                <h3 class="tagline">{{ $item->tempatlahir, }} {{ $item->tgllahir }}</h3>
+                <h1 class="name">{{ $personalData->firstnm }} {{ $personalData->lastnm }}</h1>
+                <h3 class="tagline">{{ $personalData->tempatlahir }} {{ $personalData->tgllahir }}</h3>
             </div><!--//profile-container-->
-            
+
             <div class="contact-container container-block">
                 <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fa-solid fa-envelope"></i><a href="#">{{ $item->email }}</a></li>
-                    <li class="phone"><i class="fa-solid fa-phone"></i><a href="">{{ $item->notelpon }}</a></li>
-                    <li class="home"><i class="fa-solid fa-home"></i><a>{{ $item->alamat }}</a></li>
+                    <li class="email"><i class="fa-solid fa-envelope"></i><a href="mailto:{{ $personalData->email }}">{{ $personalData->email }}</a></li>
+                    <li class="phone"><i class="fa-solid fa-phone"></i><a href="tel:{{ $personalData->notelpon }}">{{ $personalData->notelpon }}</a></li>
+                    <li class="home"><i class="fa-solid fa-home"></i><a>{{ $personalData->alamat }}</a></li>
                 </ul>
             </div><!--//contact-container-->
-            @if($item->dataPendidikan && count($item->dataPendidikan) > 0)
-                <div class="education-container container-block">
-                    <h2 class="container-block-title">Data Pendidikan</h2>
-                    
-                    @foreach($item->dataPendidikan as $data)
-                        <div class="item">
-                            <h4 class="degree">{{ $data->pendidikanformal }}</h4>
-                            <h5 class="meta">{{ $data->gelar }}</h5>
-                            <h5 class="meta">{{ $data->institusipendidikan }}</h5>
-                            <div class="time">{{ $data->prestasiakademik }}</div>
-                            <div class="time">{{ $data->keterampilan }}</div>
-                        </div><!--//item-->
-                    @endforeach
-                </div><!--//education-container-->
+
+            @if ($personalData->dataPendidikan && count($personalData->dataPendidikan) > 0)
+            <div class="education-container container-block">
+                <h2 class="container-block-title">Data Pendidikan</h2>
+
+                @foreach ($personalData->dataPendidikan as $pendidikanData)
+                <div class="item">
+                    <h4 class="degree">{{ $pendidikanData->pendidikanformal }}</h4>
+                    <h5 class="meta">{{ $pendidikanData->gelar }}</h5>
+                    <h5 class="meta">{{ $pendidikanData->institusipendidikan }}</h5>
+                    <div class="time">{{ $pendidikanData->prestasiakademik }}</div>
+                    <div class="time">{{ $pendidikanData->keterampilan }}</div>
+                </div><!--//item-->
+                @endforeach
+            </div><!--//education-container-->
             @endif
 
-
-            
         </div><!--//sidebar-wrapper-->
-        
+
         <div class="main-wrapper">
             <section class="section experiences-section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-briefcase"></i></span>Data Pekerjaan</h2>
-                @if(count($items) > 0)
-                    @foreach($items as $item)
-                        <div class="item">
-                            <div class="meta">
-                                <div class="upper-row">
-                                    <h3 class="job-title"><div class="time">{{ $item->pengalaman }}</div></h3>
-                                    <div class="time">{{ \Carbon\Carbon::parse($item->tanggal_awal)->format('d M Y') }} - {{ \Carbon\Carbon::parse($item->tanggal_akhir)->format('d M Y') }}</div>
-                                </div><!--//upper-row-->
-                                <div class="company">{{ $item->perusahaan }}</div>
-                            </div><!--//meta-->
-                            <div class="details">
-                                <p>{{ $item->deskripsi }}</p>
-                            </div><!--//details-->
-                        </div><!--//item-->
-                    @endforeach
+                @if (count($personalData->dataPekerjaan) > 0)
+                @foreach ($personalData->dataPekerjaan as $pekerjaanData)
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">{{ $pekerjaanData->pengalaman }}</h3>
+                            <div class="time">{{ \Carbon\Carbon::parse($pekerjaanData->tanggal_awal)->format('d M Y') }} - {{ \Carbon\Carbon::parse($pekerjaanData->tanggal_akhir)->format('d M Y') }}</div>
+                        </div><!--//upper-row-->
+                        <div class="company">{{ $pekerjaanData->perusahaan }}</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>{{ $pekerjaanData->deskripsi }}</p>
+                    </div><!--//details-->
+                </div><!--//item-->
+                @endforeach
                 @endif
-
-                
             </section><!--//section-->
             
             <section class="skills-section section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-rocket"></i></span>Data Skill</h2>
-                @if(count($data) > 0)
+                @if(count($personalData->dataSkills) > 0)
                     <div class="skillset">
-                        @foreach($data as $item)
+                        @foreach($personalData->dataSkills as $skill)
                             <div class="item">
-                                <h3 class="level-title">{{ $item->skill }}</h3>
+                                <h3 class="level-title">{{ $skill->skill }}</h3>
                                 <div class="progress level-bar">
-                                    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: {{ $item->skill }}%" aria-valuenow="{{ $item->skill }}" aria-valuemin="0" aria-valuemax="5"></div>
+                                    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: {{ $skill->level }}%" aria-valuenow="{{ $skill->level }}" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>                               
                             </div><!--//item--> 
                         @endforeach
                     </div>
                 @endif
-
             </section><!--//skills-section-->
 
             <section class="section projects-section">
@@ -102,14 +100,18 @@
                 <div class="intro">
                     <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
                 </div><!--//intro-->
-                <div class="item">
-                    <span class="project-title"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderpro-bootstrap-5-startup-template-for-software-projects/" target="_blank">CoderPro</a></span> - <span class="project-tagline">A responsive website template designed to help developers launch their software projects. </span>
-                    
-                </div><!--//item-->
+                @if(count($personalData->dataProjects) > 0)
+                    @foreach($personalData->dataProjects as $project)
+                        <div class="item">
+                            <span class="project-title"><a href="{{ $project->link }}" target="_blank">{{ $project->title }}</a></span> - <span class="project-tagline">{{ $project->description }}</span>
+                        </div><!--//item-->
+                    @endforeach
+                @endif
             </section><!--//section-->
             
         </div><!--//main-body-->
     </div>
+    @endif
     @endforeach   
  
     <footer class="footer">
