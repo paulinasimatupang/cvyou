@@ -213,8 +213,7 @@ class PenggunaController extends Controller
             'jenjang' => $request->jenjang,
             'gelar' => $request->gelar,
             'institusipendidikan' => $request->institusipendidikan,
-            'prestasiakademik' => $request->prestasiakademik,
-            'keterampilan' => $request->keterampilan,
+            'tahunakademik' => $request->tahunakademik,
         ]);
         return redirect()->route('tambahdatapendidikan')->with('success', 'Data Berhasil di Simpan');
     }

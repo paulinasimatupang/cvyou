@@ -32,12 +32,8 @@
                                     <input type="text" name="institusipendidikan" class="form-control" id="exampleInputinstitusipendidikan" aria-describedby="emailHelp" value="{{ $data->institusipendidikan }}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputprestasiakademik" class="form-label">Prestasi Akademik</label>
-                                     <input type="text" name="prestasiakademik" class="form-control" id="exampleInputprestasiakademik" aria-describedby="emailHelp" value="{{ $data->prestasiakademik }}">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputketerampilan" class="form-label">Keterampilan</label>
-                                    <input type="text" name="keterampilan" class="form-control" id="exampleInputketerampilan" aria-describedby="emailHelp" value="{{ $data->keterampilan }}">
+                                    <label for="exampleInputtahunakademik" class="form-label">Tahun Akademik</label>
+                                    <input type="text" name="tahunakademik" class="form-control" id="exampleInputtahunakademik" aria-describedby="emailHelp">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
