@@ -71,7 +71,7 @@ class PenggunaController extends Controller
 
         // Simpan pengguna baru ke database
         $user = Pengguna::create([
-            'pengguna_id' => Str::uuid(),
+            'pengguna_id' => Auth::id(),
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
@@ -110,19 +110,20 @@ class PenggunaController extends Controller
     public function tambahdatapribadi(){
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
         $penggunaId = Auth::id();
-
+    
         // Memeriksa apakah data pribadi sudah ada untuk pengguna yang saat ini login
         $dataPribadi = DataPribadi::where('pengguna_id', $penggunaId)->first();
-
+    
         // Jika data pribadi belum ada, izinkan pengguna untuk menambahkannya
-        if (!$dataPribadi) {
-            return view('datapribadi');
+        if ($dataPribadi) {
+            $data = DataPribadi::find($penggunaId);
+            return view('editdatapribadi', compact('data'));
         } else {
             // Jika data pribadi sudah ada, mungkin arahkan pengguna ke halaman lain
             // atau berikan pesan bahwa data pribadi sudah ada.
-            return redirect()->route('tambahdatapendidikan')->with('message', 'Data pribadi sudah ada.');
+            return view('datapribadi');
         }
-    }
+    }   
 
     // ngejalanin bagaimana memasukan data dalam database
     public function insertdata(Request $request)
@@ -154,48 +155,19 @@ class PenggunaController extends Controller
 
         return redirect()->route('tambahdatapribadi', ['id' => $dataId])->with('success', 'Data Berhasil di Simpan');
     }
-    // public function editDataPribadi($pengguna_id) {
-    //     // Retrieve the data for the specified user
-    //     $data = DataPribadi::where('pengguna_id', $pengguna_id)->first();
-
-    //     // Check if the data exists
-    //     if (!$data) {
-    //         // You can handle the case where data doesn't exist, for example, redirect to an error page.
-    //         return redirect()->route('error')->with('error', 'Data not found');
-    //     }
-
-    //     // Pass the data to the view along with the pengguna_id
-    //     return view('editdatapribadi', compact('data', 'pengguna_id'));
-    // }
-
-    public function editDataPribadi($pengguna_id){
-        $data = DataPribadi::find($pengguna_id);
+    
+    public function editdatapribadi($id){
+        $data = DataPribadi::find($id);
         return view('editdatapribadi', compact('data'));
     }
 
     public function updatedatapribadi(Request $request, $id) {
-        $data = Pengguna::find($id);
+        $data = DataPribadi::find($id);
 
         $data->update($request->all());
 
         return redirect()->route('tambahdatapribadi', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
     }
-
-    // public function updateDataPribadi(Request $request, $pengguna_id) {
-    //     // Validate the form data
-    //     $validatedData = $request->validate([
-    //         // Add validation rules for each field you want to validate
-    //         'field1' => 'required',
-    //         'field2' => 'required',
-    //         // Add more fields as needed
-    //     ]);
-
-    //     // Update the data in the database
-    //     DataPribadi::where('pengguna_id', $pengguna_id)->update($validatedData);
-
-    //     // Redirect back to the edit page with a success message
-    //     return redirect()->route('editdatapribadi', $pengguna_id)->with('success', 'Data updated successfully');
-    // }
 
     public function tambahdatapendidikan() {
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
@@ -213,7 +185,8 @@ class PenggunaController extends Controller
             'jenjang' => $request->jenjang,
             'gelar' => $request->gelar,
             'institusipendidikan' => $request->institusipendidikan,
-            'tahunakademik' => $request->tahunakademik,
+            'prestasiakademik' => $request->prestasiakademik,
+            'keterampilan' => $request->keterampilan,
         ]);
         return redirect()->route('tambahdatapendidikan')->with('success', 'Data Berhasil di Simpan');
     }
@@ -392,20 +365,30 @@ class PenggunaController extends Controller
         $berkas->delete();
         return redirect()->back()->with('success', 'Berkas berhasil dihapus');
     }
+    
     return redirect()->back()->with('error', 'Berkas tidak ditemukan');
     }
-
+    
     public function lihatcv() {
-        // Mendapatkan pengguna_id dari pengguna yang saat ini login
-        $penggunaId = Auth::id();
+    // Mendapatkan pengguna_id dari pengguna yang saat ini login
+    $penggunaId = Auth::id();
 
-        // Mengambil data Pengguna dan semua relasinya
-        $data = Pengguna::with(['dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas'])
-                 ->where('pengguna_id', $penggunaId)
-                 ->get(); // Add get() to execute the query
+    // Mengambil data berdasarkan pengguna_id yang sesuai dan eager load the relationships
+    $data = Pengguna::with(['dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas'])
+                    ->find($penggunaId);
 
-        return view('lihatcv', compact('data'));
+    // Temporary check to see if data is retrieved
+    // dd($data);
+
+    // Check if data exists
+    if (!$data) {
+        // Handle the case where no data is found (optional)
+        abort(404); // You can customize this based on your needs
     }
+
+    return view('lihatcv', compact('data'));
+}
+
 
 
 }

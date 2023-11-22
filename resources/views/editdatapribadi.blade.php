@@ -28,7 +28,7 @@
       <div class="col-8">
         <div class="card">
           <div class="card-body">
-            <form action="{{ route('updatedatapribadi', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
+            <form action="/updatedatapribadi/{{ $data->id }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">First Name</label>

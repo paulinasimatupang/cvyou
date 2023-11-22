@@ -12,6 +12,7 @@ class Pengguna extends Model implements Authenticatable
     use AuthenticableTrait;
     use HasFactory;
 
+    protected $primaryKey = 'pengguna_id';
     protected $table = 'penggunas';
     protected $fillable = ['pengguna_id','name','email', 'password',];
 
@@ -22,7 +23,7 @@ class Pengguna extends Model implements Authenticatable
 
 public function dataSkill()
 {
-    return $this->hasOne(DataSkill::class, 'pengguna_id', 'id');
+    return $this->hasMany(DataSkill::class, 'pengguna_id', 'id');
 }
 
 public function dataPendidikan()
@@ -37,7 +38,7 @@ public function dataPekerjaan()
 
 public function upBerkas()
 {
-    return $this->hasOne(UpBerkas::class, 'pengguna_id', 'id');
+    return $this->hasMany(UpBerkas::class, 'pengguna_id', 'id');
 }
 
 }

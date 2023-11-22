@@ -23,11 +23,13 @@
 
 <body>
     @foreach ($data as $personalData)
-        @if($personalData->pengguna_id == Auth::user()->id) <!-- Pengecekan pengguna_id -->
+    {{-- @if($personalData->dataPribadi == Auth::user()->id) <!-- Pengecekan pengguna_id --> --}}
     <div class="wrapper mt-lg-5">
         <div class="sidebar-wrapper">
+            @if ($personalData->dataPekerjaan)
             <div class="profile-container">
-                <img class="profile" src="{{ asset('output/assets/images/profile.png') }}" alt="" />
+                @foreach ($personalData->dataPribadi as $personalData)
+                <img class="profile" src="{{ asset('berkastambahan/' . $personalData->poto) }}" alt="" />
                 <h1 class="name">{{ $personalData->firstnm }} {{ $personalData->lastnm }}</h1>
                 <h3 class="tagline">{{ $personalData->tempatlahir }} {{ $personalData->tgllahir }}</h3>
             </div><!--//profile-container-->
@@ -81,9 +83,9 @@
             
             <section class="skills-section section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-rocket"></i></span>Data Skill</h2>
-                @if(count($personalData->dataSkills) > 0)
+                @if(count($personalData->dataSkill) > 0)
                     <div class="skillset">
-                        @foreach($personalData->dataSkills as $skill)
+                        @foreach($personalData->dataSkill as $skill)
                             <div class="item">
                                 <h3 class="level-title">{{ $skill->skill }}</h3>
                                 <div class="progress level-bar">
@@ -100,8 +102,8 @@
                 <div class="intro">
                     <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
                 </div><!--//intro-->
-                @if(count($personalData->dataProjects) > 0)
-                    @foreach($personalData->dataProjects as $project)
+                @if(count($personalData->upBerkas) > 0)
+                    @foreach($personalData->upBerkas as $project)
                         <div class="item">
                             <span class="project-title"><a href="{{ $project->link }}" target="_blank">{{ $project->title }}</a></span> - <span class="project-tagline">{{ $project->description }}</span>
                         </div><!--//item-->

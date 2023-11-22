@@ -5,7 +5,7 @@
 
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link {{ Request::is('editdatapribadi/*') ? 'active' : '' }}" href="/editdatapribadi/{{ $pengguna_id }}">Data Pribadi</a>
+        <a class="nav-link {{ Request::is('tambahdatapribadi/*') ? 'active' : '' }}" href="/tambahdatapribadi/{{ $pengguna_id }}">Data Pribadi</a>
     </li>
     <li class="nav-item">
         <a class="nav-link {{ Request::is('tambahdatapendidikan*') ? 'active' : '' }}" href="/tambahdatapendidikan">Data Pendidikan</a>
