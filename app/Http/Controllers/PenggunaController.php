@@ -71,7 +71,7 @@ class PenggunaController extends Controller
 
         // Simpan pengguna baru ke database
         $user = Pengguna::create([
-            'pengguna_id' => Auth::id(),
+            'pengguna_id' => Str::uuid(),
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
@@ -119,8 +119,6 @@ class PenggunaController extends Controller
             $data = DataPribadi::find($penggunaId);
             return view('editdatapribadi', compact('data'));
         } else {
-            // Jika data pribadi sudah ada, mungkin arahkan pengguna ke halaman lain
-            // atau berikan pesan bahwa data pribadi sudah ada.
             return view('datapribadi');
         }
     }   
