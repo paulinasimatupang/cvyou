@@ -366,26 +366,20 @@ class PenggunaController extends Controller
     
     return redirect()->back()->with('error', 'Berkas tidak ditemukan');
     }
-    
+        
     public function lihatcv() {
-    // Mendapatkan pengguna_id dari pengguna yang saat ini login
-    $penggunaId = Auth::id();
+        // Mendapatkan pengguna_id dari pengguna yang saat ini login
+        $penggunaId = Auth::id();
 
-    // Mengambil data berdasarkan pengguna_id yang sesuai dan eager load the relationships
-    $data = Pengguna::with(['dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas'])
-                    ->find($penggunaId);
+        // Mengambil data berdasarkan pengguna_id yang sesuai dan eager load the relationships
+        $data = Pengguna::with(['dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas'])
+                        ->find($penggunaId);
 
-    // Temporary check to see if data is retrieved
-    // dd($data);
+        // Temporary check to see if data is retrieved
+        dd($data);
 
-    // Check if data exists
-    if (!$data) {
-        // Handle the case where no data is found (optional)
-        abort(404); // You can customize this based on your needs
+        return view('lihatcv', compact('data'));
     }
-
-    return view('lihatcv', compact('data'));
-}
 
 
 

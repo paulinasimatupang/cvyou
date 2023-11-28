@@ -15,6 +15,6 @@ class DataPendidikan extends Model
 
     public function pengguna()
     {
-        $this->hasMany(Pengguna::class, 'pengguna_id', 'id');
+        $this->belongsTo(Pengguna::class, 'pengguna_id', 'id');
     }
 }
