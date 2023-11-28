@@ -58,6 +58,7 @@ class PenggunaController extends Controller
                 'min:8',
                 'regex:/^(?=.*[A-Z])(?=.*\d).+$/',
             ],
+            'email' => 'required|email|unique:penggunas', // Ensure email is unique
             // tambahkan aturan lainnya jika diperlukan
         ]);
 
@@ -92,8 +93,10 @@ class PenggunaController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
+        $user = Pengguna::where('email', $credentials['email'])->first();
+
+        if ($user && Hash::check($credentials['password'], $user->password)) {
+            Auth::login($user);
             return redirect()->route('tambahdatapribadi');
         }
 
@@ -184,7 +187,7 @@ class PenggunaController extends Controller
             'gelar' => $request->gelar,
             'institusipendidikan' => $request->institusipendidikan,
             'prestasiakademik' => $request->prestasiakademik,
-            'keterampilan' => $request->keterampilan,
+            'tahunakademik' => $request->tahunakademik,
         ]);
         return redirect()->route('tambahdatapendidikan')->with('success', 'Data Berhasil di Simpan');
     }
