@@ -60,9 +60,6 @@
               </div>
               <button class="btn btn-info" type="submit">Submit</button>
             </form>
-            <div>
-              <a href="{{ route('tambahdatapendidikan', ['id' => $data->id]) }}" class="btn btn-success">Next</a>
-            </div>
           </div>
         </div>
       </div>
