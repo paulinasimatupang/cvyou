@@ -21,13 +21,19 @@
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" name="email" class="form-control" required>
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" name="password" class="form-control" required>
+                    @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <a href="/tambahdatapribadi" type="button" class="btn btn-success">Login</a>
+                <button type="submit" class="btn btn-success">Login</button>
             </form>
         </div>
     </div>

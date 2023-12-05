@@ -91,6 +91,11 @@ class PenggunaController extends Controller
 
     public function login(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
         $credentials = $request->only('email', 'password');
 
         $user = Pengguna::where('email', $credentials['email'])->first();
@@ -100,7 +105,22 @@ class PenggunaController extends Controller
             return redirect()->route('tambahdatapribadi');
         }
 
-        return redirect()->route('login')->with('error', 'Invalid credentials');
+        $errors = [];
+
+        if (!$user) {
+            $errors['email'] = 'Email tidak tersedia.';
+        }
+
+        if ($user && !Hash::check($credentials['password'], $user->password)) {
+            $errors['password'] = 'Password tidak valid.';
+        }
+
+        // Jika keduanya salah, tambahkan pesan kesalahan umum
+        if (!$user || ($user && !Hash::check($credentials['password'], $user->password))) {
+            $errors['general'] = 'Email atau password tidak valid.';
+        }
+
+        return redirect()->route('login')->withErrors($errors);
     }
 
     public function logout()
@@ -113,10 +133,10 @@ class PenggunaController extends Controller
     public function tambahdatapribadi(){
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
         $penggunaId = Auth::id();
-    
+
         // Memeriksa apakah data pribadi sudah ada untuk pengguna yang saat ini login
         $dataPribadi = DataPribadi::where('pengguna_id', $penggunaId)->first();
-    
+
         // Jika data pribadi belum ada, izinkan pengguna untuk menambahkannya
         if ($dataPribadi) {
             $data = DataPribadi::find($penggunaId);
@@ -124,7 +144,7 @@ class PenggunaController extends Controller
         } else {
             return view('datapribadi');
         }
-    }   
+    }
 
     // ngejalanin bagaimana memasukan data dalam database
     public function insertdata(Request $request)
@@ -156,7 +176,7 @@ class PenggunaController extends Controller
 
         return redirect()->route('tambahdatapribadi', ['id' => $dataId])->with('success', 'Data Berhasil di Simpan');
     }
-    
+
     public function editdatapribadi($id){
         $data = DataPribadi::find($id);
         return view('editdatapribadi', compact('data'));
@@ -366,10 +386,10 @@ class PenggunaController extends Controller
         $berkas->delete();
         return redirect()->back()->with('success', 'Berkas berhasil dihapus');
     }
-    
+
     return redirect()->back()->with('error', 'Berkas tidak ditemukan');
     }
-        
+
     // public function lihatcv() {
     //     // Mendapatkan pengguna_id dari pengguna yang saat ini login
     //     $penggunaId = Auth::id();
@@ -392,7 +412,7 @@ class PenggunaController extends Controller
         $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
         $dataSkill = DataSkill::where('pengguna_id', $user)->get();
         $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
-        
+
         $data = compact('dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas');
 
         // dd($data);
