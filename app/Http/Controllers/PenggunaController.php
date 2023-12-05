@@ -370,16 +370,32 @@ class PenggunaController extends Controller
     return redirect()->back()->with('error', 'Berkas tidak ditemukan');
     }
         
+    // public function lihatcv() {
+    //     // Mendapatkan pengguna_id dari pengguna yang saat ini login
+    //     $penggunaId = Auth::id();
+
+    //     // Mengambil data berdasarkan pengguna_id yang sesuai dan eager load the relationships
+    //     $data = Pengguna::with(['dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas'])
+    //                     ->find($penggunaId);
+
+    //     // Temporary check to see if data is retrieved
+    //     dd($data);
+
+    //     return view('lihatcv', compact('data'));
+    // }
+
     public function lihatcv() {
-        // Mendapatkan pengguna_id dari pengguna yang saat ini login
-        $penggunaId = Auth::id();
+        $user = Auth::id();
 
-        // Mengambil data berdasarkan pengguna_id yang sesuai dan eager load the relationships
-        $data = Pengguna::with(['dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas'])
-                        ->find($penggunaId);
+        $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
+        $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
+        $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
+        $dataSkill = DataSkill::where('pengguna_id', $user)->get();
+        $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
+        
+        $data = compact('dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas');
 
-        // Temporary check to see if data is retrieved
-        dd($data);
+        // dd($data);
 
         return view('lihatcv', compact('data'));
     }

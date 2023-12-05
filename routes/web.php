@@ -61,7 +61,7 @@ Route::get('/editberkaspendukung/{id}', [PenggunaController::class, 'editberkasp
 Route::post('/updateberkaspendukung/{id}', [PenggunaController::class, 'updateberkaspendukung'])->name('updateberkaspendukung');
 Route::get('/deleteberkaspendukung/{berkasId}', [PenggunaController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
 
-Route::get('/lihatcv/{pengguna_id}', [PenggunaController::class, 'lihatcv'])->name('lihatcv');
+Route::get('/lihatcv', [PenggunaController::class, 'lihatcv'])->name('lihatcv');
 // Route::middleware(['guest'])->group(function () {
 //     Route::get('/output', [PenggunaController::class, 'output'])->name('output');
 // });

@@ -23,24 +23,30 @@
 
 <body>
     @foreach ($data as $personalData)
-    {{-- @if($personalData->dataPribadi == Auth::user()->id) <!-- Pengecekan pengguna_id --> --}}
+    @if($personalData->has('dataPribadi') && $personalData->dataPribadi == Auth::user()->id) <!-- Pengecekan pengguna_id -->
     <div class="wrapper mt-lg-5">
         <div class="sidebar-wrapper">
-            @if ($personalData->dataPekerjaan)
+            @if ($personalData->dataPribadi)
             <div class="profile-container">
                 @foreach ($personalData->dataPribadi as $personalData)
                 <img class="profile" src="{{ asset('berkastambahan/' . $personalData->poto) }}" alt="" />
                 <h1 class="name">{{ $personalData->firstnm }} {{ $personalData->lastnm }}</h1>
                 <h3 class="tagline">{{ $personalData->tempatlahir }} {{ $personalData->tgllahir }}</h3>
+                @endforeach
             </div><!--//profile-container-->
+            @endif
 
+            @if ($personalData->dataPribadi)
             <div class="contact-container container-block">
+                @foreach ($personalData->dataPribadi as $personalData)
                 <ul class="list-unstyled contact-list">
                     <li class="email"><i class="fa-solid fa-envelope"></i><a href="mailto:{{ $personalData->email }}">{{ $personalData->email }}</a></li>
                     <li class="phone"><i class="fa-solid fa-phone"></i><a href="tel:{{ $personalData->notelpon }}">{{ $personalData->notelpon }}</a></li>
                     <li class="home"><i class="fa-solid fa-home"></i><a>{{ $personalData->alamat }}</a></li>
                 </ul>
+                @endforeach
             </div><!--//contact-container-->
+            @endif
 
             @if ($personalData->dataPendidikan && count($personalData->dataPendidikan) > 0)
             <div class="education-container container-block">
@@ -114,7 +120,7 @@
         </div><!--//main-body-->
     </div>
     @endif
-    @endforeach   
+    @endforeach
  
     <footer class="footer">
         <div class="text-center">
