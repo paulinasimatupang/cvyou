@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['user'])->group(function () {
+// Route::middleware(['user'])->group(function () {
     //register
     Route::get('/register', [PenggunaController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [PenggunaController::class, 'register']);
@@ -63,4 +63,4 @@ Route::middleware(['user'])->group(function () {
     Route::get('/deleteberkaspendukung/{berkasId}', [PenggunaController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
 
     Route::get('/lihatcv', [PenggunaController::class, 'lihatcv'])->name('lihatcv');
-});
+// });
