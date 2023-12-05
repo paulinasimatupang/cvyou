@@ -108,16 +108,16 @@ class PenggunaController extends Controller
         $errors = [];
 
         if (!$user) {
-            $errors['email'] = 'Email tidak tersedia.';
+            $errors['email'] = 'Email tidak tersedia';
         }
 
         if ($user && !Hash::check($credentials['password'], $user->password)) {
-            $errors['password'] = 'Password tidak valid.';
+            $errors['password'] = 'Password tidak valid';
         }
 
         // Jika keduanya salah, tambahkan pesan kesalahan umum
         if (!$user || ($user && !Hash::check($credentials['password'], $user->password))) {
-            $errors['general'] = 'Email atau password tidak valid.';
+            $errors['general'] = 'Email dan password tidak valid';
         }
 
         return redirect()->route('login')->withErrors($errors);
@@ -417,7 +417,7 @@ class PenggunaController extends Controller
 
         // dd($data);
 
-        return view('lihatcv', compact('data'));
+        return view('lihatcv', $data);
     }
 
 

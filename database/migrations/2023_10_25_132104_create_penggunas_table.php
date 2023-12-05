@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('penggunas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->uuid('pengguna_id')->unique(); // Assuming you want it to be a unique identifier
+            $table->uuid('pengguna_id')->unique();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
