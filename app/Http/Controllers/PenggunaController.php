@@ -405,20 +405,26 @@ class PenggunaController extends Controller
     // }
 
     public function lihatcv() {
-        $user = Auth::id();
+    $user = Auth::id();
 
-        $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
-        $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
-        $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
-        $dataSkill = DataSkill::where('pengguna_id', $user)->get();
-        $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
+    $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
+    $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
+    $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
+    $dataSkill = DataSkill::where('pengguna_id', $user)->get();
+    $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
 
-        $data = compact('dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas');
+    $data = [
+        'dataPribadi' => $dataPribadi,
+        'dataPendidikan' => $dataPendidikan,
+        'dataPekerjaan' => $dataPekerjaan,
+        'dataSkill' => $dataSkill,
+        'upBerkas' => $upBerkas,
+    ];
 
-        // dd($data);
-
-        return view('lihatcv', $data);
+    // dd($data);
+    return view('lihatcv', $data);
     }
+
 
 
 

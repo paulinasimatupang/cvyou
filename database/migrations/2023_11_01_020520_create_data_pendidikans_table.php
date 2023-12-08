@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('data_pendidikans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pengguna_id')->index()->nullable();
-            $table->foreign('pengguna_id')->references('id')->on('penggunas')->onDelete('cascade');
+            $table->foreign('pengguna_id')->references('pengguna_id')->on('penggunas')->onDelete('cascade');
             $table->string('jenjang')->nullable();
             $table->string('gelar')->nullable();
             $table->string('institusipendidikan')->nullable();

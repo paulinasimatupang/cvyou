@@ -24,6 +24,12 @@
   @endif
     
     <h1 class="text-center mb-4">Data Pekerjaan</h1>
+    @if (auth()->check())
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
+@endif
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-8">

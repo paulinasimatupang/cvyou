@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('data_skills', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pengguna_id')->index()->nullable();
-            $table->foreign('pengguna_id')->references('id')->on('penggunas')->onDelete('cascade');
+            $table->foreign('pengguna_id')->references('pengguna_id')->on('penggunas')->onDelete('cascade');
             $table->string('skill')->nullable()->default(null);
             $table->string('rating')->nullable()->default(null);
             $table->timestamps();

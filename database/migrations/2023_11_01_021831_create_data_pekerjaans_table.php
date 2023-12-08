@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('data_pekerjaans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pengguna_id')->index()->nullable();
-            $table->foreign('pengguna_id')->references('id')->on('penggunas')->onDelete('cascade');
+            $table->foreign('pengguna_id')->references('pengguna_id')->on('penggunas')->onDelete('cascade');
             $table->string('pengalaman')->nullable()->default(null);
             $table->text('deskripsi')->nullable()->default(null);
             $table->string('perusahaan')->nullable()->default(null);

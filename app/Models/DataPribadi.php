@@ -15,6 +15,6 @@ class DataPribadi extends Model
 
     public function pengguna()
     {
-        $this->belongsTo(Pengguna::class, 'pengguna_id', 'id');
+        $this->belongsTo(Pengguna::class, 'pengguna_id');
     }
 }
