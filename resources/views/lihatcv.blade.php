@@ -25,7 +25,15 @@
         <div class="sidebar-wrapper">
             <div class="profile-container">
                 @foreach ($dataPribadi as $personalData)
-                    <img class="profile" src="{{ asset('berkastambahan/' . $personalData->poto) }}" alt="" />
+                @if ($personalData->poto)
+                    <?php
+                    $photoPathPersonal = asset('berkastambahan/' . $personalData->poto) . '?' . time();
+                    ?>
+                    <img src="{{ $photoPathPersonal }}" alt="Foto saat ini" class="img-thumbnail" style="width: 150px; height: auto;">
+                    <!-- Adjust width and height as needed, maintaining a 3:4 aspect ratio -->
+                @else
+                    <p>No photo available</p>
+                @endif
                     <h1 class="name">{{ $personalData->firstnm }} {{ $personalData->lastnm }}</h1>
                     <h3 class="tagline">{{ $personalData->tempatlahir }} {{ $personalData->tgllahir }}</h3>
                 @endforeach

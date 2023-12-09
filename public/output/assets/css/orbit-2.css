@@ -53,9 +53,9 @@ p {
   background: #4CAC9D;
   position: absolute;
   right: 0;
-  width: 240px;
+  width: 300px;
   height: 100%;
-  min-height: 800px;
+  min-height: 00px;
   color: #fff;
 }
 .sidebar-wrapper a {
@@ -156,6 +156,7 @@ p {
   background: #fff;
   padding: 60px;
   padding-right: 300px;
+  min-height: 100vh;
 }
 .main-wrapper .section-title {
   text-transform: uppercase;
@@ -274,9 +275,11 @@ p {
   .sidebar-wrapper {
     position: static;
     width: inherit;
+    height: auto;
   }
   .main-wrapper {
     padding: 30px;
+    padding-right: 0;
   }
   .main-wrapper .time {
     position: static;

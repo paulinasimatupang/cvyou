@@ -23,11 +23,6 @@ Route::get('/', function () {
 Route::get('/register', [PenggunaController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [PenggunaController::class, 'register']);
 
-
-// Route::get('/login', [PenggunaController::class, 'showLoginForm'])->name('login');
-// Route::post('/login', [PenggunaController::class, 'login']);
-// Route::post('/logout', [PenggunaController::class, 'logout'])->name('logout');
-
 Route::middleware(['auth'])->group(function () {
     //Data Pribadi
     Route::get('/tambahdatapribadi', [PenggunaController::class, 'tambahdatapribadi'])->name('tambahdatapribadi');

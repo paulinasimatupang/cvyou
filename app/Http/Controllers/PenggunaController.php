@@ -184,11 +184,32 @@ class PenggunaController extends Controller
 
     public function updatedatapribadi(Request $request, $id) {
         $data = DataPribadi::find($id);
-
-        $data->update($request->all());
-
+    
+        // Check if a new photo is uploaded
+        if ($request->hasFile('poto')) {
+            // Validate the uploaded image
+            $request->validate([
+                'poto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust validation rules as needed
+            ]);
+    
+            // Remove the old photo file
+            if (file_exists(public_path('berkastambahan/' . $data->poto))) {
+                unlink(public_path('berkastambahan/' . $data->poto));
+            }
+    
+            // Move the new photo to the storage directory
+            $fileName = $request->file('poto')->getClientOriginalName();
+            $request->file('poto')->move(public_path('berkastambahan'), $fileName);
+    
+            // Update the photo field in the database
+            $data->update(['poto' => $fileName]);
+        }
+    
+        // Update other fields in the database
+        $data->update($request->except('poto'));
+    
         return redirect()->route('tambahdatapribadi', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
-    }
+    }    
 
     public function tambahdatapendidikan() {
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
@@ -389,20 +410,6 @@ class PenggunaController extends Controller
 
     return redirect()->back()->with('error', 'Berkas tidak ditemukan');
     }
-
-    // public function lihatcv() {
-    //     // Mendapatkan pengguna_id dari pengguna yang saat ini login
-    //     $penggunaId = Auth::id();
-
-    //     // Mengambil data berdasarkan pengguna_id yang sesuai dan eager load the relationships
-    //     $data = Pengguna::with(['dataPribadi', 'dataPendidikan', 'dataPekerjaan', 'dataSkill', 'upBerkas'])
-    //                     ->find($penggunaId);
-
-    //     // Temporary check to see if data is retrieved
-    //     dd($data);
-
-    //     return view('lihatcv', compact('data'));
-    // }
 
     public function lihatcv() {
     $user = Auth::id();

@@ -31,9 +31,20 @@
             <form action="/updatedatapribadi/{{ $data->id }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Foto</label>
-                <input type="file" name="poto" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->poto }}">
+                <label for="fotoInput" class="form-label">Foto</label>
+                <input type="file" name="poto" class="form-control" id="fotoInput" aria-describedby="emailHelp">
               </div>
+              <div class="mb-3">
+                  <label for="fotoPreview" class="form-label">Foto saat ini</label>
+                  @if ($data->poto)
+                      <?php
+                      $photoPath = asset('berkastambahan/' . $data->poto) . '?' . time();
+                      ?>
+                      <img src="{{ $photoPath }}" alt="Foto saat ini" id="fotoPreview" class="img-thumbnail" style="width: 150px; height: auto;">
+                  @else
+                      <p>No photo available</p>
+                  @endif
+              </div>         
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">First Name</label>
                 <input type="text" name="firstnm" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->firstnm }}">
