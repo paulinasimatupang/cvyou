@@ -53,11 +53,11 @@
                 <h2 class="container-block-title">Data Pendidikan</h2>
                 @foreach ($dataPendidikan as $pendidikanData)
                     <div class="item">
-                        <h4 class="degree">{{ $pendidikanData->pendidikanformal }}</h4>
-                        <h5 class="meta">{{ $pendidikanData->gelar }}</h5>
-                        <h5 class="meta">{{ $pendidikanData->institusipendidikan }}</h5>
-                        <div class="time">{{ $pendidikanData->prestasiakademik }}</div>
-                        <div class="time">{{ $pendidikanData->keterampilan }}</div>
+                        <i class="fas fa-book icon"></i>
+                        <span class="degree">{{ $pendidikanData->jenjang }}</span>
+                        <span class="degree">{{ $pendidikanData->gelar }}</span>
+                        <span class="degree">{{ $pendidikanData->institusipendidikan }}</span>
+                        <span class="degree">{{ $pendidikanData->tahunakademik }}</span>
                     </div><!--//item-->
                 @endforeach
             </div><!--//education-container-->
@@ -94,35 +94,34 @@
                             <div class="item">
                                 <h3 class="level-title">{{ $skill->skill }}</h3>
                                 <!-- Add your styling for the progress bar here -->
-                                <div class="progress level-bar"
-                                    style="width: {{ $skill->level }}%; background-color: #yourcolor;">
+                                <div class="progress level-bar" style="width: 50%; background-color: #yourcolor;">
                                     <div class="progress-bar theme-progress-bar" role="progressbar"
-                                        style="width: {{ $skill->level }}%" aria-valuenow="{{ $skill->level }}"
+                                        style="width: {{ ($skill->rating / 5) * 100 }}%;" aria-valuenow="{{ $skill->rating }}"
                                         aria-valuemin="1" aria-valuemax="5"></div>
                                 </div>
                             </div><!--//item-->
                         @endforeach
                     </div>
                 @endif
-            </section><!--//skills-section-->
+            </section>
+                      
 
             <section class="section projects-section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-archive"></i></span>Berkas Pendukung</h2>
-                <!-- Add your styling for the projects section here -->
-                <div class="intro">
-                    <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit
-                        amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
-                    </p>
-                </div><!--//intro-->
                 @if (count($upBerkas) > 0)
-                    @foreach ($upBerkas as $project)
+                    @foreach ($upBerkas as $key => $berkas)
                         <div class="item">
-                            <span class="project-title"><a href="{{ $project->link }}" target="_blank">{{ $project->title }}</a></span>
-                            - <span class="project-tagline">{{ $project->description }}</span>
+                            <span class="project-title">{{ $key + 1 }}. {{ $berkas->jenisberkas }}</span>
+                            <span class="project-title">{{ $berkas->judul }}</span>
+                            <a href="{{ asset('berkastambahan/' . $berkas->berkas) }}" target="_blank">Download</a>
                         </div><!--//item-->
                     @endforeach
+                @else
+                    <p>No files available.</p>
                 @endif
+
             </section><!--//section-->
+            
 
         </div><!--//main-body-->
     </div>
