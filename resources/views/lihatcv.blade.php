@@ -35,7 +35,10 @@
                     <p>No photo available</p>
                 @endif
                     <h1 class="name">{{ $personalData->firstnm }} {{ $personalData->lastnm }}</h1>
-                    <h3 class="tagline">{{ $personalData->tempatlahir }} {{ $personalData->tgllahir }}</h3>
+                    <h3 class="tagline">
+                        {{ $personalData->tempatlahir }}, {{ \Carbon\Carbon::parse($personalData->tgllahir)->format('d M Y') }}
+                    </h3>
+                    
                 @endforeach
             </div><!--//profile-container-->
 
