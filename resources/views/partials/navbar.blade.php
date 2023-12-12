@@ -47,7 +47,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="cvSubMenu">
                     <li><a href="{{ url('lihatcv1') }}">Lihat CV</a></li>
-                    <li><a href="#">Download CV</a></li>
+                    <li><a href="{{ url('pdf1') }}">Download CV</a></li>
                 </ul>
             </li>
             <li class="{{ Request::is('lihatcv2*') ? 'active' : '' }}">
@@ -57,7 +57,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="cv2SubMenu">
                     <li><a href="{{ url('lihatcv2') }}">Lihat CV</a></li>
-                    <li><a href="#">Download CV</a></li>
+                    <li><a href="{{ url('pdf2') }}">Download CV</a></li>
                 </ul>
             </li>
             <li style="flex-grow: 1;"></li> <!-- This will push the logout button to the right -->

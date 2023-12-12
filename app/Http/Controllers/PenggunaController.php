@@ -452,45 +452,84 @@ class PenggunaController extends Controller
         return view('template2', $data);
     }
 
-    public function downloadPDF()
-{
-    $user = Auth::id();
+    public function downloadPDF1(){
+        $user = Auth::id();
 
-    $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
-    $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
-    $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
-    $dataSkill = DataSkill::where('pengguna_id', $user)->get();
-    $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
-    
-    $data = [
-        'dataPribadi' => $dataPribadi,
-        'dataPendidikan' => $dataPendidikan,
-        'dataPekerjaan' => $dataPekerjaan,
-        'dataSkill' => $dataSkill,
-        'upBerkas' => $upBerkas,
-    ];
+        $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
+        $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
+        $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
+        $dataSkill = DataSkill::where('pengguna_id', $user)->get();
+        $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
+        
+        $data = [
+            'dataPribadi' => $dataPribadi,
+            'dataPendidikan' => $dataPendidikan,
+            'dataPekerjaan' => $dataPekerjaan,
+            'dataSkill' => $dataSkill,
+            'upBerkas' => $upBerkas,
+        ];
 
-    // Create an instance of the PDF class
-    $pdf = app('dompdf.wrapper');
+        // Create an instance of the PDF class
+        $pdf = app('dompdf.wrapper');
 
-    // Set options for this specific PDF instance
-    $pdf->setOptions([
-        'dpi' => 150,
-        'defaultFont' => 'Roboto',
-        'margin-top' => 20,
-        'margin-right' => 50,
-        'margin-bottom' => 20,
-        'margin-left' => 20,
-    ]);
+        // Set options for this specific PDF instance
+        $pdf->setOptions([
+            'dpi' => 150,
+            'defaultFont' => 'Roboto',
+            'margin-top' => 20,
+            'margin-right' => 50,
+            'margin-bottom' => 20,
+            'margin-left' => 20,
+        ]);
 
-    // Set paper size and orientation
-    $pdf->setPaper('A4', 'portrait'); // Adjust 'A4' and 'portrait' based on your requirements
+        // Set paper size and orientation
+        $pdf->setPaper('A4', 'portrait'); // Adjust 'A4' and 'portrait' based on your requirements
 
-    // Load the view
-    $pdf->loadView('template2', $data);
+        // Load the view
+        $pdf->loadView('template1', $data);
 
-    // Download the PDF
-    return $pdf->stream('template2.pdf', array('Attachment' => false));
-}
+        // Download the PDF
+        return $pdf->stream('template1.pdf', array('Attachment' => false));
+    }
+
+    public function downloadPDF2(){
+        $user = Auth::id();
+
+        $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
+        $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
+        $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
+        $dataSkill = DataSkill::where('pengguna_id', $user)->get();
+        $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
+        
+        $data = [
+            'dataPribadi' => $dataPribadi,
+            'dataPendidikan' => $dataPendidikan,
+            'dataPekerjaan' => $dataPekerjaan,
+            'dataSkill' => $dataSkill,
+            'upBerkas' => $upBerkas,
+        ];
+
+        // Create an instance of the PDF class
+        $pdf = app('dompdf.wrapper');
+
+        // Set options for this specific PDF instance
+        $pdf->setOptions([
+            'dpi' => 150,
+            'defaultFont' => 'Roboto',
+            'margin-top' => 20,
+            'margin-right' => 50,
+            'margin-bottom' => 20,
+            'margin-left' => 20,
+        ]);
+
+        // Set paper size and orientation
+        $pdf->setPaper('A4', 'portrait'); // Adjust 'A4' and 'portrait' based on your requirements
+
+        // Load the view
+        $pdf->loadView('template2', $data);
+
+        // Download the PDF
+        return $pdf->stream('template2.pdf', array('Attachment' => false));
+    }
 
 }

@@ -58,7 +58,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/updateberkaspendukung/{id}', [PenggunaController::class, 'updateberkaspendukung'])->name('updateberkaspendukung');
     Route::get('/deleteberkaspendukung/{berkasId}', [PenggunaController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
     
-    Route::get('/pdf', [PenggunaController::class, 'downloadPDF']);
+    Route::get('/pdf1', [PenggunaController::class, 'downloadPDF1']);
+    Route::get('/pdf2', [PenggunaController::class, 'downloadPDF2']);
     Route::get('/lihatcv1', [PenggunaController::class, 'lihatcv1'])->name('lihatcv1');
     Route::get('/lihatcv2', [PenggunaController::class, 'lihatcv2'])->name('lihatcv2');
 });

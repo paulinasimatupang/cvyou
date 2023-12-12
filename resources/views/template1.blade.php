@@ -20,7 +20,6 @@
 </head>
 
 <body>
-    <a href="{{ url('pdf') }}">Download pdf</a>
     <div class="wrapper mt-lg-5">
         <div class="sidebar-wrapper">
             <div class="profile-container">
@@ -112,12 +111,12 @@
             <section class="section projects-section">
                 <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-archive"></i></span>Berkas Pendukung</h2>
                 @if (count($upBerkas) > 0)
-                    @foreach ($upBerkas as $key => $berkas)
-                        <div class="item">
-                            <span class="project-title">{{ $key + 1 }}. {{ $berkas->jenisberkas }}</span>
+                    @foreach ($upBerkas as $berkas)
+                        <li class="item">
+                            <span class="project-title">{{ $berkas->jenisberkas }}</span>
                             <span class="project-title">{{ $berkas->judul }}</span>
                             <a href="{{ asset('berkastambahan/' . $berkas->berkas) }}" target="_blank">Download</a>
-                        </div><!--//item-->
+                        </li><!--//item-->
                     @endforeach
                 @else
                     <p>No files available.</p>
