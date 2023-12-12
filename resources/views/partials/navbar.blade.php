@@ -23,7 +23,7 @@
                 <span class="sr-only">Toggle Menu</span>
             </button>
         </div>
-        <h1><a href="index.html" class="logo">Project Name</a></h1>
+        <h1><a href="index.html" class="logo">CVYou</a></h1>
         <ul class="list-unstyled components mb-5">
             <li class="{{ Request::is('tambahdatapribadi/*') ? 'active' : '' }}">
                 <a href="/tambahdatapribadi/{{ $pengguna_id }}"><span class="fa fa-user mr-3"></span> Data Pribadi</a>
@@ -64,7 +64,9 @@
             <li>
                 <form action="{{ route('logout') }}" method="POST" class="nav-button">
                     @csrf
-                    <button type="submit" class="btn btn-danger">Logout</button>
+                    <div class="center">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                      </div>
                 </form>
             </li>
         </ul>
