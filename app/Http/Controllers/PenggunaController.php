@@ -411,28 +411,45 @@ class PenggunaController extends Controller
     return redirect()->back()->with('error', 'Berkas tidak ditemukan');
     }
 
-    public function lihatcv() {
-    $user = Auth::id();
+    public function lihatcv1() {
+        $user = Auth::id();
 
-    $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
-    $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
-    $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
-    $dataSkill = DataSkill::where('pengguna_id', $user)->get();
-    $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
+        $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
+        $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
+        $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
+        $dataSkill = DataSkill::where('pengguna_id', $user)->get();
+        $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
 
-    $data = [
-        'dataPribadi' => $dataPribadi,
-        'dataPendidikan' => $dataPendidikan,
-        'dataPekerjaan' => $dataPekerjaan,
-        'dataSkill' => $dataSkill,
-        'upBerkas' => $upBerkas,
-    ];
+        $data = [
+            'dataPribadi' => $dataPribadi,
+            'dataPendidikan' => $dataPendidikan,
+            'dataPekerjaan' => $dataPekerjaan,
+            'dataSkill' => $dataSkill,
+            'upBerkas' => $upBerkas,
+        ];
 
-    // dd($data);
-    return view('lihatcv', $data);
+        return view('template1', $data);
     }
 
+    public function lihatcv2() {
+        $user = Auth::id();
 
+        $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
+        $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
+        $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
+        $dataSkill = DataSkill::where('pengguna_id', $user)->get();
+        $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
+
+        $data = [
+            'dataPribadi' => $dataPribadi,
+            'dataPendidikan' => $dataPendidikan,
+            'dataPekerjaan' => $dataPekerjaan,
+            'dataSkill' => $dataSkill,
+            'upBerkas' => $upBerkas,
+        ];
+
+        return view('template2', $data);
+    }
 
 
 }

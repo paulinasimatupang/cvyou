@@ -58,7 +58,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/updateberkaspendukung/{id}', [PenggunaController::class, 'updateberkaspendukung'])->name('updateberkaspendukung');
     Route::get('/deleteberkaspendukung/{berkasId}', [PenggunaController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
 
-    Route::get('/lihatcv', [PenggunaController::class, 'lihatcv'])->name('lihatcv');
+    Route::get('/lihatcv1', [PenggunaController::class, 'lihatcv1'])->name('lihatcv1');
+    Route::get('/lihatcv2', [PenggunaController::class, 'lihatcv2'])->name('lihatcv2');
 });
 Auth::routes();
 

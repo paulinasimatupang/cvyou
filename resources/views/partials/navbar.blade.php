@@ -20,7 +20,10 @@
         <a class="nav-link {{ Request::is('tambahberkaspendukung*') ? 'active' : '' }}" href="tambahberkaspendukung">Upload File</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link {{ Request::is('lihatcv*') ? 'active' : '' }}" href="lihatcv">Lihat CV</a>
+        <a class="nav-link {{ Request::is('lihatcv1*') ? 'active' : '' }}" href="lihatcv1">CV Kreatif</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ Request::is('lihatcv2*') ? 'active' : '' }}" href="lihatcv2">CV ATS Friendly</a>
     </li>
     <li style="flex-grow: 1;"></li> <!-- This will push the logout button to the right -->
     <li class="nav-item">
