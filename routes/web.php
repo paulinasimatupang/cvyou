@@ -57,7 +57,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/editberkaspendukung/{id}', [PenggunaController::class, 'editberkaspendukung'])->name('editberkaspendukung');
     Route::post('/updateberkaspendukung/{id}', [PenggunaController::class, 'updateberkaspendukung'])->name('updateberkaspendukung');
     Route::get('/deleteberkaspendukung/{berkasId}', [PenggunaController::class, 'deleteberkaspendukung'])->name('deleteberkaspendukung');
-
+    // Route::get('/lihatcv1', function(){
+    //     return view('template1');
+    // });
+    Route::get('/pdf', [PenggunaController::class, 'pdf']);
     Route::get('/lihatcv1', [PenggunaController::class, 'lihatcv1'])->name('lihatcv1');
     Route::get('/lihatcv2', [PenggunaController::class, 'lihatcv2'])->name('lihatcv2');
 });

@@ -13,6 +13,7 @@ use App\Models\UpBerkas;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Barryvdh\DomPDF\PDF;
 
 class PenggunaController extends Controller
 {
@@ -451,5 +452,8 @@ class PenggunaController extends Controller
         return view('template2', $data);
     }
 
-
+    public function pdf(){
+        $pdf = PDF::loadView('template1');
+        return $pdf->download('template1.pdf');
+    }
 }

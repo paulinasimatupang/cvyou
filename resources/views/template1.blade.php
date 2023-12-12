@@ -20,7 +20,7 @@
 </head>
 
 <body>
-
+    <a href="{{ url('pdf') }}">Download pdf</a>
     <div class="wrapper mt-lg-5">
         <div class="sidebar-wrapper">
             <div class="profile-container">
