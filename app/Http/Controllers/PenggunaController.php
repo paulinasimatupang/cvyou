@@ -13,7 +13,7 @@ use App\Models\UpBerkas;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PenggunaController extends Controller
 {
@@ -471,9 +471,26 @@ class PenggunaController extends Controller
     ];
 
     // Create an instance of the PDF class
-    $pdf = app('dompdf.wrapper')->loadView('template1', $data);
+    $pdf = app('dompdf.wrapper');
 
-    return $pdf->download('template1.pdf');
+    // Set options for this specific PDF instance
+    $pdf->setOptions([
+        'dpi' => 150,
+        'defaultFont' => 'Roboto',
+        'margin-top' => 20,
+        'margin-right' => 50,
+        'margin-bottom' => 20,
+        'margin-left' => 20,
+    ]);
+
+    // Set paper size and orientation
+    $pdf->setPaper('A4', 'portrait'); // Adjust 'A4' and 'portrait' based on your requirements
+
+    // Load the view
+    $pdf->loadView('template2', $data);
+
+    // Download the PDF
+    return $pdf->stream('template2.pdf', array('Attachment' => false));
 }
 
 }

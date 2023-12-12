@@ -24,13 +24,13 @@
         }
         .main-wrapper {
             background: #fff;
-            padding: 80px;
+            /* padding: 80px; */
             padding-right: 90px;
-            /* min-height: 100vh; */
+            min-height: 100vh;
         }
         .wrapper {
-            max-width: 700px;
-            margin: 0 auto;
+            max-width: 900px;
+            margin: auto;
             position: relative;
             -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
             -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -48,7 +48,7 @@
 </head>
 
 <body>
-
+    <a href="{{ url('pdf') }}">Download pdf</a>
     <div class="wrapper mt-lg-5">
         <div class="main-wrapper">
             <section class="section">
