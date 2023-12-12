@@ -452,25 +452,28 @@ class PenggunaController extends Controller
         return view('template2', $data);
     }
 
-    public function downloadPDF(){
-        $user = Auth::id();
+    public function downloadPDF()
+{
+    $user = Auth::id();
 
-        $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
-        $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
-        $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
-        $dataSkill = DataSkill::where('pengguna_id', $user)->get();
-        $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
-        
-        $data = [
-            'dataPribadi' => $dataPribadi,
-            'dataPendidikan' => $dataPendidikan,
-            'dataPekerjaan' => $dataPekerjaan,
-            'dataSkill' => $dataSkill,
-            'upBerkas' => $upBerkas,
-        ];
+    $dataPribadi = DataPribadi::where('pengguna_id', $user)->get();
+    $dataPendidikan = DataPendidikan::where('pengguna_id', $user)->get();
+    $dataPekerjaan = DataPekerjaan::where('pengguna_id', $user)->get();
+    $dataSkill = DataSkill::where('pengguna_id', $user)->get();
+    $upBerkas = UpBerkas::where('pengguna_id', $user)->get();
+    
+    $data = [
+        'dataPribadi' => $dataPribadi,
+        'dataPendidikan' => $dataPendidikan,
+        'dataPekerjaan' => $dataPekerjaan,
+        'dataSkill' => $dataSkill,
+        'upBerkas' => $upBerkas,
+    ];
 
-        $pdf = PDF::loadView('pdf.template1', $data);
+    // Create an instance of the PDF class
+    $pdf = app('dompdf.wrapper')->loadView('template1', $data);
 
-        return $pdf->download('template1.pdf');
-    }
+    return $pdf->download('template1.pdf');
+}
+
 }
