@@ -20,8 +20,8 @@
                             <form action="/updatependidikan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="exampleInputpendidikanformal" class="form-label">Pendidikan Formal</label>
-                                    <input type="text" name="pendidikanformal" class="form-control" id="exampleInputpendidikanformal" aria-describedby="emailHelp" value="{{ $data->pendidikanformal }}">
+                                    <label for="exampleInputpendidikanformal" class="form-label">Jenjang</label>
+                                    <input type="text" name="pendidikanformal" class="form-control" id="exampleInputpendidikanformal" aria-describedby="emailHelp" value="{{ $data->jenjang }}">
                                 </div>
                                <div class="mb-3">
                                     <label for="exampleInputgelar" class="form-label">Gelar</label>
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputtahunakademik" class="form-label">Tahun Akademik</label>
-                                    <input type="text" name="tahunakademik" class="form-control" id="exampleInputtahunakademik" aria-describedby="emailHelp">
+                                    <input type="text" name="tahunakademik" class="form-control" id="exampleInputtahunakademik" aria-describedby="emailHelp" value="{{ $data->tahunakademik }}">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>

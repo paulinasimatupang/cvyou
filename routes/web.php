@@ -35,21 +35,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tambahdatapendidikan', [PenggunaController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
     Route::post('/insertdatapendidikan', [PenggunaController::class, 'insertdatapendidikan'])->name('insertdatapendidikan');
     Route::get('/editdatapendidikan/{id}', [PenggunaController::class, 'editdatapendidikan'])->name('editdatapendidikan');
-    Route::post('/updatedatapendidikan/{id}', [PenggunaController::class, 'updatedatapendidikan'])->name('updatedatapendidikan');
+    Route::post('/updatependidikan/{id}', [PenggunaController::class, 'updatependidikan'])->name('updatependidikan');
     Route::get('/deletependidikan/{id}', [PenggunaController::class, 'deletependidikan'])->name('deletependidikan');
 
     //pekerjaan
     Route::get('/tambahdatapekerjaan', [PenggunaController::class, 'tambahdatapekerjaan'])->name('tambahdatapekerjaan');
     Route::post('/insertdatapekerjaan', [PenggunaController::class, 'insertpekerjaan'])->name('insertpekerjaan');
     Route::get('/editdatapekerjaan/{id}', [PenggunaController::class, 'editdatapekerjaan'])->name('editdatapekerjaan');
-    Route::post('/updatedatapekerjaan/{id}', [PenggunaController::class, 'updatedatapekerjaan'])->name('updatedatapekerjaan');
+    Route::post('/updatepekerjaan/{id}', [PenggunaController::class, 'updatepekerjaan'])->name('updatepekerjaan');
     Route::get('/deletepekerjaan/{id}', [PenggunaController::class, 'deletepekerjaan'])->name('deletepekerjaan');
 
     //Skill
     Route::get('/tambahdataskill', [PenggunaController::class, 'tambahdataskill'])->name('tambahdataskill');
     Route::post('/insertdataskill', [PenggunaController::class, 'insertskill'])->name('insertskill');
     Route::get('/editdataskill/{id}', [PenggunaController::class, 'editdataskill'])->name('editdataskill');
-    Route::post('/updatedataskill/{id}', [PenggunaController::class, 'updatedataskill'])->name('updatedataskill');
+    Route::post('/updateskill/{id}', [PenggunaController::class, 'updateskill'])->name('updateskill');
     Route::get('/deleteskill/{id}', [PenggunaController::class, 'deleteskill'])->name('deleteskill');
 
     //Berkas Pendukung

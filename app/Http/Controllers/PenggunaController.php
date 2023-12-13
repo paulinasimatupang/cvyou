@@ -255,12 +255,13 @@ class PenggunaController extends Controller
         return view('editdatapendidikan', compact('data'));
     }
 
-    public function updatedatapendidikan(Request $request, $id) {
+    public function updatependidikan(Request $request, $id){
         $data = DataPendidikan::find($id);
-
         $data->update($request->all());
-
-        return redirect()->route('tambahdatapendidikan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
+        if(session('halaman_url')){
+            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diupdate');
+        }
+        return redirect()->route('tambahdatapendidikan')->with('success', 'Data berhasil diupdate');
     }
 
     public function deletependidikan($id){
@@ -303,12 +304,13 @@ class PenggunaController extends Controller
         return view('editdatapekerjaan', compact('data'));
     }
 
-    public function updatedatapekerjaan(Request $request, $id) {
+    public function updatepekerjaan(Request $request, $id){
         $data = DataPekerjaan::find($id);
-
         $data->update($request->all());
-
-        return redirect()->route('tambahdatapekerjaan', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
+        if(session('halaman_url')){
+            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diupdate');
+        }
+        return redirect()->route('tambahdatapekerjaan')->with('success', 'Data berhasil diupdate');
     }
 
     public function deletepekerjaan($id){
@@ -337,12 +339,13 @@ class PenggunaController extends Controller
         return redirect()->route('tambahdataskill')->with('success', 'Data berhasil ditambahkan');
     }
 
-    public function updatedataskill(Request $request, $id) {
+    public function updateskill(Request $request, $id){
         $data = DataSkill::find($id);
-
         $data->update($request->all());
-
-        return redirect()->route('tambahdataskill', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
+        if(session('halaman_url')){
+            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diupdate');
+        }
+        return redirect()->route('tambahdataskill')->with('success', 'Data berhasil diupdate');
     }
 
 
@@ -396,12 +399,13 @@ class PenggunaController extends Controller
         return redirect()->back()->with('success', 'Berkas berhasil diunggah: ' . $fileName);
     }
 
-    public function updateberkaspendukung(Request $request, $id) {
+    public function updateberkaspendukung(Request $request, $id){
         $data = UpBerkas::find($id);
-
         $data->update($request->all());
-
-        return redirect()->route('tambahberkaspendukung', ['id' => $id])->with('success', 'Data Berhasil di Simpan');
+        if(session('halaman_url')){
+            return Redirect(session('halaman_url'))->with('success', 'Data berhasil diupdate');
+        }
+        return redirect()->route('tambahberkaspendukung')->with('success', 'Data berhasil diupdate');
     }
 
     public function editberkaspendukung($id){
