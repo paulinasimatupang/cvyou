@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
 
     //pendidikan
     Route::get('/tambahdatapendidikan', [PenggunaController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
+    Route::get('/tambahdatapendidikan', [PenggunaController::class, 'tambahdatapendidikan'])->name('tambahdatapendidikan');
     Route::post('/insertdatapendidikan', [PenggunaController::class, 'insertdatapendidikan'])->name('insertdatapendidikan');
     Route::get('/editdatapendidikan/{id}', [PenggunaController::class, 'editdatapendidikan'])->name('editdatapendidikan');
     Route::post('/updatedatapendidikan/{id}', [PenggunaController::class, 'updatedatapendidikan'])->name('updatedatapendidikan');

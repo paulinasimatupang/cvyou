@@ -13,6 +13,7 @@ use App\Models\UpBerkas;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class PenggunaController extends Controller
@@ -130,6 +131,21 @@ class PenggunaController extends Controller
 
         return redirect()->route('login');
     }
+
+    public function index(Request $request) {
+        $query = DataPendidikan::query();
+    
+        if ($request->has('search')) {
+            $query->where('jenjang', 'LIKE', '%' . $request->search . '%');
+        }
+    
+        $data = $query->paginate(5);
+        Session::put('halaman_url', request()->fullUrl());
+    
+        return view('tambahdatapendidikan', compact('data'));
+    }
+    
+
 
     public function tambahdatapribadi(){
         // Mendapatkan pengguna_id dari pengguna yang saat ini login
