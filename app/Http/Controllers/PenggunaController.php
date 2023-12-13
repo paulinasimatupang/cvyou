@@ -492,14 +492,10 @@ class PenggunaController extends Controller
         $pdf->setOptions([
             'dpi' => 150,
             'defaultFont' => 'Roboto',
-            'margin-top' => 20,
-            'margin-right' => 50,
-            'margin-bottom' => 20,
-            'margin-left' => 20,
         ]);
 
         // Set paper size and orientation
-        $pdf->setPaper('A4', 'portrait'); // Adjust 'A4' and 'portrait' based on your requirements
+        $pdf->setPaper('A5', 'portrait'); // Adjust 'A4' and 'portrait' based on your requirements
 
         // Load the view
         $pdf->loadView('template1', $data);
