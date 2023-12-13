@@ -20,8 +20,8 @@
                             <form action="/updatependidikan/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="exampleInputpendidikanformal" class="form-label">Jenjang</label>
-                                    <input type="text" name="pendidikanformal" class="form-control" id="exampleInputpendidikanformal" aria-describedby="emailHelp" value="{{ $data->jenjang }}">
+                                    <label for="examplejenjang" class="form-label">Jenjang</label>
+                                    <input type="text" name="jenjang" class="form-control" id="exampleInputjenjang" aria-describedby="emailHelp" value="{{ $data->jenjang }}">
                                 </div>
                                <div class="mb-3">
                                     <label for="exampleInputgelar" class="form-label">Gelar</label>

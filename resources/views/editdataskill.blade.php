@@ -49,24 +49,25 @@
                             <form action="/updateskill/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                  <label for="examplePengalaman" class="form-label">Skill</label>
-                  <input type="text" name="skill" class="form-control" id="exampleInputPengalaman" aria-describedby="emailHelp" value="{{ $data->skill }}">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputRating" class="form-label">Rating</label>
-                    <div class="rating">
-                        <input type="radio" name="rating" value="5" id="1">
-                        <label for="1" id="star1">{{ $data->rating }}</label>
-                        <input type="radio" name="rating" value="4" id="2">
-                        <label for="2">{{ $data->rating }}</label>
-                        <input type="radio" name="rating" value="3" id="3">
-                        <label for="3">{{ $data->rating }}</label>
-                        <input type="radio" name="rating" value="2" id="4">
-                        <label for="4">{{ $data->rating }}</label>
-                        <input type="radio" name="rating" value="1" id="5">
-                        <label for="5">{{ $data->rating }}</label>
-                    </div>
-                </div>
+                                    <label for="examplePengalaman" class="form-label">Skill</label>
+                                    <input type="text" name="skill" class="form-control" id="exampleInputPengalaman" aria-describedby="emailHelp" value="{{ $data->skill }}">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputRating" class="form-label">Rating</label>
+                                    <div class="rating">
+                                        <input type="radio" name="rating" value="5" id="1" {{ $data->rating == 5 ? 'checked' : '' }}>
+                                        <label for="1" id="star1"></label>
+                                        <input type="radio" name="rating" value="4" id="2" {{ $data->rating == 4 ? 'checked' : '' }}>
+                                        <label for="2"></label>
+                                        <input type="radio" name="rating" value="3" id="3" {{ $data->rating == 3 ? 'checked' : '' }}>
+                                        <label for="3"></label>
+                                        <input type="radio" name="rating" value="2" id="4" {{ $data->rating == 2 ? 'checked' : '' }}>
+                                        <label for="4"></label>
+                                        <input type="radio" name="rating" value="1" id="5" {{ $data->rating == 1 ? 'checked' : '' }}>
+                                        <label for="5"></label>
+                                    </div>
+                                </div>
+
                 
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>

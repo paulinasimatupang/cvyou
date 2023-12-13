@@ -21,23 +21,24 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="examplejenisberkas" class="form-label">Jenis Berkas</label>
-                                    <select name="jenis_berkas" class="form-select" id="examplejenisberkas">
+                                    <select name="jenisberkas" class="form-select" id="examplejenisberkas">
                                         <option value="sertifikat" {{ $data->jenisberkas === 'sertifikat' ? 'selected' : '' }}>Sertifikat</option>
                                         <option value="suratrekomendasi" {{ $data->jenisberkas === 'suratrekomendasi' ? 'selected' : '' }}>Surat Rekomendasi</option>
                                         <option value="portofolio" {{ $data->jenisberkas === 'portofolio' ? 'selected' : '' }}>Portofolio</option>
                                     </select>
+                                </div>
 
+                                
+                                <div class="mb-3">
+                                    <label for="exampleInputJudul" class="form-label">Judul</label>
+                                    <input type="text" name="Judul" class="form-control" id="exampleInputJudul" aria-describedby="emailHelp" value="{{ $data->judul }}">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputgelar" class="form-label">Judul</label>
-                                    <input type="text" name="judul" class="form-control" id="exampleInputsuratrekomendasi" aria-describedby="emailHelp" value="{{ $data->judul }}">
+                                    <label for="exampleInputKeterangan" class="form-label">Keterangan</label>
+                                    <textarea name="keterangan" class="form-control" id="exampleInputKeterangan" aria-describedby="emailHelp">{{ $data->keterangan }}</textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputDeskripsi" class="form-label">Keterangan</label>
-                                    <textarea name="keterangan" class="form-control" id="exampleInputDeskripsi" aria-describedby="emailHelp">{{ $data->keterangan }}</textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputgelar" class="form-label">Upload Berkas</label>
+                                    <label for="exampleInputBerkas" class="form-label">Upload Berkas</label>
                                     @if($data->berkas)
                                         <p>File yang sudah diunggah: {{ $data->berkas }}</p>
                                     @endif
